@@ -1,0 +1,10 @@
+[ui]
+username="Brett Hoerner <brett@bretthoerner.com>"
+
+[extensions]
+hgext.mq =
+
+[diff]
+nodates=1
+git=1
+

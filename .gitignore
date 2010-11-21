@@ -1,0 +1,15 @@
+*.elc
+*.pyc
+*.pyo
+*.swp
+*~
+.DS_Store
+._*
+.cvsignore
+.gnupg/random_seed
+CVS
+tags
+.xmonad/xmonad-x86_64-linux
+.xmonad/xmonad.errors
+.xmonad/xmonad.hi
+.xmonad/xmonad.o

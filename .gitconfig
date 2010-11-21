@@ -1,0 +1,34 @@
+[user]
+    name = Brett Hoerner
+    email = brett@bretthoerner.com
+
+[core]
+    excludesfile = /home/brett/.gitignore
+
+[apply]
+    whitespace = strip
+
+[diff]
+    rename = copy
+
+[color]
+    ui = auto
+
+[alias]
+    ci = commit
+    co = checkout
+    diffp = diff --patience
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cn%Creset %Cblue(%cr)%Creset' --abbrev-commit --date=relative
+    msg = commit --allow-empty -m
+    st = status
+    wtf = !git-wtf
+
+[branch "master"]
+    rebase = true
+
+[merge]
+    tool = emerge
+
+[push]
+    default = tracking
+

@@ -1,0 +1,36 @@
+# UTF-8 everywhere
+defutf8 on
+
+# disable Ctrl-S/Ctrl-Q "flow control"
+defflow off
+
+# change escape key
+escape ``
+
+# skip intro
+startup_message off
+
+# don't destroy windows automatically
+zombie cr
+
+# detach on disconnect
+autodetach on
+
+# use regular audible bell
+vbell off
+
+# make the shell in every window a login shell
+shell -$SHELL
+
+# connect windows to the display so programs like mplayer can find it when
+# we're inside a screen in a terminal application in a graphical environment
+setenv DISPLAY ':0'
+
+# print wackier status messages
+# nethack on
+
+# restore window contents after using (e.g.) vi
+altscreen on
+
+# more history!
+defscrollback 5000
