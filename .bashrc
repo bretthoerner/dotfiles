@@ -141,12 +141,7 @@ export PAGER="less -R"
 export GPGKEY="57E06189"
 export EMAIL="brett@bretthoerner.com"
 export PYTHONDONTWRITEBYTECODE=1
-
-# virtualenvwrapper
-if [ -r "${HOME}/bin/virtualenvwrapper.sh" ]; then
-    export WORKON_HOME="${HOME}/Development/python"
-    . "${HOME}/bin/virtualenvwrapper.sh"
-fi
+export WORKON_HOME="${HOME}/Development/python"
 
 function ll { ls -l "$@"; }
 
