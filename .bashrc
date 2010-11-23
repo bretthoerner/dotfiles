@@ -62,11 +62,6 @@ case $OSTYPE in
         export PYTHONPATH=/usr/local/lib/python2.6/site-packages
         export PATH=/usr/local/Cellar/python/2.6.5/bin:$PATH
 
-        # allegro common lisp express
-        if [ -r "/Applications/AllegroCL" ]; then
-            export PATH=$PATH:/Applications/AllegroCL
-        fi
-
         # functions
         function ls { command gls -Fh --color=auto "$@"; }
         function manp { man -t "${1}" | open -f -a Preview; }
@@ -113,6 +108,11 @@ export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 # add ~/bin to PATH if it exists
 if [ -d "${HOME}/bin" ]; then
     export PATH=${HOME}/bin:$PATH
+fi
+
+# add ruby bin if it exists
+if [ -r "${HOME}/.gem/ruby/1.8/bin/" ]; then
+    export PATH=$PATH:${HOME}/.gem/ruby/1.8/bin/
 fi
 
 # erase duplicate lines from the history; ignore lines that begin with a space
