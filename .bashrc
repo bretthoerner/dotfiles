@@ -28,6 +28,10 @@ case $OSTYPE in
         # export PATH="$HOME/.gem/ruby/1.8/bin":$PATH
         export JAVA_HOME="/usr/lib/jvm/java-6-sun"
 
+        alias acs="sudo apt-cache search"
+        alias agd="sudo apt-get dist-upgrade"
+        alias agi="sudo apt-get install"
+        alias agu="sudo apt-get update"
         alias addkey="sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys"
 
         # cope
