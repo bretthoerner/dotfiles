@@ -31,9 +31,13 @@ set completion-ignore-case on
 "\e[B": history-search-forward 
 "\eOB": history-search-forward
 
+# Control-arrow to move between words
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+
 # Alt-arrow to move between words
-"\e[1;3C": forward-word
-"\e[1;3D": backward-word
+# "\e[1;3C": forward-word
+# "\e[1;3D": backward-word
 
 # Control-arrow to move to start/end of line
 # "\e[1;5C": end-of-line
