@@ -10,7 +10,7 @@ case $OSTYPE in
 
         # make less more friendly for non-text input files, see lesspipe(1)
         [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-        
+
         if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
             eval "`dircolors -b`"
         fi
