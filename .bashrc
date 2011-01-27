@@ -25,7 +25,6 @@ case $OSTYPE in
         alias pbcopy='xclip -selection clipboard'
         alias pbpaste='xclip -selection clipboard -o'
 
-        # export PATH="$HOME/.gem/ruby/1.8/bin":$PATH
         export JAVA_HOME="/usr/lib/jvm/java-6-sun"
 
         alias acs="sudo apt-cache search"
@@ -115,6 +114,7 @@ if [ -d "${HOME}/bin" ]; then
 fi
 
 # add ruby bin if it exists
+# for use with: gem install --user-install
 if [ -r "${HOME}/.gem/ruby/1.8/bin/" ]; then
     export PATH=$PATH:${HOME}/.gem/ruby/1.8/bin/
 fi
@@ -148,6 +148,11 @@ export PYTHONDONTWRITEBYTECODE=1
 export WORKON_HOME="${HOME}/Development/python"
 
 function ll { ls -l "$@"; }
+
+shorten (){
+    googl shorten $1 | pbcopy
+    echo "$1 shortened and copied to clipboard"
+}
 
 alias rctags="ctags -R --extra=+f"
 alias rcetags="rctags -e"
