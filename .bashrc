@@ -113,11 +113,8 @@ if [ -d "${HOME}/bin" ]; then
     export PATH=${HOME}/bin:$PATH
 fi
 
-# add ruby bin if it exists
-# for use with: gem install --user-install
-if [ -r "${HOME}/.gem/ruby/1.8/bin/" ]; then
-    export PATH=$PATH:${HOME}/.gem/ruby/1.8/bin/
-fi
+# use rvm if available
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # erase duplicate lines from the history; ignore lines that begin with a space
 HISTCONTROL=erasedups:ignorespace
