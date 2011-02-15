@@ -31,4 +31,4 @@ main = xmonad gnomeConfig
     , focusFollowsMouse = False
     , modMask = mod4Mask
     , startupHook = ewmhDesktopsStartup >> setWMName "LG3D"
-    , borderWidth = 2 }
+    , borderWidth = 3 }
