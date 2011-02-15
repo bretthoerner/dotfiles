@@ -3,6 +3,7 @@
 
 import XMonad
 import XMonad.Actions.DynamicWorkspaces
+import XMonad.Actions.CycleWS (toggleWS)
 import XMonad.Config.Gnome (gnomeConfig)
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks (avoidStruts)
@@ -36,4 +37,5 @@ main = xmonad $ gnomeConfig
     , ("M-d", removeWorkspace)
     , ("M-r", renameWorkspace defaultXPConfig)
     , ("M-'", selectWorkspace defaultXPConfig)
-    , ("M-S-'", withWorkspace defaultXPConfig (windows . W.shift)) ]
+    , ("M-S-'", withWorkspace defaultXPConfig (windows . W.shift))
+    , ("M-0", toggleWS) ]
