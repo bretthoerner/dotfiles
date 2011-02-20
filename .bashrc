@@ -28,6 +28,7 @@ case $OSTYPE in
         export JAVA_HOME="/usr/lib/jvm/java-6-sun"
 
         alias acs="sudo apt-cache search"
+        alias acsh="sudo apt-cache show"
         alias agd="sudo apt-get dist-upgrade"
         alias agi="sudo apt-get install"
         alias agu="sudo apt-get update"
@@ -115,6 +116,9 @@ fi
 
 # use rvm if available
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# use z if available
+[[ -f "$HOME/bin/z.sh" ]] && source "$HOME/bin/z.sh"
 
 # erase duplicate lines from the history; ignore lines that begin with a space
 HISTCONTROL=erasedups:ignorespace
