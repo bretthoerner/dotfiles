@@ -117,6 +117,12 @@ fi
 # use rvm if available
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+# prefixed home installs
+# [[ -d "$HOME/.opt/bin" ]] && export PATH="/home/brett/.opt/bin:$PATH"
+
+# use cabal bins if available
+[[ -d "$HOME/.cabal/bin" ]] && export PATH="/home/brett/.cabal/bin:$PATH"
+
 # use z if available
 [[ -f "$HOME/bin/z.sh" ]] && source "$HOME/bin/z.sh"
 
