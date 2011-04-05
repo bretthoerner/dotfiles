@@ -3,7 +3,7 @@
     email = brett@bretthoerner.com
 
 [core]
-    excludesfile = /home/brett/.gitignore
+    excludesfile = ~/.gitignore
 
 [apply]
     whitespace = strip
@@ -31,9 +31,17 @@
 
 [merge]
     tool = ediff
+	stat = true
 
 [push]
-    default = tracking
+	default = tracking
 
 [github]
 	user = bretthoerner
+
+[branch]
+	autosetupmerge = true
+
+[advice]
+	pushNonFastForward = false
+	statusHints = false
