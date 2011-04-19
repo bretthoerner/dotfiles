@@ -29,7 +29,7 @@ main = xmonad $ gnomeConfig
     , layoutHook = myLayout
     , focusFollowsMouse = False
     , modMask = mod4Mask
-    , startupHook = ewmhDesktopsStartup >> setWMName "LG3D"
+--    , startupHook = ewmhDesktopsStartup >> setWMName "LG3D"
     , borderWidth = 3 }
     `additionalKeysP`
     [ ("M-a", sendMessage MirrorShrink)
