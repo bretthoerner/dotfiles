@@ -1,6 +1,7 @@
 # Be 8 bit clean.
 set input-meta on
 set output-meta on
+set convert-meta off
 
 # Default mode
 set editing-mode emacs
