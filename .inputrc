@@ -21,7 +21,7 @@ set mark-symlinked-directories on
 set completion-ignore-case on
 
 # Fix delete key
-"\e[3~": delete-char
+# "\e[3~": delete-char
 
 # Bind the up arrow to history search, instead of history step
 "\e[A": history-search-backward

@@ -144,7 +144,7 @@ shopt -s no_empty_cmd_completion
 shopt -s checkwinsize
 
 # fix backspace in vim and others
-stty erase 
+# stty erase 
 
 # setup various ENV variables
 export EDITOR="vim"
