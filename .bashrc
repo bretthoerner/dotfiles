@@ -126,6 +126,9 @@ fi
 # use z if available
 [[ -f "$HOME/bin/z.sh" ]] && source "$HOME/bin/z.sh"
 
+# tmux completion
+[[ -f "$HOME/bin/bash_completion_tmux.sh" ]] && source "$HOME/bin/bash_completion_tmux.sh"
+
 # erase duplicate lines from the history; ignore lines that begin with a space
 HISTCONTROL=erasedups:ignorespace
 
