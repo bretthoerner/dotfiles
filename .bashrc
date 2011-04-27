@@ -22,9 +22,6 @@ case $OSTYPE in
             . "/etc/bash_completion"
         fi
 
-        alias pbcopy='xclip -selection clipboard'
-        alias pbpaste='xclip -selection clipboard -o'
-
         export JAVA_HOME="/usr/lib/jvm/java-6-sun"
 
         alias acs="sudo apt-cache search"
