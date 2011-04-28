@@ -15,16 +15,29 @@
     ui = auto
 
 [alias]
+    aa = add --all
+    amend = commit --amend
     ci = commit
     co = checkout
+    dc = diff --cached
+    di = diff
     diffp = diff --patience
+    div = divergence
+    fa = fetch --all
+    ff = merge --ff-only
+    gnc = goodness --cached
+    gn = goodness
+    head = !git l -1
+    h = !git head
+    la = !git l --all
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cn%Creset %Cblue(%cr)%Creset' --abbrev-commit --date=relative
+    l = log --graph --abbrev-commit --date=relative
     msg = commit --allow-empty -m
+    pullff = pull --ff-only
+    ra = !git r --all
+    r = !git l -20
     st = status
     wtf = !git-wtf
-
-[branch "master"]
-    rebase = true
 
 [mergetool.ediff]
     cmd = emacs --eval \"(progn (defun ediff-write-merge-buffer () (let ((file ediff-merge-store-file)) (set-buffer ediff-buffer-C) (write-region (point-min) (point-max) file) (message \\\"Merge buffer saved in: %s\\\" file) (set-buffer-modified-p nil) (sit-for 1))) (setq ediff-quit-hook 'kill-emacs ediff-quit-merge-hook 'ediff-write-merge-buffer) (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\"))\"
@@ -45,3 +58,6 @@
 [advice]
 	pushNonFastForward = false
 	statusHints = false
+
+[format]
+    pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
