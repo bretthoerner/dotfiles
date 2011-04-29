@@ -123,6 +123,9 @@ fi
 # use z if available
 [[ -f "$HOME/bin/z.sh" ]] && source "$HOME/bin/z.sh"
 
+# use virtualenvwrapper if available
+[[ -f "/usr/local/bin/virtualenvwrapper.sh" ]] && source "/usr/local/bin/virtualenvwrapper.sh"
+
 # tmux completion
 [[ -f "$HOME/bin/bash_completion_tmux.sh" ]] && source "$HOME/bin/bash_completion_tmux.sh"
 
@@ -180,7 +183,7 @@ NORMAL='\[\033[00m\]'
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|xterm|eterm-color|screen)
+    xterm-*color|xterm|eterm-color|screen)
         # color based on host
         case `hostname` in
             pissant*|wigi*|passenger*|parasite*)
