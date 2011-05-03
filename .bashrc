@@ -184,7 +184,7 @@ NORMAL='\[\033[00m\]'
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-*color|xterm|eterm-color|screen)
+    xterm-*color|xterm|eterm-color|screen*)
         # color based on host
         case `hostname` in
             pissant*|wigi*|passenger*|parasite*)
