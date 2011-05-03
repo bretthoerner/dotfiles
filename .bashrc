@@ -167,6 +167,7 @@ shorten (){
 alias rctags="ctags -R --extra=+f"
 alias rcetags="rctags -e"
 alias emacscompile="emacs -batch -f batch-byte-compile"
+alias e="emacsclient -t"
 
 alias rm="rm -i"
 alias mv="mv -i"
