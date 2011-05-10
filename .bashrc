@@ -30,6 +30,8 @@ case $OSTYPE in
         alias agi="sudo apt-get install"
         alias agu="sudo apt-get update"
         alias addkey="sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys"
+ 
+        alias open="gnome-open"
 
         # cope
         # export PATH=/usr/local/share/perl/5.10.1/auto/share/dist/Cope:$PATH
