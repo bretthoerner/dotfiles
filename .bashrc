@@ -73,6 +73,7 @@ case $OSTYPE in
           . `brew --prefix`/etc/bash_completion
         fi
 
+        alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
     ;;
     solaris*)
         # solaris specific
