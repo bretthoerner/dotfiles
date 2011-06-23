@@ -152,6 +152,9 @@ shopt -s checkwinsize
 # fix backspace in vim and others
 # stty erase 
 
+# don't print ^C, etc
+stty -echoctl
+
 # setup various ENV variables
 export EDITOR="vim"
 export PAGER="less -R"
