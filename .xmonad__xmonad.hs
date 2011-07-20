@@ -2,8 +2,9 @@
 -- gconftool-2 -s /desktop/gnome/session/required_components/windowmanager xmonad --type string
 
 import XMonad
-import XMonad.Actions.DynamicWorkspaces
+import XMonad.Actions.CopyWindow (copyToAll, killAllOtherCopies, kill1)
 import XMonad.Actions.CycleWS (toggleWS)
+import XMonad.Actions.DynamicWorkspaces
 import XMonad.Config.Gnome (gnomeConfig)
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks (avoidStruts)
@@ -29,7 +30,7 @@ main = xmonad $ gnomeConfig
     , layoutHook = myLayout
     , focusFollowsMouse = False
     , modMask = mod4Mask
---    , startupHook = ewmhDesktopsStartup >> setWMName "LG3D"
+    , startupHook = ewmhDesktopsStartup >> setWMName "LG3D"
     , borderWidth = 3 }
     `additionalKeysP`
     [ ("M-a", sendMessage MirrorShrink)
@@ -38,4 +39,7 @@ main = xmonad $ gnomeConfig
     , ("M-r", renameWorkspace defaultXPConfig)
     , ("M-'", selectWorkspace defaultXPConfig)
     , ("M-S-'", withWorkspace defaultXPConfig (windows . W.shift))
-    , ("M-0", toggleWS) ]
+    , ("M-0", toggleWS)
+    , ("M-S-=", windows copyToAll)
+    , ("M-=",  killAllOtherCopies)
+    , ("M--",  kill1) ]
