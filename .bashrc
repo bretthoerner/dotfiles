@@ -123,9 +123,6 @@ fi
 # use cabal bins if available
 [[ -d "$HOME/.cabal/bin" ]] && export PATH="/home/brett/.cabal/bin:$PATH"
 
-# use z if available
-[[ -f "$HOME/bin/z.sh" ]] && source "$HOME/bin/z.sh"
-
 # use virtualenvwrapper if available
 [[ -f "/usr/local/bin/virtualenvwrapper.sh" ]] && source "/usr/local/bin/virtualenvwrapper.sh"
 
@@ -162,6 +159,9 @@ export GPGKEY="57E06189"
 export EMAIL="brett@bretthoerner.com"
 export PYTHONDONTWRITEBYTECODE=1
 export WORKON_HOME="${HOME}/Development/python"
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_REQUIRE_VIRTUALENV=true
+export PIP_RESPECT_VIRTUALENV=true
 
 function ll { ls -l "$@"; }
 
