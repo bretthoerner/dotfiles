@@ -1,6 +1,7 @@
 --ignore-dir=migrations
 --ignore-dir=build
 --ignore-dir=dist
+--type-set=cfg=.cfg
 --type-set=dtjs=.dtjs
 --type-set=dtpl=.dtpl
 --type-set=puppet=.pp

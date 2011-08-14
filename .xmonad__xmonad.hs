@@ -17,7 +17,7 @@ import XMonad.Util.EZConfig (additionalKeysP)
 
 import qualified Data.Map as M
 
-myLayout =  avoidStruts $ ResizableTall 1 (3/100) (1/2) [] ||| Full
+myLayout =  avoidStruts $ ResizableTall 1 (3/100) (2/3) [] ||| Full
 myManageHook :: [ManageHook]
 myManageHook =
     [ resource  =? "Do" --> doIgnore
