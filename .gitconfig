@@ -32,6 +32,7 @@
     la = !git l --all
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cn%Creset %Cblue(%cr)%Creset' --abbrev-commit --date=relative
     l = log --graph --abbrev-commit --date=relative
+    logp = log -p --word-diff
     msg = commit --allow-empty -m
     pullff = pull --ff-only
     ra = !git r --all
