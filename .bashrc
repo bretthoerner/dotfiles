@@ -152,6 +152,26 @@ shopt -s checkwinsize
 # don't print ^C, etc
 stty -echoctl
 
+# ability to use x11 clipboard from readline
+_xdiscard() {
+    echo -n "${READLINE_LINE:0:$READLINE_POINT}" | pbcopy
+    READLINE_LINE="${READLINE_LINE:$READLINE_POINT}"
+    READLINE_POINT=0
+}
+_xkill() {
+    echo -n "${READLINE_LINE:$READLINE_POINT}" | pbcopy
+    READLINE_LINE="${READLINE_LINE:0:$READLINE_POINT}"
+}
+_xyank() {
+    CLIP=$(pbpaste)
+    COUNT=$(echo -n "$CLIP" | wc -c)
+    READLINE_LINE="${READLINE_LINE:0:$READLINE_POINT}${CLIP}${READLINE_LINE:$READLINE_POINT}"
+    READLINE_POINT=$(($READLINE_POINT + $COUNT))
+}
+bind -m emacs -x '"\eu": _xdiscard' # backwards kill from point
+bind -m emacs -x '"\ek": _xkill'
+bind -m emacs -x '"\ey": _xyank'
+
 # setup various ENV variables
 export EDITOR="vim"
 export PAGER="less -R"
