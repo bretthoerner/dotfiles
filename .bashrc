@@ -172,6 +172,13 @@ bind -m emacs -x '"\eu": _xdiscard' # backwards kill from point
 bind -m emacs -x '"\ek": _xkill'
 bind -m emacs -x '"\ey": _xyank'
 
+# connect to dbus on desktop
+case `hostname` in
+    wigi)
+        env | grep -q DBUS || export `dbus-launch`
+    ;;
+esac
+
 # setup various ENV variables
 export EDITOR="vim"
 export PAGER="less -R"
