@@ -182,7 +182,7 @@ esac
 # setup various ENV variables
 export EDITOR="vim"
 export PAGER="less -R"
-export GPGKEY="57E06189"
+export GPGKEY="252426C1"
 export EMAIL="brett@bretthoerner.com"
 export DEBEMAIL=$EMAIL
 export DEBFULLNAME="Brett Hoerner"
