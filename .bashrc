@@ -114,11 +114,14 @@ if [ -d "${HOME}/bin" ]; then
     export PATH=${HOME}/bin:$PATH
 fi
 
-# use rvm if available
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 # prefixed home installs
 # [[ -d "$HOME/.opt/bin" ]] && export PATH="/home/brett/.opt/bin:$PATH"
+
+# use rbenv if available
+if [[ -d "$HOME/.rbenv/bin" ]]; then
+    export PATH="/home/brett/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
 
 # use cabal bins if available
 [[ -d "$HOME/.cabal/bin" ]] && export PATH="/home/brett/.cabal/bin:$PATH"
