@@ -17,6 +17,7 @@
 [alias]
     aa = add --all
     amend = commit --amend
+    catchup = log --patch --reverse --topo-order _ribbon..origin/master
     ci = commit
     co = checkout
     dc = diff --cached
@@ -37,6 +38,7 @@
     pullff = pull --ff-only
     ra = !git r --all
     r = !git l -20
+    ribbon = tag --force _ribbon origin/master
     st = status
     wtf = !git-wtf
 
