@@ -1,8 +1,5 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
-# if not running interactively, don't do anything
-[ -z "$PS1" ] && return
-
 # platform specific stuff
 case $OSTYPE in
     linux*)
@@ -22,7 +19,7 @@ case $OSTYPE in
             . "/etc/bash_completion"
         fi
 
-        export JAVA_HOME="/usr/lib/jvm/java-6-sun"
+        export JAVA_HOME="/usr/lib/jvm/java-7-openjdk"
 
         alias acs="sudo apt-cache search"
         alias acsh="sudo apt-cache show"
@@ -91,21 +88,6 @@ case $OSTYPE in
     ;;
 esac
 
-# awesome function that sorts du by size
-function duf {
-    du -sk "$@" \
-    | sort -n \
-    | while read size fname;
-        do for unit in k M G T P E Z Y;
-            do if [ $size -lt 1024 ]; then
-                echo -e "${size}${unit}\t${fname}";
-                break;
-            fi;
-            size=$((size/1024));
-        done;
-    done
-}
-
 # local should come first
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
@@ -126,8 +108,30 @@ fi
 # use cabal bins if available
 [[ -d "$HOME/.cabal/bin" ]] && export PATH="/home/brett/.cabal/bin:$PATH"
 
+# setup various ENV variables
+export EDITOR="vim"
+export PAGER="less -R"
+export GPGKEY="252426C1"
+export EMAIL="brett@bretthoerner.com"
+export DEBEMAIL=$EMAIL
+export DEBFULLNAME="Brett Hoerner"
+export PYTHONDONTWRITEBYTECODE=1
+export WORKON_HOME="${HOME}/Development/python"
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_REQUIRE_VIRTUALENV=true
+export PIP_RESPECT_VIRTUALENV=true
+
+
+
+##################################################
+# if not running interactively, don't go further #
+[ -z "$PS1" ] && return                          #
+##################################################
+
+
+
 # use virtualenvwrapper if available
-[[ -f "/usr/local/bin/virtualenvwrapper.sh" ]] && source "/usr/local/bin/virtualenvwrapper.sh"
+[[ -f "/usr/bin/virtualenvwrapper.sh" ]] && source "/usr/bin/virtualenvwrapper.sh"
 
 # tmux completion
 [[ -f "$HOME/bin/bash_completion_tmux.sh" ]] && source "$HOME/bin/bash_completion_tmux.sh"
@@ -182,20 +186,22 @@ case `hostname` in
     ;;
 esac
 
-# setup various ENV variables
-export EDITOR="vim"
-export PAGER="less -R"
-export GPGKEY="252426C1"
-export EMAIL="brett@bretthoerner.com"
-export DEBEMAIL=$EMAIL
-export DEBFULLNAME="Brett Hoerner"
-export PYTHONDONTWRITEBYTECODE=1
-export WORKON_HOME="${HOME}/Development/python"
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_REQUIRE_VIRTUALENV=true
-export PIP_RESPECT_VIRTUALENV=true
-
 function ll { ls -l "$@"; }
+
+# awesome function that sorts du by size
+function duf {
+    du -sk "$@" \
+    | sort -n \
+    | while read size fname;
+        do for unit in k M G T P E Z Y;
+            do if [ $size -lt 1024 ]; then
+                echo -e "${size}${unit}\t${fname}";
+                break;
+            fi;
+            size=$((size/1024));
+        done;
+    done
+}
 
 shorten (){
     googl shorten $1 | pbcopy
