@@ -1,1 +1,10 @@
+Emacs.FontBackend: xft
 Emacs.font: Inconsolata-g-10
+Xft.dpi: 125
+Xft.antialias: true
+Xft.autohint: false
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
+
