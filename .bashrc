@@ -99,14 +99,11 @@ fi
 # prefixed home installs
 # [[ -d "$HOME/.opt/bin" ]] && export PATH="/home/brett/.opt/bin:$PATH"
 
-# use rbenv if available
-if [[ -d "$HOME/.rbenv/bin" ]]; then
-    export PATH="/home/brett/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
-fi
-
 # use cabal bins if available
 [[ -d "$HOME/.cabal/bin" ]] && export PATH="/home/brett/.cabal/bin:$PATH"
+
+# rvm config
+[[ -s "/home/brett/.rvm/scripts/rvm" ]] && source "/home/brett/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # setup various ENV variables
 export EDITOR="vim"
@@ -255,3 +252,4 @@ case "$TERM" in
         PS1="\u@\h:\w\$ "
     ;;
 esac
+
