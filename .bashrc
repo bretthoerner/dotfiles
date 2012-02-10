@@ -104,6 +104,7 @@ fi
 
 # rvm config
 [[ -s "/home/brett/.rvm/scripts/rvm" ]] && source "/home/brett/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # setup various ENV variables
 export EDITOR="vim"
