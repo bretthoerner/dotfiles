@@ -5,6 +5,12 @@ require 'irb/completion'
 
 IRB.conf[:AUTO_INDENT] = true
 
+class Object
+  def ml(*m)
+    methods.grep(/(#{m.join("|")})/)
+  end
+end
+
 begin
   # load wirble
   require 'wirble'

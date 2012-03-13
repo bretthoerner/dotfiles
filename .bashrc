@@ -138,8 +138,8 @@ export PIP_RESPECT_VIRTUALENV=true
 HISTCONTROL=erasedups:ignorespace
 
 # extend the history (default 500)
-HISTSIZE=10000
-HISTFILESIZE=10000
+HISTSIZE=100000
+HISTFILESIZE=100000
 
 # append to history rather than overwriting
 shopt -s histappend
