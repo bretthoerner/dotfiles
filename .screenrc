@@ -5,7 +5,7 @@ defutf8 on
 defflow off
 
 # change escape key
-escape ``
+# escape ``
 
 # skip intro
 startup_message off
