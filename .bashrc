@@ -21,6 +21,7 @@ case $OSTYPE in
 
         export JAVA_HOME="/usr/lib/jvm/java-7-openjdk"
 
+        alias v="cd /home/brett/Development/mr/chef/vagrant/ && vagrant ssh"
         alias acs="sudo apt-cache search"
         alias acsh="sudo apt-cache show"
         alias agd="sudo apt-get dist-upgrade"
