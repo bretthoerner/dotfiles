@@ -19,7 +19,7 @@ case $OSTYPE in
             . "/etc/bash_completion"
         fi
 
-        export JAVA_HOME="/usr/lib/jvm/java-7-openjdk"
+        export JAVA_HOME="/usr/lib/jvm/java-1.7.0-openjdk-amd64"
 
         alias v="cd /home/brett/Development/mr/chef/vagrant/ && vagrant ssh"
         alias acs="sudo apt-cache search"
@@ -103,8 +103,12 @@ fi
 # use cabal bins if available
 [[ -d "$HOME/.cabal/bin" ]] && export PATH="/home/brett/.cabal/bin:$PATH"
 
-# rvm config
-[[ -s "/home/brett/.rvm/scripts/rvm" ]] && source "/home/brett/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# rbenv
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
+
+# rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # setup various ENV variables
@@ -248,10 +252,10 @@ case "$TERM" in
                 USERPART="\u@"
             ;;
         esac
-        PS1="${HOSTCOLOR}${USERPART}\h${NORMAL}:${BBLUE}\w${NORMAL}\$ "
+        PS1="\033[G${HOSTCOLOR}${USERPART}\h${NORMAL}:${BBLUE}\w${NORMAL}\$ "
     ;;
     *)
-        PS1="\u@\h:\w\$ "
+        PS1="\033[G\u@\h:\w\$ "
     ;;
 esac
 
