@@ -19,7 +19,10 @@ case $OSTYPE in
             . "/etc/bash_completion"
         fi
 
-        export JAVA_HOME="/usr/lib/jvm/java-1.7.0-openjdk-amd64"
+        # export JAVA_HOME="/usr/lib/jvm/java-1.7.0-openjdk-amd64"
+
+	export PATH="/usr/lib/jvm/java-7-sunjdk-amd64/bin/:$PATH"
+	export JAVA_HOME="/usr/lib/jvm/java-7-sunjdk-amd64"
 
         alias v="cd /home/brett/Development/mr/chef/vagrant/ && vagrant ssh"
         alias acs="sudo apt-cache search"
