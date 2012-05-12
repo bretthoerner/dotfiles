@@ -21,8 +21,8 @@ case $OSTYPE in
 
         # export JAVA_HOME="/usr/lib/jvm/java-1.7.0-openjdk-amd64"
 
-	export PATH="/usr/lib/jvm/java-7-sunjdk-amd64/bin/:$PATH"
-	export JAVA_HOME="/usr/lib/jvm/java-7-sunjdk-amd64"
+	# export PATH="/usr/lib/jvm/java-7-sunjdk-amd64/bin/:$PATH"
+	# export JAVA_HOME="/usr/lib/jvm/java-7-sunjdk-amd64"
 
         alias v="cd /home/brett/Development/mr/chef/vagrant/ && vagrant ssh"
         alias acs="sudo apt-cache search"
@@ -255,10 +255,10 @@ case "$TERM" in
                 USERPART="\u@"
             ;;
         esac
-        PS1="\033[G${HOSTCOLOR}${USERPART}\h${NORMAL}:${BBLUE}\w${NORMAL}\$ "
+        PS1="${HOSTCOLOR}${USERPART}\h${NORMAL}:${BBLUE}\w${NORMAL}\$ "
     ;;
     *)
-        PS1="\033[G\u@\h:\w\$ "
+        PS1="\u@\h:\w\$ "
     ;;
 esac
 

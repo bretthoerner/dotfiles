@@ -31,7 +31,7 @@ main = xmonad $ gnomeConfig
     , focusFollowsMouse = False
     , modMask = mod4Mask
     , startupHook = ewmhDesktopsStartup >> setWMName "LG3D"
-    , borderWidth = 3 }
+    , borderWidth = 1 }
     `additionalKeysP`
     [ ("M-a", sendMessage MirrorShrink)
     , ("M-z", sendMessage MirrorExpand)
