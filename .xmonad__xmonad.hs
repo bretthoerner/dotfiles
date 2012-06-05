@@ -14,6 +14,7 @@ import XMonad.Layout.ResizableTile
 import XMonad.Prompt (defaultXPConfig)
 import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig (additionalKeysP)
+import XMonad.Hooks.ICCCMFocus
 
 import qualified Data.Map as M
 
@@ -31,7 +32,8 @@ main = xmonad $ gnomeConfig
     , focusFollowsMouse = False
     , modMask = mod4Mask
     , startupHook = ewmhDesktopsStartup >> setWMName "LG3D"
-    , borderWidth = 1 }
+    , borderWidth = 1
+    , logHook = takeTopFocus }
     `additionalKeysP`
     [ ("M-a", sendMessage MirrorShrink)
     , ("M-z", sendMessage MirrorExpand)

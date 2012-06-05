@@ -6,4 +6,4 @@
 --type-set=dtpl=.dtpl
 --type-set=puppet=.pp
 --type-set=init=.ini
-
+--type-set=builder=.builder
