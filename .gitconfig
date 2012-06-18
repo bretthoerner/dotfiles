@@ -47,20 +47,20 @@
 
 [merge]
     tool = ediff
-	stat = true
+    stat = true
 
 [push]
-	default = tracking
+    default = tracking
 
 [github]
-	user = bretthoerner
+    user = bretthoerner
 
 [branch]
-	autosetupmerge = true
+    autosetupmerge = true
 
 [advice]
-	pushNonFastForward = false
-	statusHints = false
+    pushNonFastForward = false
+    statusHints = false
 
 [format]
     pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
