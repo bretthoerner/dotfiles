@@ -224,6 +224,8 @@ alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
 
+alias v="cd ~/Development/mr/chef/vagrant; vagrant ssh"
+
 # prompt colors
 BGREEN='\[\033[1;32m\]'
 GREEN='\[\033[0;32m\]'
