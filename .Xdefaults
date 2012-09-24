@@ -1,6 +1,6 @@
-Emacs.FontBackend: xft
-Emacs.font: Inconsolata-g-10
-Xft.dpi: 125
+# Emacs.FontBackend: xft
+# Emacs.font: Ubuntu Mono-11
+Xft.dpi: 96
 Xft.antialias: true
 Xft.autohint: false
 Xft.hinting: true
