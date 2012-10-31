@@ -19,11 +19,6 @@ case $OSTYPE in
             . "/etc/bash_completion"
         fi
 
-        # export JAVA_HOME="/usr/lib/jvm/java-1.7.0-openjdk-amd64"
-
-	# export PATH="/usr/lib/jvm/java-7-sunjdk-amd64/bin/:$PATH"
-	# export JAVA_HOME="/usr/lib/jvm/java-7-sunjdk-amd64"
-
         alias v="cd /home/brett/Development/mr/chef/vagrant/ && vagrant ssh"
         alias t="cd /home/brett/Development/mr/tweetriver"
         alias acs="sudo apt-cache search"
@@ -53,7 +48,6 @@ case $OSTYPE in
         # -n don't convert addresses
         # -q quiet protocol information
         # -A print packet in ASCII
-
     ;;
     darwin*)
         # mac specific
@@ -101,15 +95,8 @@ if [ -d "${HOME}/bin" ]; then
     export PATH=${HOME}/bin:$PATH
 fi
 
-# prefixed home installs
-# [[ -d "$HOME/.opt/bin" ]] && export PATH="/home/brett/.opt/bin:$PATH"
-
 # use cabal bins if available
 [[ -d "$HOME/.cabal/bin" ]] && export PATH="/home/brett/.cabal/bin:$PATH"
-
-# rbenv
-# export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init -)"
 
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -166,26 +153,6 @@ shopt -s checkwinsize
 # don't print ^C, etc
 stty -echoctl
 
-# ability to use x11 clipboard from readline
-_xdiscard() {
-    echo -n "${READLINE_LINE:0:$READLINE_POINT}" | pbcopy
-    READLINE_LINE="${READLINE_LINE:$READLINE_POINT}"
-    READLINE_POINT=0
-}
-_xkill() {
-    echo -n "${READLINE_LINE:$READLINE_POINT}" | pbcopy
-    READLINE_LINE="${READLINE_LINE:0:$READLINE_POINT}"
-}
-_xyank() {
-    CLIP=$(pbpaste)
-    COUNT=$(echo -n "$CLIP" | wc -c)
-    READLINE_LINE="${READLINE_LINE:0:$READLINE_POINT}${CLIP}${READLINE_LINE:$READLINE_POINT}"
-    READLINE_POINT=$(($READLINE_POINT + $COUNT))
-}
-bind -m emacs -x '"\eu": _xdiscard' # backwards kill from point
-bind -m emacs -x '"\ek": _xkill'
-bind -m emacs -x '"\ey": _xyank'
-
 # connect to dbus on desktop
 case `hostname` in
     wigi)
@@ -195,30 +162,6 @@ esac
 
 function ll { ls -l "$@"; }
 
-# awesome function that sorts du by size
-function duf {
-    du -sk "$@" \
-    | sort -n \
-    | while read size fname;
-        do for unit in k M G T P E Z Y;
-            do if [ $size -lt 1024 ]; then
-                echo -e "${size}${unit}\t${fname}";
-                break;
-            fi;
-            size=$((size/1024));
-        done;
-    done
-}
-
-shorten (){
-    googl shorten $1 | pbcopy
-    echo "$1 shortened and copied to clipboard"
-}
-
-alias rctags="ctags -R --extra=+f"
-alias rcetags="rctags -e"
-alias emacscompile="emacs -batch -f batch-byte-compile"
-alias e="emacsclient -t"
 alias gti="git"
 
 alias rm="rm -i"

@@ -1,6 +1,3 @@
--- To replace Metacity,
--- gconftool-2 -s /desktop/gnome/session/required_components/windowmanager xmonad --type string
-
 import XMonad
 import XMonad.Actions.CopyWindow (copyToAll, killAllOtherCopies, kill1)
 import XMonad.Actions.CycleWS (toggleWS)
@@ -21,8 +18,7 @@ import qualified Data.Map as M
 myLayout =  avoidStruts $ ResizableTall 1 (3/100) (2/3) [] ||| Full
 myManageHook :: [ManageHook]
 myManageHook =
-    [ resource  =? "Do" --> doIgnore
-    , resource  =? "gcalctool" --> doCenterFloat
+    [ resource  =? "gcalctool" --> doCenterFloat
     , isFullscreen --> doFullFloat
     , isDialog --> doCenterFloat ]
 
@@ -45,3 +41,4 @@ main = xmonad $ gnomeConfig
     , ("M-S-=", windows copyToAll)
     , ("M-=",  killAllOtherCopies)
     , ("M--",  kill1) ]
+
