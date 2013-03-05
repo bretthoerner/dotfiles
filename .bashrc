@@ -95,6 +95,9 @@ if [ -d "${HOME}/bin" ]; then
     export PATH=${HOME}/bin:$PATH
 fi
 
+# node bin
+[[ -d "$HOME/node_modules/.bin" ]] && export PATH="$HOME/node_modules/.bin:$PATH"
+
 # use cabal bins if available
 [[ -d "$HOME/.cabal/bin" ]] && export PATH="/home/brett/.cabal/bin:$PATH"
 
@@ -134,8 +137,8 @@ export PIP_RESPECT_VIRTUALENV=true
 HISTCONTROL=erasedups:ignorespace
 
 # extend the history (default 500)
-HISTSIZE=100000
-HISTFILESIZE=100000
+HISTSIZE=1000000
+HISTFILESIZE=1000000
 
 # append to history rather than overwriting
 shopt -s histappend

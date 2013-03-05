@@ -11,4 +11,5 @@
 --type-add=ruby=rake,haml,builder
 --type-add=vim=vimrc
 --type-add=js=json
+--type-add=erb=erb
 
