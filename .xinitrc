@@ -1,3 +1,9 @@
+#!/bin/bash
+
+# Multimonitor note:
+# xrandr -q
+# xrandr --output LVDS1 --mode 1366x768 --output DP1 --mode 2560x1440 --right-of LVDS1
+
 # keyboard delay
 xset r rate 200 50
 
@@ -5,6 +11,9 @@ xset r rate 200 50
 xmodmap -e "remove Lock = Caps_Lock"
 xmodmap -e "keysym Caps_Lock = Control_L"
 xmodmap -e "add Control = Control_L"
+
+# background
+feh --bg-scale ~/.background.png
 
 # set the cursor
 xsetroot -cursor_name left_ptr
@@ -19,7 +28,7 @@ export SSH_AUTH_SOCK="$GNOME_KEYRING_CONTROL/ssh"
 start-pulseaudio-x11
 
 # screensaver
-# gnome-screensaver --no-daemon &
+gnome-screensaver --no-daemon &
 
 # hide mouse
 unclutter &
@@ -29,3 +38,4 @@ unclutter &
 
 # start xmonad!
 exec xmonad
+

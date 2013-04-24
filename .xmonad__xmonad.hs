@@ -44,9 +44,10 @@ myConfig = defaultConfig
     , ("M-S-=", windows copyToAll)
     , ("M-=",  killAllOtherCopies)
     , ("M--",  kill1)
-    , ("<XF86AudioLowerVolume>", spawn "amixer -c 0 set Master 3dB-")
-    , ("<XF86AudioRaiseVolume>", spawn "amixer -c 0 set Master 3dB+")
-    , ("<XF86AudioMute>", spawn "amixer -c 0 set Master toggle")]
+    , ("M-S-l",  spawn "gnome-screensaver-command -l")
+    , ("<XF86AudioLowerVolume>", spawn "pamixer --decrease 5")
+    , ("<XF86AudioRaiseVolume>", spawn "pamixer --increase 5")
+    , ("<XF86AudioMute>", spawn "pamixer --toggle-mute")]
 
 main = xmonad =<< statusBar "xmobar" xmobarPP toggleStrutsKey myConfig
 

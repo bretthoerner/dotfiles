@@ -3,8 +3,7 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
        , fgColor = "grey"
        , position = Top
        , lowerOnStart = True
-       , commands = [ Run Weather "KAUS" ["-t","Austin: <tempF>F","-L","50","-H","100","--normal","green","--high","red","--low","lightblue"] 36000
-                    , Run Network "eth0" ["-L","0","-H","512","-m", "3", "--normal","green","--high","red"] 10
+       , commands = [ Run Network "eth0" ["-L","0","-H","512","-m", "3", "--normal","green","--high","red"] 10
                     , Run Network "wlan0" ["-L","0","-H","512","-m", "3", "--normal","green","--high","red"] 10
                     , Run Cpu ["-L","3","-H","50","-p", "2", "--normal","green","--high","red"] 10
                     , Run BatteryP ["BAT0"]
@@ -15,8 +14,9 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                                     600
                     , Run Date "%a %b %_d %Y %I:%M%p" "date" 10
                     , Run StdinReader
+                    , Run Com "~/bin/volume-info" [] "volume" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %eth0% - %wlan0% | %battery% } %StdinReader% { <fc=#ee9a00>%date%</fc> | %KAUS%"
+       , template = "%cpu% <fc=#ee9a00>|</fc> %eth0% - %wlan0% <fc=#ee9a00>|</fc> %battery% <fc=#ee9a00>|</fc> %volume% } %StdinReader% { <fc=#ee9a00>%date%</fc>"
        }
