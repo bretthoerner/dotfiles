@@ -44,7 +44,6 @@ myConfig = defaultConfig
     , ("M-S-=", windows copyToAll)
     , ("M-=",  killAllOtherCopies)
     , ("M--",  kill1)
-    , ("M-S-l", spawn "gnome-screensaver-command --lock")
     , ("<XF86AudioLowerVolume>", spawn "amixer -c 0 set Master 3dB-")
     , ("<XF86AudioRaiseVolume>", spawn "amixer -c 0 set Master 3dB+")
     , ("<XF86AudioMute>", spawn "amixer -c 0 set Master toggle")]

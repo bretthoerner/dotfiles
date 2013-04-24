@@ -19,7 +19,7 @@ export SSH_AUTH_SOCK="$GNOME_KEYRING_CONTROL/ssh"
 start-pulseaudio-x11
 
 # screensaver
-gnome-screensaver --no-daemon &
+# gnome-screensaver --no-daemon &
 
 # hide mouse
 unclutter &
