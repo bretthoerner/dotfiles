@@ -45,8 +45,8 @@ myConfig = defaultConfig
     , ("M-=",  killAllOtherCopies)
     , ("M--",  kill1)
     , ("M-S-l",  spawn "gnome-screensaver-command -l")
-    , ("<XF86AudioLowerVolume>", spawn "pamixer --decrease 5")
-    , ("<XF86AudioRaiseVolume>", spawn "pamixer --increase 5")
+    , ("<XF86AudioLowerVolume>", spawn "pamixer --decrease 2")
+    , ("<XF86AudioRaiseVolume>", spawn "pamixer --increase 2")
     , ("<XF86AudioMute>", spawn "pamixer --toggle-mute")]
 
 main = xmonad =<< statusBar "xmobar" xmobarPP toggleStrutsKey myConfig
