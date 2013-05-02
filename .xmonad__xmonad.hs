@@ -24,7 +24,8 @@ myManageHook =
 
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
-myConfig = ewmh defaultConfig
+-- ewmh
+myConfig = defaultConfig
     { manageHook = manageHook defaultConfig <+> composeAll myManageHook
     , layoutHook = myLayout
     , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook

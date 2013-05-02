@@ -21,13 +21,7 @@ case $OSTYPE in
 
         alias v="cd /home/brett/Development/mr/chef/vagrant/ && vagrant ssh"
         alias t="cd /home/brett/Development/mr/tweetriver"
-        alias acs="sudo apt-cache search"
-        alias acsh="sudo apt-cache show"
-        alias agd="sudo apt-get dist-upgrade"
-        alias agi="sudo apt-get install"
-        alias agu="sudo apt-get update"
-        alias addkey="sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys"
- 
+
         alias open="gnome-open"
 
         # cope
@@ -90,6 +84,15 @@ esac
 # local should come first
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
+# go
+export PATH=/opt/go/bin:$PATH
+export GOPATH=${HOME}/.go
+export GOROOT=/opt/go
+
+# rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
 # add ~/bin to PATH if it exists
 if [ -d "${HOME}/bin" ]; then
     export PATH=${HOME}/bin:$PATH
@@ -101,10 +104,6 @@ fi
 # use cabal bins if available
 [[ -d "$HOME/.cabal/bin" ]] && export PATH="/home/brett/.cabal/bin:$PATH"
 
-# rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 # setup various ENV variables
 export EDITOR="vim"
 export PAGER="less -R"
@@ -113,8 +112,6 @@ export EMAIL="brett@bretthoerner.com"
 export DEBEMAIL=$EMAIL
 export DEBFULLNAME="Brett Hoerner"
 export PYTHONDONTWRITEBYTECODE=1
-export WORKON_HOME="${HOME}/Development/python"
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_REQUIRE_VIRTUALENV=true
 export PIP_RESPECT_VIRTUALENV=true
 
@@ -126,9 +123,6 @@ export PIP_RESPECT_VIRTUALENV=true
 ##################################################
 
 
-
-# use virtualenvwrapper if available
-[[ -f "/usr/bin/virtualenvwrapper.sh" ]] && source "/usr/bin/virtualenvwrapper.sh"
 
 # tmux completion
 [[ -f "$HOME/bin/bash_completion_tmux.sh" ]] && source "$HOME/bin/bash_completion_tmux.sh"
@@ -156,13 +150,6 @@ shopt -s checkwinsize
 # don't print ^C, etc
 stty -echoctl
 
-# connect to dbus on desktop
-case `hostname` in
-    wigi)
-        env | grep -q DBUS || export `dbus-launch`
-    ;;
-esac
-
 function ll { ls -l "$@"; }
 
 alias gti="git"
@@ -170,8 +157,6 @@ alias gti="git"
 alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
-
-alias v="cd ~/Development/mr/chef/vagrant; vagrant ssh"
 
 # prompt colors
 BGREEN='\[\033[1;32m\]'

@@ -30,6 +30,9 @@ start-pulseaudio-x11
 # screensaver
 gnome-screensaver --no-daemon &
 
+# nautilus
+nautilus -n --no-desktop &
+
 # hide mouse
 unclutter &
 
