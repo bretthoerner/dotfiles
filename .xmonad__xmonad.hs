@@ -10,6 +10,7 @@ import XMonad.Hooks.SetWMName
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Prompt (defaultXPConfig)
+import XMonad.Util.Run
 import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig (additionalKeysP)
 
@@ -24,14 +25,12 @@ myManageHook =
 
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
--- ewmh
-myConfig = defaultConfig
+myConfig = ewmh defaultConfig
     { manageHook = manageHook defaultConfig <+> composeAll myManageHook
     , layoutHook = myLayout
     , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
     , focusFollowsMouse = False
     , modMask = mod4Mask
-    , startupHook = ewmhDesktopsStartup >> setWMName "LG3D"
     , terminal = "gnome-terminal"
     , borderWidth = 1 }
     `additionalKeysP`
@@ -50,5 +49,6 @@ myConfig = defaultConfig
     , ("<XF86AudioRaiseVolume>", spawn "pamixer --increase 2")
     , ("<XF86AudioMute>", spawn "pamixer --toggle-mute")]
 
-main = xmonad =<< statusBar "xmobar" xmobarPP toggleStrutsKey myConfig
-
+main = do {
+  conf <- statusBar "xmobar" xmobarPP toggleStrutsKey myConfig;
+  xmonad conf { startupHook = startupHook myConfig >> setWMName "LG3D" } }
