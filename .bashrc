@@ -85,9 +85,7 @@ esac
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
 # go
-export PATH=/opt/go/bin:$PATH
 export GOPATH=${HOME}/.go
-export GOROOT=/opt/go
 
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
