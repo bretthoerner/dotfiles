@@ -11,6 +11,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Prompt (defaultXPConfig)
 import XMonad.Util.Run
+import XMonad.Hooks.UrgencyHook
 import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig (additionalKeysP)
 
@@ -51,4 +52,4 @@ myConfig = ewmh defaultConfig
 
 main = do {
   conf <- statusBar "xmobar" xmobarPP toggleStrutsKey myConfig;
-  xmonad conf { startupHook = startupHook myConfig >> setWMName "LG3D" } }
+  xmonad $ withUrgencyHook NoUrgencyHook $ conf { startupHook = startupHook myConfig >> setWMName "LG3D" } }

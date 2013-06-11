@@ -13,7 +13,7 @@ xmodmap -e "keysym Caps_Lock = Control_L"
 xmodmap -e "add Control = Control_L"
 
 # background
-feh --bg-scale ~/.background.png
+# feh --bg-scale ~/.background.png
 
 # set the cursor
 xsetroot -cursor_name left_ptr
