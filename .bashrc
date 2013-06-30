@@ -167,6 +167,10 @@ NORMAL='\[\033[00m\]'
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
+    linux)
+        # caps lock = control
+        echo -e "$(dumpkeys | grep ^keymaps)\nkeycode 58 = Control" | sudo loadkeys &> /dev/null
+        ;;
     xterm-*color|xterm|eterm-color|screen*)
         # color based on host
         case `hostname` in
