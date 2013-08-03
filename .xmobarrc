@@ -3,8 +3,8 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
        , fgColor = "grey"
        , position = Top
        , lowerOnStart = True
-       , commands = [ Run Network "eth0" ["-L","0","-H","512","-m", "3", "--normal","green","--high","red"] 10
-                    , Run Network "wlan0" ["-L","0","-H","512","-m", "3", "--normal","green","--high","red"] 10
+       , commands = [ Run Network "enp0s25" ["-L","0","-H","512","-m", "3", "--normal","green","--high","red"] 10
+                    , Run Network "wlp3s0" ["-L","0","-H","512","-m", "3", "--normal","green","--high","red"] 10
                     , Run Cpu ["-L","3","-H","50","-p", "2", "--normal","green","--high","red"] 10
                     , Run BatteryP ["BAT0"]
                                    ["-L", "10", "-H", "80", "-p", "2",
@@ -18,5 +18,5 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% <fc=#ee9a00>|</fc> Net: %eth0% - %wlan0% <fc=#ee9a00>|</fc> %volume% } %StdinReader% { %battery% <fc=#ee9a00>|</fc> %date%"
+       , template = "%cpu% <fc=#ee9a00>|</fc> Net: %enp0s25% - %wlp3s0% <fc=#ee9a00>|</fc> %volume% } %StdinReader% { %battery% <fc=#ee9a00>|</fc> %date%"
        }

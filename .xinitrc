@@ -27,6 +27,9 @@ export SSH_AUTH_SOCK="$GNOME_KEYRING_CONTROL/ssh"
 # sound
 start-pulseaudio-x11
 
+# clipboard
+parcellite &
+
 # screensaver
 gnome-screensaver --no-daemon &
 

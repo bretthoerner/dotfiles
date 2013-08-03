@@ -45,9 +45,11 @@ myConfig = ewmh defaultConfig
     , ("M-=",  killAllOtherCopies)
     , ("M--",  kill1)
     , ("M-S-l",  spawn "gnome-screensaver-command -l")
-    , ("<XF86AudioLowerVolume>", spawn "pamixer --decrease 2")
-    , ("<XF86AudioRaiseVolume>", spawn "pamixer --increase 2")
-    , ("<XF86AudioMute>", spawn "pamixer --toggle-mute")]
+    , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10% -time 0")
+    , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10% -time 0")
+    , ("<XF86AudioLowerVolume>", spawn "ponymix decrease 2")
+    , ("<XF86AudioRaiseVolume>", spawn "ponymix increase 2")
+    , ("<XF86AudioMute>", spawn "ponymix toggle")]
 
 main = do {
   conf <- statusBar "xmobar" xmobarPP toggleStrutsKey myConfig;
