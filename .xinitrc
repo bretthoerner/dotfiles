@@ -18,6 +18,9 @@ if [ -f "$HOME/.dbus/session-bus/$machine_id-${DISPLAY#:}" ]; then
   printf '%s\n' "$DBUS_SESSION_BUS_ADDRESS" > "$HOME/.dbus_address"
 fi
 
+# xresources
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+
 # keyboard delay
 xset r rate 200 50
 
