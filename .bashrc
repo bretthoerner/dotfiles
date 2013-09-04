@@ -81,11 +81,15 @@ case $OSTYPE in
     ;;
 esac
 
+# aws
+export PATH="${HOME}/.aws-cli/bin:$PATH"
+
 # local should come first
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
 # go
 export GOPATH=${HOME}/.go
+export PATH="~/.go/bin/:${PATH}"
 
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -196,4 +200,3 @@ case "$TERM" in
         PS1="\u@\h:\w\$ "
     ;;
 esac
-
