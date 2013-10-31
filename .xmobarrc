@@ -14,7 +14,7 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                                     600
                     , Run Date "%a %b %_d %Y %I:%M%p" "date" 10
                     , Run StdinReader
-                    , Run Com "~/bin/volume-info" [] "volume" 10
+                    , Run Com "/home/brett/bin/volume-info" [] "volume" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
