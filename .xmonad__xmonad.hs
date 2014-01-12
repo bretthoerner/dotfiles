@@ -13,6 +13,7 @@ import XMonad.Prompt (defaultXPConfig)
 import XMonad.Util.Run
 import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig (additionalKeysP)
+import XMonad.Actions.GridSelect
 
 import qualified Data.Map as M
 
@@ -51,7 +52,8 @@ myConfig = ewmh defaultConfig
     , ("S-<XF86MonBrightnessUp>", spawn "xbacklight -inc 5% -time 0")
     , ("<XF86AudioLowerVolume>", spawn "ponymix decrease 2")
     , ("<XF86AudioRaiseVolume>", spawn "ponymix increase 2")
-    , ("<XF86AudioMute>", spawn "ponymix toggle")]
+    , ("<XF86AudioMute>", spawn "ponymix toggle")
+    , ("M-g", goToSelected defaultGSConfig)]
 
 main = do {
   conf <- statusBar "xmobar" xmobarPP toggleStrutsKey myConfig;
