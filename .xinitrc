@@ -29,6 +29,9 @@ xmodmap -e "remove Lock = Caps_Lock"
 xmodmap -e "keysym Caps_Lock = Control_L"
 xmodmap -e "add Control = Control_L"
 
+# middle click = left click
+xinput set-button-map 11 1 1 3 4 5 6 7 8 9 10 11 12
+
 # background
 feh --bg-tile ~/.background.jpg
 
