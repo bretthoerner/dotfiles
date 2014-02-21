@@ -1,5 +1,5 @@
 -Xms512m
--Xmx1536m
+-Xmx2g
 -XX:MaxPermSize=350m
 -XX:ReservedCodeCacheSize=96m
 -XX:+UseCodeCacheFlushing
@@ -10,3 +10,4 @@
 -Djava.net.preferIPv4Stack=true
 -Dawt.useSystemAAFontSettings=lcd
 -Dswing.aatext=true
+-Djsse.enableSNIExtension=false
