@@ -14,15 +14,22 @@ import XMonad.Util.Run
 import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Actions.GridSelect
+import Data.List (isPrefixOf)
 
 import qualified Data.Map as M
+
+{- IntelliJ popup fix from http://youtrack.jetbrains.com/issue/IDEA-74679#comment=27-417315 -}
+{- and http://youtrack.jetbrains.com/issue/IDEA-101072#comment=27-456320 -}
+(~=?) :: Eq a => Query [a] -> [a] -> Query Bool
+q ~=? x = fmap (isPrefixOf x) q
 
 myLayout =  smartBorders $ avoidStruts $ ResizableTall 1 (3/100) (2/3) [] ||| Full
 myManageHook :: [ManageHook]
 myManageHook =
     [ resource  =? "gcalctool" --> doCenterFloat
     , isFullscreen --> doFullFloat
-    , isDialog --> doCenterFloat ]
+    , isDialog --> doCenterFloat
+    , (className ~=? "jetbrains-") <&&> (title ~=? "win") --> doIgnore ]
 
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
