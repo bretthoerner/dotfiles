@@ -40,9 +40,8 @@ xsetroot -cursor_name left_ptr
 
 # gnome keyring
 eval $(gnome-keyring-daemon --start)
-export GNOME_KEYRING_SOCKET
-export GNOME_KEYRING_PID
-export SSH_AUTH_SOCK="$GNOME_KEYRING_CONTROL/ssh"
+export SSH_AUTH_SOCK
+export GPG_AGENT_INFO
 
 # networkmanager needs the applet for some things (e.g., vpn)
 nm-applet &
@@ -51,7 +50,8 @@ nm-applet &
 parcellite &
 
 # screensaver
-gnome-screensaver --no-daemon &
+#gnome-screensaver --no-daemon &
+xscreensaver -no-splash &
 
 # nautilus
 nautilus -n --no-desktop &
@@ -60,7 +60,7 @@ nautilus -n --no-desktop &
 unclutter &
 
 # ssh agent
-# eval `ssh-agent`
+#eval $(ssh-agent)
 
 # start xmonad!
 exec xmonad

@@ -52,7 +52,7 @@ myConfig = ewmh defaultConfig
     , ("M-S-=", windows copyToAll)
     , ("M-=",  killAllOtherCopies)
     , ("M--",  kill1)
-    , ("M-S-l",  spawn "gnome-screensaver-command -l")
+    , ("M-S-l",  spawn "xscreensaver-command -l")
     , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10% -time 0")
     , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10% -time 0")
     , ("S-<XF86MonBrightnessDown>", spawn "xbacklight -dec 5% -time 0")

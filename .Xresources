@@ -4,3 +4,5 @@ Xft.hinting: true
 Xft.hintstyle: hintfull
 Xft.rgba: rgb
 Xcursor.size: 16
+xscreensaver.mode: blank
+xscreensaver.fade: False

@@ -21,11 +21,23 @@ case $OSTYPE in
 
         alias v="cd /home/brett/Development/mr/chef/vagrant/ && vagrant ssh"
         alias t="cd /home/brett/Development/mr/tweetriver"
+        alias c="cd /home/brett/Development/mr/chef"
+        alias m="cd /home/brett/Development/mr"
+
+        updaterepos ()
+        {
+            cd /home/brett/Development/src-mirror/
+            ./update.sh
+            cd ~/Development/mr/
+            for x in *; do
+                echo $x
+                cd $x
+                git pull
+                cd ..
+            done
+        }
 
         alias open="gnome-open"
-
-        # cope
-        # export PATH=/usr/local/share/perl/5.10.1/auto/share/dist/Cope:$PATH
 
         # lsof -nPp
         # -n don't convert addresses
@@ -42,47 +54,21 @@ case $OSTYPE in
         # -n don't convert addresses
         # -q quiet protocol information
         # -A print packet in ASCII
-    ;;
-    darwin*)
-        # mac specific
 
-        export LC_CTYPE="en_US.UTF-8"
-        export LANG="en_US.UTF-8"
-        export LANGUAGE="en_US.UTF-8"
-        export LC_ALL="en_US.UTF-8"
-
-        # homebrew python
-        export PYTHONPATH=/usr/local/lib/python2.6/site-packages
-        export PATH=/usr/local/Cellar/python/2.6.5/bin:$PATH
-
-        # functions
-        function ls { command gls -Fh --color=auto "$@"; }
-        function manp { man -t "${1}" | open -f -a Preview; }
-
-        if [ -f `brew --prefix`/etc/bash_completion ]; then
-          . `brew --prefix`/etc/bash_completion
-        fi
-
-        alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
-    ;;
-    solaris*)
-        # solaris specific
-
-        function ls { command gls -Fh --color=auto "$@"; }
-
-        alias man='GROFF_NO_SGR= TCAT="less -s" TROFF="groff -Tascii" man -t'
-
-        export MAIL=/usr/mail/${LOGNAME:?}
-        export MANPATH="/opt/local/man:/opt/local/share/man:/usr/share/man:/usr/sfw/share/man:/usr/openwin/share/man"
-        export PATH="/opt/local/bin:/opt/local/sbin:/usr/xpg4/bin:/usr/bin:/usr/sbin:/usr/sfw/bin:/usr/openwin/bin:/opt/SUNWspro/bin:/usr/ccs/bin:/usr/ucb/"
-        export PKG_PATH="http://pkgsrc.joyent.com/2008Q2/All"
+        # socat TCP-LISTEN:6379,reuseaddr,fork TCP:10.79.29.210:6379
     ;;
     *)
     ;;
 esac
 
+# lang
+export LC_CTYPE="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
 # aws
-export PATH="${HOME}/.aws-cli/bin:$PATH"
+export PATH="${PATH}:${HOME}/.aws-cli/bin"
 
 # local should come first
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
@@ -90,9 +76,6 @@ export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 # go
 export GOPATH=${HOME}/.go
 export PATH="~/.go/bin/:${PATH}"
-
-# rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # add ~/bin to PATH if it exists
 if [ -d "${HOME}/bin" ]; then
@@ -102,8 +85,18 @@ fi
 # node bin
 [[ -d "$HOME/node_modules/.bin" ]] && export PATH="$HOME/node_modules/.bin:$PATH"
 
+# cabal bin
+[[ -d "$HOME/.cabal/bin" ]] && export PATH="$HOME/.cabal/bin:$PATH"
+
 # use cabal bins if available
 [[ -d "$HOME/.cabal/bin" ]] && export PATH="/home/brett/.cabal/bin:$PATH"
+
+# rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# z
+test -f "$HOME/.z.sh" && source "$HOME/.z.sh"
 
 # setup various ENV variables
 export EDITOR="vim"
@@ -115,14 +108,10 @@ export DEBFULLNAME="Brett Hoerner"
 export PYTHONDONTWRITEBYTECODE=1
 export PIP_RESPECT_VIRTUALENV=true
 
-
-
 ##################################################
 # if not running interactively, don't go further #
 [ -z "$PS1" ] && return                          #
 ##################################################
-
-
 
 # tmux completion
 [[ -f "$HOME/bin/bash_completion_tmux.sh" ]] && source "$HOME/bin/bash_completion_tmux.sh"
@@ -153,6 +142,7 @@ stty -echoctl
 function ll { ls -l "$@"; }
 
 alias gti="git"
+alias irctunnel="autossh -M 0 -p 2222 -L 6668:localhost:6668 -N brett@165.225.129.250"
 
 alias rm="rm -i"
 alias mv="mv -i"
@@ -199,3 +189,4 @@ case "$TERM" in
         PS1="\u@\h:\w\$ "
     ;;
 esac
+
