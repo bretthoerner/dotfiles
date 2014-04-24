@@ -24,17 +24,17 @@ case $OSTYPE in
         alias c="cd /home/brett/Development/mr/chef"
         alias m="cd /home/brett/Development/mr"
 
+        updategit ()
+        {
+            find . -maxdepth 2 -name ".git" -type d | xargs -n 1 -I {} -P 8 bash -c "echo && cd {}/.. && pwd && git up"
+        }
+
         updaterepos ()
         {
             cd /home/brett/Development/src-mirror/
-            ./update.sh
+            updategit
             cd ~/Development/mr/
-            for x in *; do
-                echo $x
-                cd $x
-                git pull
-                cd ..
-            done
+            updategit
         }
 
         alias open="gnome-open"
@@ -68,7 +68,7 @@ export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # aws
-export PATH="${PATH}:${HOME}/.aws-cli/bin"
+export PATH="${PATH}:${HOME}/.virtualenv/bin"
 
 # local should come first
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
@@ -81,6 +81,9 @@ export PATH="~/.go/bin/:${PATH}"
 if [ -d "${HOME}/bin" ]; then
     export PATH=${HOME}/bin:$PATH
 fi
+
+# sbt
+export SBT_OPTS=-XX:MaxPermSize=256M
 
 # node bin
 [[ -d "$HOME/node_modules/.bin" ]] && export PATH="$HOME/node_modules/.bin:$PATH"

@@ -8,6 +8,6 @@
 -ea
 -Dsun.io.useCanonCaches=false
 -Djava.net.preferIPv4Stack=true
--Dawt.useSystemAAFontSettings=lcd
+-Dawt.useSystemAAFontSettings=on
 -Dswing.aatext=true
 -Djsse.enableSNIExtension=false
