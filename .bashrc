@@ -31,10 +31,12 @@ case $OSTYPE in
 
         updaterepos ()
         {
+            prev=$(pwd)
             cd /home/brett/Development/src-mirror/
             updategit
             cd ~/Development/mr/
             updategit
+            cd $prev
         }
 
         alias open="gnome-open"
@@ -77,6 +79,9 @@ export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export GOPATH=${HOME}/.go
 export PATH="~/.go/bin/:${PATH}"
 
+# rust
+export PATH="/opt/rust/bin/:${PATH}"
+
 # add ~/bin to PATH if it exists
 if [ -d "${HOME}/bin" ]; then
     export PATH=${HOME}/bin:$PATH
@@ -95,8 +100,7 @@ export SBT_OPTS=-XX:MaxPermSize=256M
 [[ -d "$HOME/.cabal/bin" ]] && export PATH="/home/brett/.cabal/bin:$PATH"
 
 # rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+source /home/brett/.rvm/scripts/rvm
 
 # z
 test -f "$HOME/.z.sh" && source "$HOME/.z.sh"
@@ -145,7 +149,7 @@ stty -echoctl
 function ll { ls -l "$@"; }
 
 alias gti="git"
-alias irctunnel="autossh -M 0 -p 2222 -L 6668:localhost:6668 -N brett@165.225.129.250"
+alias irctunnel="autossh -M 0 -p 443 -L 6668:localhost:6668 -N martini.bretthoerner.com"
 
 alias rm="rm -i"
 alias mv="mv -i"
