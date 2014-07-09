@@ -9,7 +9,7 @@ case $OSTYPE in
         [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
         if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
-            eval "`dircolors -b`"
+            eval "$(dircolors -b)"
         fi
 
         function ls { command ls -Fh --color=auto "$@"; }
@@ -26,7 +26,7 @@ case $OSTYPE in
 
         updategit ()
         {
-            find . -maxdepth 2 -name ".git" -type d | xargs -n 1 -I {} -P 8 bash -c "echo && cd {}/.. && pwd && git up"
+            find . -maxdepth 2 -name ".git" -type d -print0 | xargs -0 -n 1 -I {} -P 8 bash -c "echo && cd {}/.. && pwd && git up"
         }
 
         updaterepos ()
@@ -36,7 +36,24 @@ case $OSTYPE in
             updategit
             cd ~/Development/mr/
             updategit
-            cd $prev
+            cd "$prev"
+        }
+
+        updaterust ()
+        {
+            prev=$(pwd)
+            rustdate=$(date "+%Y-%m-%d")
+            rustfile="rust-${rustdate}-x86_64-unknown-linux-gnu.tar.gz"
+            rusttmpdir="${HOME}/Downloads/tmp"
+            rustinnerdir="rust-nightly-x86_64-unknown-linux-gnu"
+            mkdir -p "$rusttmpdir" && \
+            cd "$rusttmpdir" && \
+            wget "http://rustly.kokakiwi.net/files/${rustfile}" && \
+            tar zxf "$rustfile" && \
+            sudo /usr/bin/rm -rf "/opt/${rustinnerdir}" && \
+            sudo /usr/bin/mv "$rustinnerdir" "/opt/" && \
+            cd "$prev" && \
+            rm -rf "$rusttmpdir"
         }
 
         alias open="gnome-open"
@@ -77,7 +94,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
 # go
 export GOPATH=${HOME}/.go
-export PATH="~/.go/bin/:${PATH}"
+export PATH="${HOME}/.go/bin/:${PATH}"
 
 # rust
 export PATH="/opt/rust/bin/:${PATH}"
@@ -172,7 +189,7 @@ case "$TERM" in
         ;;
     xterm-*color|xterm|eterm-color|screen*)
         # color based on host
-        case `hostname` in
+        case $(hostname) in
             scumbag*|wigi*|passenger*|parasite*)
                 HOSTCOLOR="$BGREEN"
             ;;
@@ -182,7 +199,7 @@ case "$TERM" in
         esac
 
         # don't show user if it's brett
-        case `whoami` in
+        case $(whoami) in
             brett*)
                 USERPART=""
             ;;
