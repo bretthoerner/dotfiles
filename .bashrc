@@ -94,10 +94,13 @@ export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
 # go
 export GOPATH=${HOME}/.go
-export PATH="${HOME}/.go/bin/:${PATH}"
+export PATH="${HOME}/.go/bin:${PATH}"
 
 # rust
-export PATH="/opt/rust/bin/:${PATH}"
+export PATH="/opt/rust/bin:${PATH}"
+
+# cling
+alias cling="LD_LIBRARY_PATH=/opt/cling/lib PATH=/opt/cling/bin:${PATH} cling"
 
 # add ~/bin to PATH if it exists
 if [ -d "${HOME}/bin" ]; then
