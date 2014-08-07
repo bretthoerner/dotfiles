@@ -47,7 +47,7 @@ export GPG_AGENT_INFO
 nm-applet &
 
 # clipboard
-parcellite &
+# parcellite &
 
 # screensaver
 #gnome-screensaver --no-daemon &
