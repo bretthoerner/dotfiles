@@ -52,6 +52,7 @@ case $OSTYPE in
             tar zxf "$rustfile" && \
             sudo /usr/bin/rm -rf "/opt/${rustinnerdir}" && \
             sudo /usr/bin/mv "$rustinnerdir" "/opt/" && \
+            sudo ldconfig
             cd "$prev" && \
             rm -rf "$rusttmpdir"
         }
@@ -92,6 +93,11 @@ export PATH="${PATH}:${HOME}/.virtualenv/bin"
 # local should come first
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
+# hadoop
+export PATH="/opt/hadoop/bin:/opt/spark/bin:${PATH}"
+export SPARK_HOME="/opt/spark"
+export PYSPARK_PYTHON="/usr/bin/python2"
+
 # go
 export GOPATH=${HOME}/.go
 export PATH="${HOME}/.go/bin:${PATH}"
@@ -121,9 +127,6 @@ export SBT_OPTS=-XX:MaxPermSize=256M
 
 # rvm
 source /home/brett/.rvm/scripts/rvm
-
-# z
-test -f "$HOME/.z.sh" && source "$HOME/.z.sh"
 
 # setup various ENV variables
 export EDITOR="vim"
