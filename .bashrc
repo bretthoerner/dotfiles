@@ -156,6 +156,9 @@ HISTFILESIZE=1000000
 # append to history rather than overwriting
 shopt -s histappend
 
+# after each command, save and reload history
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
 # don't try to complete on nothing
 shopt -s no_empty_cmd_completion
 
