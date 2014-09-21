@@ -126,7 +126,7 @@ export SBT_OPTS=-XX:MaxPermSize=256M
 [[ -d "$HOME/.cabal/bin" ]] && export PATH="/home/brett/.cabal/bin:$PATH"
 
 # rvm
-source /home/brett/.rvm/scripts/rvm
+[[ -f "$HOME/.rvm/scripts/rvm" ]] && source /home/brett/.rvm/scripts/rvm
 
 # setup various ENV variables
 export EDITOR="vim"

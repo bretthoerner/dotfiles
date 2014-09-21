@@ -1,3 +1,4 @@
+-Xss2m
 -Xms512m
 -Xmx2g
 -XX:MaxPermSize=350m
@@ -8,6 +9,6 @@
 -ea
 -Dsun.io.useCanonCaches=false
 -Djava.net.preferIPv4Stack=true
+-Djsse.enableSNIExtension=false
 -Dawt.useSystemAAFontSettings=on
 -Dswing.aatext=true
--Djsse.enableSNIExtension=false
