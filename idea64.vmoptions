@@ -2,7 +2,7 @@
 -Xms512m
 -Xmx2g
 -XX:MaxPermSize=350m
--XX:ReservedCodeCacheSize=96m
+-XX:ReservedCodeCacheSize=225m
 -XX:+UseCodeCacheFlushing
 -XX:+UseConcMarkSweepGC
 -XX:SoftRefLRUPolicyMSPerMB=50
