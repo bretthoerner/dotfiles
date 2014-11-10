@@ -39,24 +39,6 @@ case $OSTYPE in
             cd "$prev"
         }
 
-        updaterust ()
-        {
-            prev=$(pwd)
-            rustdate=$(date "+%Y-%m-%d")
-            rustfile="rust-${rustdate}-x86_64-unknown-linux-gnu.tar.gz"
-            rusttmpdir="${HOME}/Downloads/tmp"
-            rustinnerdir="rust-nightly-x86_64-unknown-linux-gnu"
-            mkdir -p "$rusttmpdir" && \
-            cd "$rusttmpdir" && \
-            wget "http://rustly.kokakiwi.net/files/${rustfile}" && \
-            tar zxf "$rustfile" && \
-            sudo /usr/bin/rm -rf "/opt/${rustinnerdir}" && \
-            sudo /usr/bin/mv "$rustinnerdir" "/opt/" && \
-            sudo ldconfig
-            cd "$prev" && \
-            rm -rf "$rusttmpdir"
-        }
-
         alias open="gnome-open"
 
         # lsof -nPp
@@ -102,9 +84,6 @@ export PYSPARK_PYTHON="/usr/bin/python2"
 export GOPATH=${HOME}/.go
 export PATH="${HOME}/.go/bin:${PATH}"
 
-# rust
-export PATH="/opt/rust/bin:${PATH}"
-
 # cling
 alias cling="LD_LIBRARY_PATH=/opt/cling/lib PATH=/opt/cling/bin:${PATH} cling"
 
@@ -127,6 +106,10 @@ export SBT_OPTS=-XX:MaxPermSize=256M
 
 # rvm
 [[ -f "$HOME/.rvm/scripts/rvm" ]] && source /home/brett/.rvm/scripts/rvm
+
+# scala
+export SBT_OPTS="-Dscala.color"
+export JAVA_OPTS="-Dscala.color"
 
 # setup various ENV variables
 export EDITOR="vim"
