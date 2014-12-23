@@ -59,6 +59,15 @@ case $OSTYPE in
 
         # socat TCP-LISTEN:6379,reuseaddr,fork TCP:10.79.29.210:6379
     ;;
+    darwin*)
+    # function ls { command ls -FhG "$@"; }
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+    function ls { command ls -Fh --color=auto "$@"; }
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
+    ;;
     *)
     ;;
 esac
@@ -72,8 +81,14 @@ export LC_ALL="en_US.UTF-8"
 # aws
 export PATH="${PATH}:${HOME}/.virtualenv/bin"
 
-# local should come first
+# local
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+
+# sd
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+export PATH=$JAVA_HOME/bin:$PATH
+export PATH=/opt/go/bin:$PATH
+export GOROOT=/opt/go
 
 # hadoop
 export PATH="/opt/hadoop/bin:/opt/spark/bin:${PATH}"
@@ -81,7 +96,7 @@ export SPARK_HOME="/opt/spark"
 export PYSPARK_PYTHON="/usr/bin/python2"
 
 # go
-export GOPATH=${HOME}/.go
+export GOPATH="${HOME}/.go"
 export PATH="${HOME}/.go/bin:${PATH}"
 
 # cling
@@ -182,7 +197,7 @@ case "$TERM" in
     xterm-*color|xterm|eterm-color|screen*)
         # color based on host
         case $(hostname) in
-            scumbag*|wigi*|passenger*|parasite*)
+            scumbag*|wigi*|passenger*|parasite*|moose*)
                 HOSTCOLOR="$BGREEN"
             ;;
             *)
