@@ -19,26 +19,6 @@ case $OSTYPE in
             . "/etc/bash_completion"
         fi
 
-        alias v="cd /home/brett/Development/mr/chef/vagrant/ && vagrant ssh"
-        alias t="cd /home/brett/Development/mr/tweetriver"
-        alias c="cd /home/brett/Development/mr/chef"
-        alias m="cd /home/brett/Development/mr"
-
-        updategit ()
-        {
-            find . -maxdepth 2 -name ".git" -type d -print0 | xargs -0 -n 1 -I {} -P 8 bash -c "echo && cd {}/.. && pwd && git up"
-        }
-
-        updaterepos ()
-        {
-            prev=$(pwd)
-            cd /home/brett/Development/src-mirror/
-            updategit
-            cd ~/Development/mr/
-            updategit
-            cd "$prev"
-        }
-
         alias open="gnome-open"
 
         # lsof -nPp
@@ -71,6 +51,21 @@ case $OSTYPE in
     *)
     ;;
 esac
+
+updategit ()
+{
+    find . -maxdepth 2 -name ".git" -type d -print0 | xargs -0 -n 1 -I {} -P 8 bash -c "echo && cd {}/.. && pwd && git up"
+}
+
+updaterepos ()
+{
+    prev=$(pwd)
+    cd "${HOME}/Development/src-mirror/"
+    updategit
+    cd "${HOME}/Development/sd/"
+    updategit
+    cd "$prev"
+}
 
 # lang
 export LC_CTYPE="en_US.UTF-8"
@@ -220,4 +215,3 @@ case "$TERM" in
         PS1="\u@\h:\w\$ "
     ;;
 esac
-
