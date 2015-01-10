@@ -41,12 +41,15 @@ case $OSTYPE in
     ;;
     darwin*)
     # function ls { command ls -FhG "$@"; }
+    alias emacs="/opt/homebrew-cask/Caskroom/emacs/24.4/Emacs.app/Contents/MacOS/Emacs"
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
     function ls { command ls -Fh --color=auto "$@"; }
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
         . $(brew --prefix)/etc/bash_completion
     fi
+    export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+    export PATH=$JAVA_HOME/bin:$PATH
     ;;
     *)
     ;;
@@ -80,8 +83,6 @@ export PATH="${PATH}:${HOME}/.virtualenv/bin"
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
 # sd
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
-export PATH=$JAVA_HOME/bin:$PATH
 export PATH=/opt/go/bin:$PATH
 export GOROOT=/opt/go
 
