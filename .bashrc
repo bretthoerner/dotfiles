@@ -41,7 +41,8 @@ case $OSTYPE in
     ;;
     darwin*)
     # function ls { command ls -FhG "$@"; }
-    alias emacs="/opt/homebrew-cask/Caskroom/emacs/24.4/Emacs.app/Contents/MacOS/Emacs"
+    alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
+    export HADOOP_HOME="/usr/local/opt/hadoop/libexec"
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
     function ls { command ls -Fh --color=auto "$@"; }
@@ -50,6 +51,9 @@ case $OSTYPE in
     fi
     export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
     export PATH=$JAVA_HOME/bin:$PATH
+    source '/Users/brett/google-cloud-sdk/path.bash.inc'
+    source '/Users/brett/google-cloud-sdk/completion.bash.inc'
+    export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m"
     ;;
     *)
     ;;
@@ -94,9 +98,6 @@ export PYSPARK_PYTHON="/usr/bin/python2"
 # go
 export GOPATH="${HOME}/.go"
 export PATH="${HOME}/.go/bin:${PATH}"
-
-# cling
-alias cling="LD_LIBRARY_PATH=/opt/cling/lib PATH=/opt/cling/bin:${PATH} cling"
 
 # add ~/bin to PATH if it exists
 if [ -d "${HOME}/bin" ]; then
