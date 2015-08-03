@@ -42,6 +42,7 @@ case $OSTYPE in
     darwin*)
     # function ls { command ls -FhG "$@"; }
     alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
+    alias spacemacs="emacs -q --eval '(setq user-emacs-directory \"~/.spacemacs.d/\")' --eval '(load-file \"~/.spacemacs.d/init.el\")'"
     export HADOOP_HOME="/usr/local/opt/hadoop/libexec"
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
@@ -80,7 +81,7 @@ export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-# aws
+# virtualenv
 export PATH="${PATH}:${HOME}/.virtualenv/bin"
 
 # local
