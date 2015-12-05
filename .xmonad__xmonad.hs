@@ -54,10 +54,10 @@ myConfig = ewmh defaultConfig
     , ("M--", kill1)
     , ("M-S-l", spawn "xscreensaver-command -l")
     , ("M-S-s", spawn "/home/brett/bin/screenshot")
-    , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10% -time 0")
-    , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10% -time 0")
-    , ("S-<XF86MonBrightnessDown>", spawn "xbacklight -dec 5% -time 0")
-    , ("S-<XF86MonBrightnessUp>", spawn "xbacklight -inc 5% -time 0")
+    , ("<XF86MonBrightnessDown>", spawn "light -U 10%")
+    , ("<XF86MonBrightnessUp>", spawn "light -A 10%")
+    , ("S-<XF86MonBrightnessDown>", spawn "light -U 5%")
+    , ("S-<XF86MonBrightnessUp>", spawn "light -A 5%")
     , ("<XF86AudioLowerVolume>", spawn "ponymix decrease 2")
     , ("<XF86AudioRaiseVolume>", spawn "ponymix increase 2")
     , ("<XF86AudioMute>", spawn "ponymix toggle")
@@ -66,3 +66,4 @@ myConfig = ewmh defaultConfig
 main = do {
   conf <- statusBar "xmobar" xmobarPP toggleStrutsKey myConfig;
   xmonad conf { startupHook = startupHook myConfig >> setWMName "LG3D" } }
+
