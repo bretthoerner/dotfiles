@@ -14,8 +14,9 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                                     600
                     , Run Date "%a %b %_d %Y %I:%M%p" "date" 10
                     , Run StdinReader
+                    , Run Com "/home/brett/bin/volume-info" [] "volume" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "<action=`gnome-system-monitor`>%cpu%</action> <fc=#ee9a00>|</fc> <action=`gnome-control-center network`>Net: %enp0s25% - %wlp3s0%</action> } %StdinReader% { <action=`gnome-control-center power`>%battery%</action> <fc=#ee9a00>|</fc> %date%"
+       , template = "<action=`gnome-system-monitor`>%cpu%</action> <fc=#ee9a00>|</fc> <action=`gnome-control-center network`>Net: %enp0s25% - %wlp3s0%</action> <fc=#ee9a00>|</fc> <action=`gnome-control-center sound`>%volume%</action> } %StdinReader% { <action=`gnome-control-center power`>%battery%</action> <fc=#ee9a00>|</fc> %date%"
        }

@@ -60,6 +60,9 @@ nautilus -n --no-desktop &
 # hide mouse
 unclutter &
 
+# no tap to click
+synclient TapButton1=0 TapButton2=0 TapButton3=0 &
+
 # ssh agent
 #eval $(ssh-agent)
 
