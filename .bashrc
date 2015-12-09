@@ -21,6 +21,9 @@ case $OSTYPE in
 
         alias open="gnome-open"
 
+        # open tabs in same directory
+        . /etc/profile.d/vte.sh
+
         # lsof -nPp
         # -n don't convert addresses
         # -P don't convert ports
@@ -54,7 +57,6 @@ case $OSTYPE in
     export PATH=$JAVA_HOME/bin:$PATH
     source '/Users/brett/google-cloud-sdk/path.bash.inc'
     source '/Users/brett/google-cloud-sdk/completion.bash.inc'
-    export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m"
     ;;
     *)
     ;;
@@ -87,14 +89,18 @@ export PATH="${PATH}:${HOME}/.virtualenv/bin"
 # local
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
-# sd
-export PATH=/opt/go/bin:$PATH
-export GOROOT=/opt/go
+# mvn
+export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m"
 
-# hadoop
-export PATH="/opt/hadoop/bin:/opt/spark/bin:${PATH}"
-export SPARK_HOME="/opt/spark"
-export PYSPARK_PYTHON="/usr/bin/python2"
+# ruby
+export PATH="${HOME}/.gem/ruby/2.2.0/bin:$PATH"
+
+# js
+export PATH="${HOME}/.npm/bin:$PATH"
+
+# rocana
+# export PATH=/opt/go/bin:$PATH
+# export GOROOT=/opt/go
 
 # go
 export GOPATH="${HOME}/.go"
@@ -218,3 +224,4 @@ case "$TERM" in
         PS1="\u@\h:\w\$ "
     ;;
 esac
+
