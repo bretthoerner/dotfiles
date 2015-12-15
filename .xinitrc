@@ -2,7 +2,8 @@
 
 # Multimonitor note:
 # xrandr -q
-# xrandr --output LVDS1 --mode 1366x768 --output DP1 --mode 2560x1440 --right-of LVDS1
+# xrandr --output eDP1 --mode 1920x1080 --output DP1 --mode 2560x1600 --above eDP1
+# xrandr --output eDP1 --mode 1920x1080 --output DP1 --off
 
 # source Arch defaults
 for _ in /etc/X11/xinit/xinitrc.d/*; do
