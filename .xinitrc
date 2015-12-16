@@ -64,6 +64,9 @@ unclutter &
 # no tap to click
 synclient TapButton1=0 TapButton2=0 TapButton3=0 &
 
+# notifications
+dunst -conf ~/.dunstrc &
+
 # ssh agent
 #eval $(ssh-agent)
 
