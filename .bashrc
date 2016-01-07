@@ -22,7 +22,7 @@ case $OSTYPE in
         alias open="gnome-open"
 
         # open tabs in same directory
-        . /etc/profile.d/vte.sh
+        [ -f /etc/profile.d/vte.sh ] && . /etc/profile.d/vte.sh
 
         # lsof -nPp
         # -n don't convert addresses
