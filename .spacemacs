@@ -253,6 +253,8 @@ layers configuration. You are free to put any user code."
                 js-indent-level 2
                 ;; follow symlinks
                 vc-follow-symlinks t
+                ;; stop cursor from creeping back when you switch to normal mode
+                evil-move-cursor-back nil
                 )
 
   ;; prune whitespace, see: https://github.com/syl20bnr/spacemacs/pull/3431
