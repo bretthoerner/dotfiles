@@ -72,7 +72,7 @@ updaterepos ()
     prev=$(pwd)
     cd "${HOME}/Development/src-mirror/"
     updategit
-    cd "${HOME}/Development/sd/"
+    cd "${HOME}/Development/rocana/"
     updategit
     cd "$prev"
 }
@@ -120,8 +120,8 @@ export SBT_OPTS=-XX:MaxPermSize=256M
 # cabal bin
 [[ -d "$HOME/.cabal/bin" ]] && export PATH="$HOME/.cabal/bin:$PATH"
 
-# use cabal bins if available
-[[ -d "$HOME/.cabal/bin" ]] && export PATH="/home/brett/.cabal/bin:$PATH"
+# cargo bin
+[[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
 
 # rvm
 [[ -f "$HOME/.rvm/scripts/rvm" ]] && source /home/brett/.rvm/scripts/rvm

@@ -61,6 +61,9 @@ nautilus -n --no-desktop &
 # hide mouse
 unclutter &
 
+# redshift
+redshift -l 30.275:-97.745 &
+
 # no tap to click
 synclient TapButton1=0 TapButton2=0 TapButton3=0 &
 
