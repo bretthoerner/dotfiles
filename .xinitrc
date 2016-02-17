@@ -34,7 +34,7 @@ xmodmap -e "add Control = Control_L"
 xinput set-button-map "SynPS/2 Synaptics TouchPad" 1 1 3 4 5 6 7 8 9 10 11 12
 
 # background
-# feh --bg-center ~/.bg.jpg
+feh --bg-center ~/.bg.jpg
 
 # set the cursor
 xsetroot -cursor_name left_ptr
@@ -62,7 +62,7 @@ nautilus -n --no-desktop &
 unclutter &
 
 # redshift
-redshift -l 30.275:-97.745 &
+redshift -l geoclue2 &
 
 # no tap to click
 synclient TapButton1=0 TapButton2=0 TapButton3=0 &

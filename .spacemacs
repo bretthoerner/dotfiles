@@ -257,6 +257,12 @@ layers configuration. You are free to put any user code."
                 evil-move-cursor-back nil
                 )
 
+  ;; move by visual lines, not actual lines
+  (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "<down>") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+  (define-key evil-normal-state-map (kbd "<up>") 'evil-previous-visual-line)
+
   ;; prune whitespace, see: https://github.com/syl20bnr/spacemacs/pull/3431
   (progn
     (ws-butler-global-mode 1)

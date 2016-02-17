@@ -41,6 +41,8 @@ case $OSTYPE in
         # -A print packet in ASCII
 
         # socat TCP-LISTEN:6379,reuseaddr,fork TCP:10.79.29.210:6379
+
+        export BROWSER=/usr/bin/firefox
     ;;
     darwin*)
     # function ls { command ls -FhG "$@"; }
@@ -72,8 +74,6 @@ updaterepos ()
     prev=$(pwd)
     cd "${HOME}/Development/src-mirror/"
     updategit
-    cd "${HOME}/Development/rocana/"
-    updategit
     cd "$prev"
 }
 
@@ -93,14 +93,10 @@ export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m"
 
 # ruby
-export PATH="${HOME}/.gem/ruby/2.2.0/bin:$PATH"
+export PATH="${HOME}/.gem/ruby/2.3.0/bin:$PATH"
 
 # js
 export PATH="${HOME}/.npm/bin:$PATH"
-
-# rocana
-# export PATH=/opt/go/bin:$PATH
-# export GOROOT=/opt/go
 
 # go
 export GOPATH="${HOME}/.go"
@@ -158,9 +154,6 @@ HISTFILESIZE=1000000
 # append to history rather than overwriting
 shopt -s histappend
 
-# after each command, save and reload history
-# export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
-
 # don't try to complete on nothing
 shopt -s no_empty_cmd_completion
 
@@ -177,11 +170,33 @@ stty -echoctl
 function ll { ls -l "$@"; }
 
 alias gti="git"
-alias irctunnel="autossh -M 0 -p 443 -L 6668:localhost:6668 -N martini.bretthoerner.com"
 
 alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
+
+HISTTIMEFORMAT="%d/%m/%y %T "
+
+log_bash_persistent_history()
+{
+    [[
+        $(history 1) =~ ^\ *[0-9]+\ +([^\ ]+\ [^\ ]+)\ +(.*)$
+    ]]
+    local date_part="${BASH_REMATCH[1]}"
+    local command_part="${BASH_REMATCH[2]}"
+    if [ "$command_part" != "$PERSISTENT_HISTORY_LAST" ]
+    then
+        echo $date_part "|" "$command_part" >> ~/.persistent_history
+        export PERSISTENT_HISTORY_LAST="$command_part"
+    fi
+}
+
+run_on_prompt_command()
+{
+    log_bash_persistent_history
+}
+
+PROMPT_COMMAND="run_on_prompt_command"
 
 # prompt colors
 BGREEN='\[\033[1;32m\]'
