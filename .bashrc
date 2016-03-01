@@ -45,20 +45,16 @@ case $OSTYPE in
         export BROWSER=/usr/bin/firefox
     ;;
     darwin*)
-    # function ls { command ls -FhG "$@"; }
     alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
     alias spacemacs="emacs -q --eval '(setq user-emacs-directory \"~/.spacemacs.d/\")' --eval '(load-file \"~/.spacemacs.d/init.el\")'"
-    export HADOOP_HOME="/usr/local/opt/hadoop/libexec"
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
     function ls { command ls -Fh --color=auto "$@"; }
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
         . $(brew --prefix)/etc/bash_completion
     fi
-    export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+    export JAVA_HOME=$(/usr/libexec/java_home)
     export PATH=$JAVA_HOME/bin:$PATH
-    source '/Users/brett/google-cloud-sdk/path.bash.inc'
-    source '/Users/brett/google-cloud-sdk/completion.bash.inc'
     ;;
     *)
     ;;
@@ -216,7 +212,7 @@ case "$TERM" in
     xterm-*color|xterm|eterm-color|screen*)
         # color based on host
         case $(hostname) in
-            vagrant*|widget*)
+            vagrant*|widget*|orange*)
                 HOSTCOLOR="$BGREEN"
             ;;
             *)
