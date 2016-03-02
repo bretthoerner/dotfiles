@@ -43,6 +43,7 @@ case $OSTYPE in
         # socat TCP-LISTEN:6379,reuseaddr,fork TCP:10.79.29.210:6379
 
         export BROWSER=/usr/bin/firefox
+        export DOCKER_NATIVE=true
     ;;
     darwin*)
     alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
@@ -70,8 +71,13 @@ updaterepos ()
     prev=$(pwd)
     cd "${HOME}/Development/src-mirror/"
     updategit
+    cd "${HOME}/Development/sf/"
+    updategit
     cd "$prev"
 }
+
+# sf
+source "${HOME}/.bashrc.sf"
 
 # lang
 export LC_CTYPE="en_US.UTF-8"
