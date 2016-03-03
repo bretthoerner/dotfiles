@@ -13,3 +13,5 @@ tags
 .xmonad/xmonad.errors
 .xmonad/xmonad.hi
 .xmonad/xmonad.o
+*.iml
+.idea
