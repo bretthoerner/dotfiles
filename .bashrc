@@ -46,8 +46,6 @@ case $OSTYPE in
         export DOCKER_NATIVE=true
     ;;
     darwin*)
-    alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
-    alias spacemacs="emacs -q --eval '(setq user-emacs-directory \"~/.spacemacs.d/\")' --eval '(load-file \"~/.spacemacs.d/init.el\")'"
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
     function ls { command ls -Fh --color=auto "$@"; }
@@ -91,9 +89,6 @@ export PATH="${PATH}:${HOME}/.virtualenv/bin"
 # local
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
-# mvn
-export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m"
-
 # ruby
 export PATH="${HOME}/.gem/ruby/2.3.0/bin:$PATH"
 
@@ -111,6 +106,12 @@ fi
 
 # sbt
 export SBT_OPTS=-XX:MaxPermSize=256M
+
+# mvn
+export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m"
+
+# travis
+[ -f /home/brett/.travis/travis.sh ] && source /home/brett/.travis/travis.sh
 
 # node bin
 [[ -d "$HOME/node_modules/.bin" ]] && export PATH="$HOME/node_modules/.bin:$PATH"
@@ -241,4 +242,3 @@ case "$TERM" in
         PS1="\u@\h:\w\$ "
     ;;
 esac
-
