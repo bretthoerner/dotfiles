@@ -44,6 +44,7 @@ case $OSTYPE in
 
         export BROWSER=/usr/bin/firefox
         export DOCKER_NATIVE=true
+        export JAVA_HOME=/usr/lib/jvm/default
     ;;
     darwin*)
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"

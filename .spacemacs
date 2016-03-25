@@ -265,6 +265,9 @@ layers configuration. You are free to put any user code."
                 vc-follow-symlinks t
                 ;; stop cursor from creeping back when you switch to normal mode
                 evil-move-cursor-back nil
+                ;; browse-url
+                browse-url-browser-function 'browse-url-generic
+                browse-url-generic-program "/usr/bin/firefox"
                 )
 
   ;; move by visual lines, not actual lines
