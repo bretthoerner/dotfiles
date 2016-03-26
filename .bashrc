@@ -60,6 +60,23 @@ case $OSTYPE in
     ;;
 esac
 
+updatearch()
+{
+    yaourt -Syyu --aur
+}
+
+updatepip()
+{
+    source "${HOME}/.virtualenv/bin/activate"
+    pip install --upgrade pip awscli
+    deactivate
+}
+
+updategems()
+{
+    gem update --user-install pry activesupport awesome_print simple_uuid jekyll fpm t chef pry-doc ruby_parser knife-ec2 travis
+}
+
 updategit ()
 {
     find . -maxdepth 2 -name ".git" -type d -print0 | xargs -0 -n 1 -I {} -P 8 bash -c "echo && cd {}/.. && pwd && git up"
@@ -73,6 +90,14 @@ updaterepos ()
     cd "${HOME}/Development/sf/"
     updategit
     cd "$prev"
+}
+
+updateall()
+{
+    updaterepos
+    updatepip
+    updategems
+    updatearch
 }
 
 # sf
