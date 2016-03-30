@@ -121,6 +121,10 @@ export PATH="${HOME}/.gem/ruby/2.3.0/bin:$PATH"
 # js
 export PATH="${HOME}/.npm/bin:$PATH"
 
+# gcloud
+source '/home/brett/google-cloud-sdk/path.bash.inc'
+source '/home/brett/google-cloud-sdk/completion.bash.inc'
+
 # go
 export GOPATH="${HOME}/.go"
 export PATH="${HOME}/.go/bin:${PATH}"
