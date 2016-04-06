@@ -68,7 +68,7 @@ updatearch()
 updatepip()
 {
     source "${HOME}/.virtualenv/bin/activate"
-    pip install --upgrade pip awscli
+    pip install --upgrade pip awscli troposphere[policy]
     deactivate
 }
 
