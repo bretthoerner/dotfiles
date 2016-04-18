@@ -20,6 +20,7 @@ case $OSTYPE in
         fi
 
         alias open="gnome-open"
+        alias git="hub"
 
         # open tabs in same directory
         [ -f /etc/profile.d/vte.sh ] && . /etc/profile.d/vte.sh
