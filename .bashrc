@@ -127,8 +127,8 @@ source '/home/brett/google-cloud-sdk/path.bash.inc'
 source '/home/brett/google-cloud-sdk/completion.bash.inc'
 
 # go
-export GOPATH="${HOME}/.go"
-export PATH="${HOME}/.go/bin:${PATH}"
+export GOPATH="${HOME}/Development/go"
+export PATH="${GOPATH}/bin:${PATH}"
 
 # add ~/bin to PATH if it exists
 if [ -d "${HOME}/bin" ]; then
