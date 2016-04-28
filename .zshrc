@@ -67,7 +67,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # source files in common between bash and zsh
-find -L "${HOME}/.shell-private.d/" "${HOME}/.shell-public.d/" -type f | while read s; do
+for s in ${HOME}/.shell-private.d/* ${HOME}/.shell-public.d/*; do
     source $s
 done
 
