@@ -38,6 +38,7 @@ values."
      org
      python
      ruby
+     ruby-on-rails
      rust
      shell
      smex

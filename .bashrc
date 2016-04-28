@@ -68,14 +68,12 @@ updatearch()
 
 updatepip()
 {
-    source "${HOME}/.virtualenv/bin/activate"
-    pip install --upgrade pip awscli troposphere[policy]
-    deactivate
+    pip install --upgrade pip awscli yapf autoflake
 }
 
 updategems()
 {
-    gem update --user-install pry activesupport awesome_print simple_uuid jekyll fpm t chef pry-doc ruby_parser knife-ec2 travis
+    gem update --user-install pry pry-doc activesupport awesome_print jekyll fpm t chef ruby_parser knife-ec2 travis
 }
 
 updategit ()
@@ -110,8 +108,12 @@ export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-# virtualenv
-export PATH="${PATH}:${HOME}/.virtualenv/bin"
+# pyenv
+if [[ -d "${HOME}/.pyenv/" ]]; then
+    export PATH="${HOME}/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 # local
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
