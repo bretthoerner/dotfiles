@@ -72,5 +72,7 @@ for s in ${HOME}/.shell-private.d/* ${HOME}/.shell-public.d/*; do
 done
 
 # gcloud
-source '/home/brett/google-cloud-sdk/path.zsh.inc'
-source '/home/brett/google-cloud-sdk/completion.zsh.inc'
+if [ -d "${HOME}/google-cloud-sdk" ]; then
+    source "${HOME}/google-cloud-sdk/path.zsh.inc"
+    source "${HOME}/google-cloud-sdk/completion.zsh.inc"
+fi

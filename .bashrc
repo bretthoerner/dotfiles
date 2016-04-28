@@ -57,8 +57,10 @@ for s in ${HOME}/.shell-private.d/* ${HOME}/.shell-public.d/*; do
 done
 
 # gcloud
-source '/home/brett/google-cloud-sdk/path.bash.inc'
-source '/home/brett/google-cloud-sdk/completion.bash.inc'
+if [ -d "${HOME}/google-cloud-sdk" ]; then
+    source "${HOME}/google-cloud-sdk/path.bash.inc"
+    source "${HOME}/google-cloud-sdk/completion.bash.inc"
+fi
 
 ##################################################
 # if not running interactively, don't go further #
