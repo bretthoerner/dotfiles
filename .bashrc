@@ -13,14 +13,12 @@ case $OSTYPE in
         fi
 
         function ls { command ls -Fh --color=auto "$@"; }
+        function ll { ls -l "$@"; }
 
         # source the bash-completion file
         if [ -r "/etc/bash_completion" ]; then
             . "/etc/bash_completion"
         fi
-
-        alias open="gnome-open"
-        alias git="hub"
 
         # open tabs in same directory
         [ -f /etc/profile.d/vte.sh ] && . /etc/profile.d/vte.sh
@@ -42,143 +40,24 @@ case $OSTYPE in
         # -A print packet in ASCII
 
         # socat TCP-LISTEN:6379,reuseaddr,fork TCP:10.79.29.210:6379
-
-        export BROWSER=/usr/bin/firefox
-        export DOCKER_NATIVE=true
-        export JAVA_HOME=/usr/lib/jvm/default
-    ;;
-    darwin*)
-    export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-    function ls { command ls -Fh --color=auto "$@"; }
-    if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
-    fi
-    export JAVA_HOME=$(/usr/libexec/java_home)
-    export PATH=$JAVA_HOME/bin:$PATH
     ;;
     *)
     ;;
 esac
 
-updatearch()
-{
-    yaourt -Syyu --aur
-}
-
-updatepip()
-{
-    pip install --upgrade pip awscli yapf autoflake
-}
-
-updategems()
-{
-    gem update --user-install pry pry-doc activesupport awesome_print jekyll fpm t chef ruby_parser knife-ec2 travis
-}
-
-updategit ()
-{
-    find . -maxdepth 2 -name ".git" -type d -print0 | xargs -0 -n 1 -I {} -P 8 bash -c "echo && cd {}/.. && pwd && git up"
-}
-
-updaterepos ()
-{
-    prev=$(pwd)
-    cd "${HOME}/Development/src-mirror/"
-    updategit
-    cd "${HOME}/Development/sf/"
-    updategit
-    cd "$prev"
-}
-
-updateall()
-{
-    updaterepos
-    updatepip
-    updategems
-    updatearch
-}
-
-# sf
-source "${HOME}/.bashrc.sf"
-
-# lang
-export LC_CTYPE="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
-
-# pyenv
-if [[ -d "${HOME}/.pyenv/" ]]; then
-    export PATH="${HOME}/.pyenv/bin:$PATH"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
-
-# local
-export PATH=/usr/local/sbin:/usr/local/bin:$PATH
-
-# ruby
-export PATH="${HOME}/.gem/ruby/2.3.0/bin:$PATH"
-
-# js
-export PATH="${HOME}/.npm/bin:$PATH"
+# source files in common between bash and zsh
+find -L "${HOME}/.shell-private.d/" "${HOME}/.shell-public.d/" -type f | while read s; do
+    source $s
+done
 
 # gcloud
 source '/home/brett/google-cloud-sdk/path.bash.inc'
 source '/home/brett/google-cloud-sdk/completion.bash.inc'
 
-# go
-export GOPATH="${HOME}/Development/go"
-export PATH="${GOPATH}/bin:${PATH}"
-
-# add ~/bin to PATH if it exists
-if [ -d "${HOME}/bin" ]; then
-    export PATH=${HOME}/bin:$PATH
-fi
-
-# sbt
-export SBT_OPTS=-XX:MaxPermSize=256M
-
-# mvn
-export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m"
-
-# travis
-[ -f /home/brett/.travis/travis.sh ] && source /home/brett/.travis/travis.sh
-
-# node bin
-[[ -d "$HOME/node_modules/.bin" ]] && export PATH="$HOME/node_modules/.bin:$PATH"
-
-# cabal bin
-[[ -d "$HOME/.cabal/bin" ]] && export PATH="$HOME/.cabal/bin:$PATH"
-
-# cargo bin
-[[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
-
-# rvm
-[[ -f "$HOME/.rvm/scripts/rvm" ]] && source /home/brett/.rvm/scripts/rvm
-
-# scala
-export SBT_OPTS="-Dscala.color"
-export JAVA_OPTS="-Dscala.color"
-
-# setup various ENV variables
-export EDITOR="vim"
-export PAGER="less -R"
-export GPGKEY="252426C1"
-export EMAIL="brett@bretthoerner.com"
-export DEBEMAIL=$EMAIL
-export DEBFULLNAME="Brett Hoerner"
-export PYTHONDONTWRITEBYTECODE=1
-export PIP_RESPECT_VIRTUALENV=true
-
 ##################################################
 # if not running interactively, don't go further #
 [ -z "$PS1" ] && return                          #
 ##################################################
-
-# tmux completion
-[[ -f "$HOME/bin/bash_completion_tmux.sh" ]] && source "$HOME/bin/bash_completion_tmux.sh"
 
 # erase duplicate lines from the history; ignore lines that begin with a space
 HISTCONTROL=erasedups:ignorespace
@@ -202,14 +81,6 @@ shopt -s checkwinsize
 
 # don't print ^C, etc
 stty -echoctl
-
-function ll { ls -l "$@"; }
-
-alias gti="git"
-
-alias rm="rm -i"
-alias mv="mv -i"
-alias cp="cp -i"
 
 HISTTIMEFORMAT="%d/%m/%y %T "
 
@@ -252,7 +123,7 @@ case "$TERM" in
     xterm-*color|xterm|eterm-color|screen*)
         # color based on host
         case $(hostname) in
-            vagrant*|widget*|orange*)
+            vagrant*|widget*)
                 HOSTCOLOR="$BGREEN"
             ;;
             *)

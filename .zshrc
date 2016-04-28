@@ -66,7 +66,11 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# source files in common between bash and zsh
+find -L "${HOME}/.shell-private.d/" "${HOME}/.shell-public.d/" -type f | while read s; do
+    source $s
+done
 
-export LANG=en_US.UTF-8
-export EDITOR=vim
+# gcloud
+source '/home/brett/google-cloud-sdk/path.zsh.inc'
+source '/home/brett/google-cloud-sdk/completion.zsh.inc'
