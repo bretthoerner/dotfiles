@@ -271,6 +271,8 @@ layers configuration. You are free to put any user code."
                 ;; browse-url
                 browse-url-browser-function 'browse-url-generic
                 browse-url-generic-program "/usr/bin/firefox"
+                ;; ignore message
+                exec-path-from-shell-check-startup-files nil
                 )
 
   ;; move by visual lines, not actual lines
