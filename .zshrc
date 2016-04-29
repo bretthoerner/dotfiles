@@ -66,6 +66,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# keep trailing slash on dir autocomplete
+setopt no_auto_remove_slash
+
 # source files in common between bash and zsh
 for s in ${HOME}/.shell-private.d/* ${HOME}/.shell-public.d/*; do
     source $s
