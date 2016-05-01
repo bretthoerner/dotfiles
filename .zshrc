@@ -1,3 +1,6 @@
+# Don't setup before launching X11
+[ -z ${DISPLAY+x} ] && return
+
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
 
