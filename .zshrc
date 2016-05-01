@@ -50,16 +50,18 @@ DISABLE_AUTO_UPDATE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    archlinux
+    adb
+    bundler
     colored-man-pages
+    command-not-found
     docker
-    git
+    docker-compose
+    gem
     go
     knife
     knife_ssh
     mosh
     mvn
-    sbt
     tmux
     vagrant
 )
@@ -79,5 +81,9 @@ if [ -d "${HOME}/google-cloud-sdk" ]; then
     source "${HOME}/google-cloud-sdk/path.zsh.inc"
     source "${HOME}/google-cloud-sdk/completion.zsh.inc"
 fi
+
+_aws_zsh_completer_path="${HOME}/.pyenv/versions/2.7.11/bin/aws_zsh_completer.sh"
+[ -x $_aws_zsh_completer_path ] && source $_aws_zsh_completer_path
+unset _aws_zsh_completer_path
 
 PROMPT='${ret_status} %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
