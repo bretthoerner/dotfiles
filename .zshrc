@@ -1,5 +1,5 @@
-# Don't setup before launching X11
-[ -z ${DISPLAY+x} ] && return
+# Don't setup before launching X11 and not on an ssh connection
+([ -z ${DISPLAY+x} ] && [ -z ${SSH_CONNECTION+x} ]) && return
 
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
