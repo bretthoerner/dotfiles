@@ -5,12 +5,27 @@ updatearch()
 
 updatepip()
 {
-    pip install --upgrade pip awscli yapf autoflake
+    pip install --upgrade \
+        autoflake \
+        awscli \
+        matplotlib \
+        pip \
+        yapf
 }
 
 updategems()
 {
-    gem update --user-install pry pry-doc activesupport awesome_print jekyll fpm t chef ruby_parser knife-ec2 travis
+    gem update --user-install \
+        activesupport \
+        awesome_print \
+        chef \
+        fpm \
+        jekyll \
+        knife-ec2 \
+        pry \
+        pry-doc \
+        ruby_parser \
+        travis
 }
 
 updategit ()
