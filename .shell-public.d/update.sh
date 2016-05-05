@@ -15,15 +15,13 @@ updategems()
 
 updategit ()
 {
-    find . -maxdepth 2 -name ".git" -type d -print0 | xargs -0 -n 1 -I {} -P 8 bash -c "echo && cd {}/.. && pwd && git up"
+    find . -maxdepth 3 -name ".git" -type d -print0 | xargs -0 -n 1 -I {} -P 8 bash -c "echo && cd {}/.. && pwd && git up"
 }
 
 updaterepos ()
 {
     prev=$(pwd)
-    cd "${HOME}/Development/src-mirror/"
-    updategit
-    cd "${HOME}/Development/sf/"
+    cd "${HOME}/Development/"
     updategit
     cd "$prev"
 }
