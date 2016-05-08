@@ -28,12 +28,12 @@ updategems()
         travis
 }
 
-updategit ()
+updategit()
 {
     find . -maxdepth 3 -name ".git" -type d -print0 | xargs -0 -n 1 -I {} -P 8 bash -c "echo && cd {}/.. && pwd && git up"
 }
 
-updaterepos ()
+updaterepos()
 {
     prev=$(pwd)
     cd "${HOME}/Development/"
@@ -41,10 +41,17 @@ updaterepos ()
     cd "$prev"
 }
 
+updaterust()
+{
+    rustup self update
+    rustup update
+}
+
 updateall()
 {
     updaterepos
     updatepip
     updategems
+    updaterust
     updatearch
 }
