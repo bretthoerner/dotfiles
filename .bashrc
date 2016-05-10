@@ -26,9 +26,6 @@ case $OSTYPE in
             . "/etc/bash_completion"
         fi
 
-        # open tabs in same directory
-        [ -f /etc/profile.d/vte.sh ] && . /etc/profile.d/vte.sh
-
         # lsof -nPp
         # -n don't convert addresses
         # -P don't convert ports

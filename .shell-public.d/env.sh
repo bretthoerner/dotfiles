@@ -66,3 +66,6 @@ export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m"
 # scala
 export SBT_OPTS="-Dscala.color"
 export JAVA_OPTS="-Dscala.color"
+
+# vte
+[[ -f /etc/profile.d/vte.sh ]] && source /etc/profile.d/vte.sh

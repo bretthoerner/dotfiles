@@ -8,7 +8,6 @@ updatepip()
     pip install --upgrade \
         autoflake \
         awscli \
-        matplotlib \
         pip \
         yapf
 }

@@ -34,6 +34,7 @@ values."
      go
      (haskell :variables haskell-enable-ghc-mod-support t)
      javascript
+     lua
      markdown
      org
      python
