@@ -46,11 +46,16 @@ updaterust()
     rustup update
 }
 
+updategcloud() {
+    yes | gcloud components update
+}
+
 updateall()
 {
     updaterepos
     updatepip
     updategems
     updaterust
+    updategcloud
     updatearch
 }
