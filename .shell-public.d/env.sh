@@ -34,7 +34,10 @@ export PATH="${HOME}/.gem/ruby/2.3.0/bin:$PATH"
 export PATH="${HOME}/.npm/bin:$PATH"
 
 # go
-export GOPATH="${HOME}/Development/go"
+if [ -z ${GOPATH+x} ]; then
+    # only if another GOPATH isn't already set
+    export GOPATH="${HOME}/Development/go"
+fi
 export PATH="${GOPATH}/bin:${PATH}"
 
 # add ~/bin to PATH if it exists
