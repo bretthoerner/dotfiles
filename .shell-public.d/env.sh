@@ -60,8 +60,10 @@ export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m"
 # cabal bin
 [[ -d "$HOME/.cabal/bin" ]] && export PATH="$HOME/.cabal/bin:$PATH"
 
-# cargo bin
+# rust/cargo
 [[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
+[[ -d "$HOME/.cargo" ]] && export CARGO_HOME="$HOME/.cargo"
+[[ -d "$HOME/Development/src-mirror/rust/src" ]] && export RUST_SRC_PATH="$HOME/Development/src-mirror/rust/src"
 
 # rvm
 [[ -f "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
