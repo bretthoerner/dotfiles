@@ -5,15 +5,20 @@ updatearch()
 
 updatepip()
 {
+    pushd
+    cd $HOME
     pip install --upgrade \
         autoflake \
         awscli \
         pip \
         yapf
+    popd
 }
 
 updategems()
 {
+    pushd
+    cd $HOME
     gem update --user-install \
         activesupport \
         awesome_print \
@@ -25,19 +30,30 @@ updategems()
         pry-doc \
         ruby_parser \
         travis
+    popd
 }
 
 updategit()
 {
-    find . -maxdepth 3 -name ".git" -type d -print0 | xargs -0 -n 1 -I {} -P 8 bash -c "echo && cd {}/.. && pwd && git up"
+    find . \
+         -maxdepth 3 \
+         -name ".git" \
+         -type d \
+         -print0 \
+        | xargs \
+              -0 \
+              -n 1 \
+              -I {} \
+              -P 8 \
+              bash -c "echo && cd {}/.. && pwd && git up"
 }
 
 updaterepos()
 {
-    prev=$(pwd)
+    pushd
     cd "${HOME}/Development/"
     updategit
-    cd "$prev"
+    popd
 }
 
 updaterust()

@@ -25,7 +25,7 @@ if [[ -d "${HOME}/.pyenv/" ]]; then
 fi
 
 # local
-export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 
 # ruby
 export PATH="${HOME}/.gem/ruby/2.3.0/bin:$PATH"
@@ -41,18 +41,17 @@ fi
 export PATH="${GOPATH}/bin:${PATH}"
 
 # add ~/bin to PATH if it exists
-if [ -d "${HOME}/bin" ]; then
-    export PATH=${HOME}/bin:$PATH
-fi
-
-# sbt
-export SBT_OPTS=-XX:MaxPermSize=256M
+[[ -d "${HOME}/bin" ]] && export PATH="${HOME}/bin:$PATH"
 
 # mvn
-export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m"
+export MAVEN_OPTS="-Xmx512m"
+
+# scala
+export SBT_OPTS="-Dscala.color"
+export JAVA_OPTS="-Dscala.color"
 
 # travis
-[ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
+[[ -f "$HOME/.travis/travis.sh" ]] && source "$HOME/.travis/travis.sh"
 
 # node bin
 [[ -d "$HOME/node_modules/.bin" ]] && export PATH="$HOME/node_modules/.bin:$PATH"
@@ -67,10 +66,6 @@ export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m"
 
 # rvm
 [[ -f "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# scala
-export SBT_OPTS="-Dscala.color"
-export JAVA_OPTS="-Dscala.color"
 
 # vte
 [[ -f /etc/profile.d/vte.sh ]] && source /etc/profile.d/vte.sh
