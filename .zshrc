@@ -85,6 +85,11 @@ if [ -d "${HOME}/google-cloud-sdk" ]; then
     source "${HOME}/google-cloud-sdk/completion.zsh.inc"
 fi
 
+# kubectl
+_kubectl_completer_path="${HOME}/Development/src-mirror/kubernetes/contrib/completions/zsh/kubectl"
+[ -x $_kubectl_completer_path ] && source $_kubectl_completer_path
+unset _kubectl_completer_path
+
 _aws_zsh_completer_path="${HOME}/.pyenv/versions/2.7.11/bin/aws_zsh_completer.sh"
 [ -x $_aws_zsh_completer_path ] && source $_aws_zsh_completer_path
 unset _aws_zsh_completer_path
