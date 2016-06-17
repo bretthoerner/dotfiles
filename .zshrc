@@ -83,15 +83,26 @@ done
 if [ -d "${HOME}/google-cloud-sdk" ]; then
     source "${HOME}/google-cloud-sdk/path.zsh.inc"
     source "${HOME}/google-cloud-sdk/completion.zsh.inc"
+else
+    echo "Failed to load gcloud completions."
 fi
 
 # kubectl
-_kubectl_completer_path="${HOME}/Development/src-mirror/kubernetes/contrib/completions/zsh/kubectl"
-[ -x $_kubectl_completer_path ] && source $_kubectl_completer_path
+_kubectl_completer_path="${HOME}/.kube-completions.zsh"
+if [ -x $_kubectl_completer_path ]; then
+    source $_kubectl_completer_path
+else
+    echo "Failed to load Kubernetes completions."
+fi
 unset _kubectl_completer_path
 
+# awscli
 _aws_zsh_completer_path="${HOME}/.pyenv/versions/2.7.11/bin/aws_zsh_completer.sh"
-[ -x $_aws_zsh_completer_path ] && source $_aws_zsh_completer_path
+if [ -x $_aws_zsh_completer_path ]; then
+    source $_aws_zsh_completer_path
+else
+    echo "Failed to load awscli completions."
+fi
 unset _aws_zsh_completer_path
 
 PROMPT='${ret_status} %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
