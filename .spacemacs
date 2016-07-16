@@ -261,7 +261,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  (setq-default debug-on-error t
+  (setq-default debug-on-error nil
                 ;; don't use trash
                 delete-by-moving-to-trash nil
                 ;; js indent
