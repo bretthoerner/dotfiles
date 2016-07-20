@@ -88,13 +88,7 @@ else
 fi
 
 # kubectl
-_kubectl_completer_path="${HOME}/.kube-completions.zsh"
-if [ -x $_kubectl_completer_path ]; then
-    source $_kubectl_completer_path
-else
-    echo "Failed to load Kubernetes completions."
-fi
-unset _kubectl_completer_path
+source <(kubectl completion zsh)
 
 # awscli
 _aws_zsh_completer_path="${HOME}/.pyenv/versions/2.7.11/bin/aws_zsh_completer.sh"
