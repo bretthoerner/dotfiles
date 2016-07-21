@@ -8,7 +8,7 @@ export DEBFULLNAME="Brett Hoerner"
 export PYTHONDONTWRITEBYTECODE=1
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PIP_RESPECT_VIRTUALENV=true
-export BROWSER=/usr/bin/firefox
+export BROWSER=/usr/bin/google-chrome-stable
 export JAVA_HOME=/usr/lib/jvm/default
 
 # lang

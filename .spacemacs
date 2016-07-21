@@ -273,7 +273,7 @@ layers configuration. You are free to put any user code."
                 evil-move-cursor-back nil
                 ;; browse-url
                 browse-url-browser-function 'browse-url-generic
-                browse-url-generic-program "/usr/bin/firefox"
+                browse-url-generic-program "/usr/bin/google-chrome-stable"
                 )
 
   ;; move by visual lines, not actual lines
