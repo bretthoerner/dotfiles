@@ -63,6 +63,7 @@ export JAVA_OPTS="-Dscala.color"
 [[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
 [[ -d "$HOME/.cargo" ]] && export CARGO_HOME="$HOME/.cargo"
 [[ -d "$HOME/Development/src-mirror/rust/src" ]] && export RUST_SRC_PATH="$HOME/Development/src-mirror/rust/src"
+export RUST_NEW_ERROR_FORMAT=true
 
 # rvm
 [[ -f "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

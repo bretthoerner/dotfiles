@@ -53,7 +53,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(racer)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -274,6 +274,8 @@ layers configuration. You are free to put any user code."
                 ;; browse-url
                 browse-url-browser-function 'browse-url-generic
                 browse-url-generic-program "/usr/bin/google-chrome-stable"
+                ;; racer
+                racer-rust-src-path (concat (getenv "HOME") "/Development/src-mirror/rust")
                 )
 
   ;; move by visual lines, not actual lines
@@ -282,11 +284,10 @@ layers configuration. You are free to put any user code."
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
   (define-key evil-normal-state-map (kbd "<up>") 'evil-previous-visual-line)
 
-  ;; prune whitespace, see: https://github.com/syl20bnr/spacemacs/pull/3431
-  (progn
-    (ws-butler-global-mode 1)
-    (spacemacs|hide-lighter ws-butler-mode))
-  )
+  ;; racer
+  (add-hook 'rust-mode-hook #'racer-mode)
+  (add-hook 'racer-mode-hook #'eldoc-mode)
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
