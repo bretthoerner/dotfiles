@@ -102,7 +102,7 @@ unset _aws_zsh_completer_path
 
 # kubectl
 if which kubectl &> /dev/null; then
-    source <(kubectl-1.3 completion zsh)
+    source <(kubectl completion zsh)
 fi
 
 PROMPT='${ret_status} %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'

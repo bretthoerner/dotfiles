@@ -49,14 +49,27 @@ case $OSTYPE in
 esac
 
 # source files in common between bash and zsh
-for s in ${HOME}/.shell-private.d/* ${HOME}/.shell-public.d/*; do
-    source $s
-done
+if [ -d "${HOME}/.shell-private.d" ]; then
+    for s in ${HOME}/.shell-private.d/*; do
+        source $s
+    done
+fi
+
+if [ -d "${HOME}/.shell-public.d" ]; then
+    for s in ${HOME}/.shell-public.d/*; do
+        source $s
+    done
+fi
 
 # gcloud
 if [ -d "${HOME}/google-cloud-sdk" ]; then
     source "${HOME}/google-cloud-sdk/path.bash.inc"
     source "${HOME}/google-cloud-sdk/completion.bash.inc"
+fi
+
+# kubectl
+if which kubectl &> /dev/null; then
+    source <(kubectl completion bash)
 fi
 
 ##################################################
