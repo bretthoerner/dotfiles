@@ -14,3 +14,10 @@ function link-go-tools() {
         ln -nsf "${HOME}/Development/go/bin/${tool}" "${GOPATH}/bin/${tool}"
     done
 }
+
+function workon-go() {
+    project=$1
+    export GOPATH=$HOME/Development/go/roots/$project/
+    export PATH=$HOME/Development/go/versions/current/bin:$PATH
+    export GOROOT=$HOME/Development/go/versions/current
+}
