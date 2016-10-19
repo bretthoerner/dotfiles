@@ -31,7 +31,7 @@ xmodmap -e "keysym Caps_Lock = Control_L"
 xmodmap -e "add Control = Control_L"
 
 # middle click = left click
-xinput set-button-map "SynPS/2 Synaptics TouchPad" 1 1 3 4 5 6 7 8 9 10 11 12
+# xinput set-button-map "SynPS/2 Synaptics TouchPad" 1 1 3 4 5 6 7 8 9 10 11 12
 
 # background
 # feh --bg-center ~/.bg.jpg
@@ -63,9 +63,6 @@ unclutter &
 
 # redshift
 redshift -l geoclue2 &
-
-# no tap to click
-synclient TapButton1=0 TapButton2=0 TapButton3=0 &
 
 # notifications
 dunst -conf ~/.dunstrc &
