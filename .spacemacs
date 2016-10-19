@@ -39,10 +39,8 @@ values."
      auto-completion
      better-defaults
      (c-c++ :variables c-c++-enable-clang-support t)
-     dockerfile
      emacs-lisp
-     finance
-     (git :variables git-magit-status-fullscreen t)
+     git
      github
      go
      (haskell :variables haskell-enable-ghc-mod-support t)
@@ -128,10 +126,8 @@ values."
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
    ;; Possible values for list-type are:
    ;; `recents' `bookmarks' `projects' `agenda' `todos'."
-   ;; Example for 5 recent files and 7 projects: '((recents . 5) (projects . 7))
    ;; List sizes may be nil, in which case
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
-   ;; (default nil)
    dotspacemacs-startup-lists '()
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
@@ -165,7 +161,7 @@ values."
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
-   ;; (default "C-M-m)
+   ;; (default "C-M-m")
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs C-i, TAB and C-m, RET.
@@ -304,17 +300,19 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq-default rust-enable-racer t
-                rust-format-on-save t)
+  (setq-default ;; don't use trash
+                delete-by-moving-to-trash nil
+                )
   )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
-layers configuration. You are free to put any user code."
+layers configuration.
+This is the place where most of your configurations should be done. Unless it is
+explicitly specified that a variable should be set before a package is loaded,
+you should place your code here."
   (setq-default debug-on-error nil
-                ;; don't use trash
-                delete-by-moving-to-trash nil
                 ;; js indent
                 js2-basic-offset 2
                 js-indent-level 2
@@ -325,8 +323,10 @@ layers configuration. You are free to put any user code."
                 ;; browse-url
                 browse-url-browser-function 'browse-url-generic
                 browse-url-generic-program "/usr/bin/google-chrome-stable"
-                ;; racer
+                ;; rust
                 racer-rust-src-path (concat (getenv "HOME") "/Development/src-mirror/rust")
+                rust-enable-racer t
+                rust-format-on-save t
                 )
 
   ;; move by visual lines, not actual lines
