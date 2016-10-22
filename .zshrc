@@ -106,3 +106,4 @@ if which kubectl &> /dev/null; then
 fi
 
 PROMPT='${ret_status} %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
+

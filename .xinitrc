@@ -51,21 +51,23 @@ export GPG_AGENT_INFO
 # parcellite &
 
 # screensaver
-#gnome-screensaver --no-daemon &
 xscreensaver -no-splash &
 xss-lock -- xscreensaver-command -lock &
-
-# nautilus
-nautilus -n --no-desktop &
 
 # hide mouse
 unclutter &
 
 # redshift
-redshift -l geoclue2 &
+# redshift -l geoclue2 &
 
 # notifications
 dunst -conf ~/.dunstrc &
+
+# color
+xcalib -d :0 ~/Documents/Misc/dell_xps_13.icc
+
+# resolution
+xrandr --output eDP1 --mode 1600x900
 
 # ssh agent
 #eval $(ssh-agent)

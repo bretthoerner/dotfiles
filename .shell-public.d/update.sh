@@ -27,9 +27,7 @@ updategems()
         jekyll \
         knife-ec2 \
         pry \
-        pry-doc \
-        ruby_parser \
-        travis
+        pry-doc
     popd
 }
 
