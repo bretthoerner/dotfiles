@@ -58,16 +58,18 @@ xss-lock -- xscreensaver-command -lock &
 unclutter &
 
 # redshift
-# redshift -l geoclue2 &
+redshift -l geoclue2 &
 
 # notifications
 dunst -conf ~/.dunstrc &
 
 # color
-xcalib -d :0 ~/Documents/Misc/dell_xps_13.icc
+# xcalib -d :0 ~/Documents/Misc/dell_xps_13.icc
+# xcalib -c
+# sct 7000
 
 # resolution
-xrandr --output eDP1 --mode 1600x900
+xrandr --output eDP1 --mode 1920x1080
 
 # ssh agent
 #eval $(ssh-agent)
