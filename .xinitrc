@@ -69,7 +69,7 @@ dunst -conf ~/.dunstrc &
 # sct 7000
 
 # resolution
-xrandr --output eDP1 --mode 1920x1080
+# xrandr --output eDP1 --mode 1920x1080
 
 # ssh agent
 #eval $(ssh-agent)
