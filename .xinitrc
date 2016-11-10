@@ -44,12 +44,6 @@ eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 
-# networkmanager needs the applet for some things (e.g., vpn)
-# nm-applet &
-
-# clipboard
-# parcellite &
-
 # screensaver
 xscreensaver -no-splash &
 xss-lock -- xscreensaver-command -lock &
@@ -58,18 +52,10 @@ xss-lock -- xscreensaver-command -lock &
 unclutter &
 
 # redshift
-redshift -l geoclue2 &
+redshift -l geoclue2 -g .75:.75:.75 &
 
 # notifications
 dunst -conf ~/.dunstrc &
-
-# color
-# xcalib -d :0 ~/Documents/Misc/dell_xps_13.icc
-# xcalib -c
-# sct 7000
-
-# resolution
-# xrandr --output eDP1 --mode 1920x1080
 
 # ssh agent
 #eval $(ssh-agent)

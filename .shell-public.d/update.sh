@@ -19,7 +19,7 @@ updategems()
 {
     pushd
     cd $HOME
-    gem update --user-install \
+    gem update \
         activesupport \
         awesome_print \
         chef \
