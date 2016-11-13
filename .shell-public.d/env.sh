@@ -47,10 +47,10 @@ export PATH="${GOPATH}/bin:${PATH}"
 [[ -d "${HOME}/bin" ]] && export PATH="${HOME}/bin:$PATH"
 
 # mvn
-export MAVEN_OPTS="-Xmx512m"
+export MAVEN_OPTS="-Xmx2G"
 
 # scala
-export SBT_OPTS="-Dscala.color"
+export SBT_OPTS="-Dscala.color -Xmx2G"
 export JAVA_OPTS="-Dscala.color"
 
 # travis
