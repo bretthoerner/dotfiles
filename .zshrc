@@ -94,11 +94,13 @@ if [ -d "${HOME}/google-cloud-sdk" ]; then
 fi
 
 # awscli
-_aws_zsh_completer_path="$(dirname $(pyenv which python))/aws_zsh_completer.sh"
-if [ -x $_aws_zsh_completer_path ]; then
-    source $_aws_zsh_completer_path
+if which pyenv &> /dev/null; then
+    _aws_zsh_completer_path="$(dirname $(pyenv which python))/aws_zsh_completer.sh"
+    if [ -x $_aws_zsh_completer_path ]; then
+        source $_aws_zsh_completer_path
+    fi
+    unset _aws_zsh_completer_path
 fi
-unset _aws_zsh_completer_path
 
 # kubectl
 if which kubectl &> /dev/null; then
