@@ -3,19 +3,14 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
        , fgColor = "grey"
        , position = Top
        , lowerOnStart = True
-       , commands = [ Run Network "wlp4s0" ["-L", "0", "-H", "512", "-m", "3", "--normal", "green", "--high", "red"] 10
-                    , Run Network "enp0s31f6" ["-L", "0", "-H", "512", "-m", "3", "--normal", "green", "--high", "red"] 10
-                    , Run Cpu ["-L", "3", "-H", "50", "-p", "2", "--normal", "green", "--high", "red"] 10
-                    , Run BatteryP ["BAT0", "BAT1"]
-                                   ["-L", "10", "-H", "80", "-p", "2",
-                                    "--", "-O", "<fc=green>On</fc> - ", "-o", "",
-                                    "-L", "-15", "-H", "-5",
-                                    "-l", "red", "-m", "blue", "-h", "green"]
-                                    600
+       , commands = [ Run Network "wlp4s0" ["-t", "<fc=green><rx>KB↓</fc> <fc=red><tx>KB↑</fc>"] 10
+                    , Run Network "enp0s31f6" ["-t", "<fc=green><rx>KB↓</fc> <fc=red><tx>KB↑</fc>"] 10
+                    , Run Cpu ["-t", "C: <total>%", "-L", "3", "-H", "50", "-p", "2", "--normal", "green", "--high", "red"] 10
+                    , Run BatteryP ["BAT0", "BAT1"] ["-t", "B: <left>%", "-L", "10", "-H", "80", "-p", "3", "--", "-O", "<fc=green>On</fc> - ", "-o", "", "-L", "-15", "-H", "-5", "-l", "red", "-m", "blue", "-h", "green"] 600
                     , Run Date "%a %b %_d %Y %I:%M%p" "date" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "<action=`gnome-system-monitor`>%cpu%</action> <fc=#ee9a00>|</fc> <action=`gnome-control-center network`>Net: %wlp4s0% - %enp0s31f6% </action> } %StdinReader% { <action=`gnome-control-center power`>%battery%</action> <fc=#ee9a00>|</fc> %date%"
+       , template = "<action=`gnome-system-monitor`>%cpu%</action> <fc=#ee9a00>|</fc> <action=`gnome-control-center network`>W: %wlp4s0% - E: %enp0s31f6% </action> } %StdinReader% { <action=`gnome-control-center power`>%battery%</action> <fc=#ee9a00>|</fc> %date%"
        }

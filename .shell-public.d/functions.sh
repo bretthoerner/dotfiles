@@ -17,7 +17,8 @@ function link-go-tools() {
 
 function workon-go() {
     project=$1
-    export GOPATH=$HOME/Development/go/roots/$project/
-    export PATH=$HOME/Development/go/versions/current/bin:$PATH
-    export GOROOT=$HOME/Development/go/versions/current
+    export GOPATH=$HOME/Development/go/roots/$project
+    version=$(cat $GOPATH/version)
+    export GOROOT=$HOME/Development/go/versions/$version
+    export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 }

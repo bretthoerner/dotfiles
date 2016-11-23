@@ -42,7 +42,6 @@ xsetroot -cursor_name left_ptr
 # gnome keyring
 eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
-export GPG_AGENT_INFO
 
 # screensaver
 xscreensaver -no-splash &
