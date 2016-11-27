@@ -86,9 +86,7 @@ _shell=$(ps -p "$$" -o cmd | tail -1)
 
 # awscli
 for _aws_completer in "aws_${_shell}_completer" "aws_${_shell}_completer.sh"; do
-    if pyenv which $_aws_completer &> /dev/null; then
-       source-if-file $(pyenv which $_aws_completer)
-    fi
+    source-if-file $(pyenv which $_aws_completer 2> /dev/null)
 done
 unset _aws_completer
 
