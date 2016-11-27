@@ -85,10 +85,12 @@ source-if-file "$HOME/.rvm/scripts/rvm"
 _shell=$(ps -p "$$" -o cmd | tail -1)
 
 # awscli
-for _aws_completer in "aws_${_shell}_completer" "aws_${_shell}_completer.sh"; do
-    source-if-file $(pyenv which $_aws_completer 2> /dev/null)
-done
-unset _aws_completer
+if which pyenv &> /dev/null; then
+    for _aws_completer in "aws_${_shell}_completer" "aws_${_shell}_completer.sh"; do
+        source-if-file $(pyenv which $_aws_completer 2> /dev/null)
+    done
+    unset _aws_completer
+fi
 
 # gcloud
 if [[ -d "${HOME}/google-cloud-sdk" ]]; then
