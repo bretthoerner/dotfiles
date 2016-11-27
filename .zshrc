@@ -75,37 +75,14 @@ source $ZSH/oh-my-zsh.sh
 setopt no_auto_remove_slash
 
 # source files in common between bash and zsh
-if [ -d "${HOME}/.shell-private.d" ]; then
-    for s in ${HOME}/.shell-private.d/*; do
-        source $s
-    done
-fi
-
-if [ -d "${HOME}/.shell-public.d" ]; then
-    for s in ${HOME}/.shell-public.d/*; do
-        source $s
-    done
-fi
-
-# gcloud
-if [ -d "${HOME}/google-cloud-sdk" ]; then
-    source "${HOME}/google-cloud-sdk/path.zsh.inc"
-    source "${HOME}/google-cloud-sdk/completion.zsh.inc"
-fi
-
-# awscli
-if which pyenv &> /dev/null; then
-    _aws_zsh_completer_path="$(dirname $(pyenv which python))/aws_zsh_completer.sh"
-    if [ -x $_aws_zsh_completer_path ]; then
-        source $_aws_zsh_completer_path
+for _d in "${HOME}/.shell-private.d" "${HOME}/.shell-public.d"; do
+    if [[ -d $_d ]]; then
+        for _s in $_d/*; do
+            source $_s
+        done
     fi
-    unset _aws_zsh_completer_path
-fi
-
-# kubectl
-if which kubectl &> /dev/null; then
-    source <(kubectl completion zsh)
-fi
+done
+unset _d
+unset _s
 
 PROMPT='${ret_status} %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
-

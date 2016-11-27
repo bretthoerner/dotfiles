@@ -17,6 +17,13 @@ export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+function source-if-file() {
+    _path=$1
+    if [[ -f $_path ]]; then
+        source $_path
+    fi
+}
+
 # pyenv
 if [[ -d "${HOME}/.pyenv/" ]]; then
     export PATH="${HOME}/.pyenv/bin:$PATH"
@@ -37,7 +44,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 export PATH="${HOME}/.npm/bin:$PATH"
 
 # go
-if [ -z ${GOPATH+x} ]; then
+if [[ -z ${GOPATH+x} ]]; then
     # only if another GOPATH isn't already set
     export GOPATH="${HOME}/Development/go"
 fi
@@ -54,7 +61,7 @@ export SBT_OPTS="-Dscala.color -Xmx2G"
 export JAVA_OPTS="-Dscala.color"
 
 # travis
-[[ -f "$HOME/.travis/travis.sh" ]] && source "$HOME/.travis/travis.sh"
+source-if-file "$HOME/.travis/travis.sh"
 
 # node bin
 [[ -d "$HOME/node_modules/.bin" ]] && export PATH="$HOME/node_modules/.bin:$PATH"
@@ -69,7 +76,31 @@ export JAVA_OPTS="-Dscala.color"
 export RUST_NEW_ERROR_FORMAT=true
 
 # rvm
-[[ -f "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+source-if-file "$HOME/.rvm/scripts/rvm"
 
 # vte
 [[ -f /etc/profile.d/vte.sh ]] && source /etc/profile.d/vte.sh
+
+# $SHELL is no good if you (for example) launch bash as a subprocess of zsh
+_shell=$(ps -p "$$" -o cmd | tail -1)
+
+# awscli
+for _aws_completer in "aws_${_shell}_completer" "aws_${_shell}_completer.sh"; do
+    if pyenv which $_aws_completer &> /dev/null; then
+       source-if-file $(pyenv which $_aws_completer)
+    fi
+done
+unset _aws_completer
+
+# gcloud
+if [[ -d "${HOME}/google-cloud-sdk" ]]; then
+    source-if-file "${HOME}/google-cloud-sdk/path.${_shell}.inc"
+    source-if-file "${HOME}/google-cloud-sdk/completion.${_shell}.inc"
+fi
+
+# kubectl
+if which kubectl &> /dev/null; then
+    source <(kubectl completion "${_shell}")
+fi
+
+unset _shell

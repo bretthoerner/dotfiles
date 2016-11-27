@@ -61,17 +61,6 @@ if [ -d "${HOME}/.shell-public.d" ]; then
     done
 fi
 
-# gcloud
-if [ -d "${HOME}/google-cloud-sdk" ]; then
-    source "${HOME}/google-cloud-sdk/path.bash.inc"
-    source "${HOME}/google-cloud-sdk/completion.bash.inc"
-fi
-
-# kubectl
-if which kubectl &> /dev/null; then
-    source <(kubectl completion bash)
-fi
-
 ##################################################
 # if not running interactively, don't go further #
 [ -z "$PS1" ] && return                          #
