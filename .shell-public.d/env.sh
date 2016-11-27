@@ -75,32 +75,6 @@ source-if-file "$HOME/.travis/travis.sh"
 [[ -d "$HOME/Development/src-mirror/rust/src" ]] && export RUST_SRC_PATH="$HOME/Development/src-mirror/rust/src"
 export RUST_NEW_ERROR_FORMAT=true
 
-# rvm
-source-if-file "$HOME/.rvm/scripts/rvm"
-
 # vte
 [[ -f /etc/profile.d/vte.sh ]] && source /etc/profile.d/vte.sh
 
-# $SHELL is no good if you (for example) launch bash as a subprocess of zsh
-_shell=$(ps -p "$$" -o cmd | tail -1)
-
-# awscli
-if which pyenv &> /dev/null; then
-    for _aws_completer in "aws_${_shell}_completer" "aws_${_shell}_completer.sh"; do
-        source-if-file $(pyenv which $_aws_completer 2> /dev/null)
-    done
-    unset _aws_completer
-fi
-
-# gcloud
-if [[ -d "${HOME}/google-cloud-sdk" ]]; then
-    source-if-file "${HOME}/google-cloud-sdk/path.${_shell}.inc"
-    source-if-file "${HOME}/google-cloud-sdk/completion.${_shell}.inc"
-fi
-
-# kubectl
-if which kubectl &> /dev/null; then
-    source <(kubectl completion "${_shell}")
-fi
-
-unset _shell

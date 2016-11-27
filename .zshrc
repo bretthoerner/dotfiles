@@ -85,4 +85,20 @@ done
 unset _d
 unset _s
 
+# awscli
+if which pyenv &> /dev/null; then
+    source-if-file $(pyenv which aws_zsh_completer.sh 2> /dev/null)
+fi
+
+# kubectl
+if which kubectl &> /dev/null; then
+    source <(kubectl completion "zsh")
+fi
+
+# gcloud
+if [[ -d "${HOME}/google-cloud-sdk" ]]; then
+    source-if-file "${HOME}/google-cloud-sdk/path.zsh.inc"
+    # source-if-file "${HOME}/google-cloud-sdk/completion.zsh.inc"
+fi
+
 PROMPT='${ret_status} %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
