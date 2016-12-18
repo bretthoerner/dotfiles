@@ -86,9 +86,7 @@ unset _d
 unset _s
 
 # awscli
-if which pyenv &> /dev/null; then
-    source-if-file $(pyenv which aws_zsh_completer.sh 2> /dev/null)
-fi
+source-if-file $(which aws_zsh_completer.sh 2> /dev/null)
 
 # kubectl
 if which kubectl &> /dev/null; then

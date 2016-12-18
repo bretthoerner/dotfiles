@@ -3,18 +3,6 @@ updatearch()
     yaourt -Syyu --aur
 }
 
-updatepip()
-{
-    pushd
-    cd $HOME
-    pip install --upgrade \
-        autoflake \
-        awscli \
-        pip \
-        yapf
-    popd
-}
-
 updategems()
 {
     pushd
@@ -67,7 +55,6 @@ updategcloud() {
 updateall()
 {
     updaterepos
-    updatepip
     updategems
     updaterust
     updategcloud

@@ -6,7 +6,6 @@ export EMAIL="brett@bretthoerner.com"
 export DEBEMAIL=$EMAIL
 export DEBFULLNAME="Brett Hoerner"
 export PYTHONDONTWRITEBYTECODE=1
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PIP_RESPECT_VIRTUALENV=true
 export BROWSER=/usr/bin/google-chrome-stable
 export JAVA_HOME=/usr/lib/jvm/default
@@ -25,11 +24,14 @@ function source-if-file() {
 }
 
 # pyenv
-if [[ -d "${HOME}/.pyenv/" ]]; then
-    export PATH="${HOME}/.pyenv/bin:$PATH"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
+function pyenv-init() {
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+    if [[ -d "${HOME}/.pyenv/" ]]; then
+        export PATH="${HOME}/.pyenv/bin:$PATH"
+        eval "$(pyenv init -)"
+        eval "$(pyenv virtualenv-init -)"
+    fi
+}
 
 # rbenv
 if [[ -d "${HOME}/.rbenv" ]]; then
