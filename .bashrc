@@ -8,6 +8,12 @@ esac
 
 # platform specific stuff
 case $OSTYPE in
+    darwin*)
+        function ls { command ls -FhG "$@"; }
+        function ll { ls -l "$@"; }
+
+        [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+        ;;
     linux*)
         # linux specific
 
@@ -130,7 +136,7 @@ case "$TERM" in
     xterm-*color|xterm|eterm-color|screen*)
         # color based on host
         case $(hostname) in
-            vagrant*|widget*)
+            wiley*)
                 HOSTCOLOR="$BGREEN"
             ;;
             *)
