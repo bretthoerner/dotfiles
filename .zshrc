@@ -1,6 +1,3 @@
-# Don't setup before launching X11 and not on an ssh connection
-([ -z ${DISPLAY+x} ] && [ -z ${SSH_CONNECTION+x} ]) && return
-
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
 
@@ -96,7 +93,7 @@ fi
 # gcloud
 if [[ -d "${HOME}/google-cloud-sdk" ]]; then
     source-if-file "${HOME}/google-cloud-sdk/path.zsh.inc"
-    # source-if-file "${HOME}/google-cloud-sdk/completion.zsh.inc"
+    source-if-file "${HOME}/google-cloud-sdk/completion.zsh.inc"
 fi
 
 PROMPT='${ret_status} %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'

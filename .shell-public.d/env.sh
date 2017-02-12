@@ -7,8 +7,6 @@ export DEBEMAIL=$EMAIL
 export DEBFULLNAME="Brett Hoerner"
 export PYTHONDONTWRITEBYTECODE=1
 export PIP_RESPECT_VIRTUALENV=true
-export BROWSER=/usr/bin/google-chrome-stable
-export JAVA_HOME=/usr/lib/jvm/default
 
 # lang
 export LC_CTYPE="en_US.UTF-8"
@@ -28,6 +26,9 @@ function pyenv-init() {
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     if [[ -d "${HOME}/.pyenv/" ]]; then
         export PATH="${HOME}/.pyenv/bin:$PATH"
+    fi
+
+    if which pyenv &> /dev/null; then
         eval "$(pyenv init -)"
         eval "$(pyenv virtualenv-init -)"
     fi
@@ -46,10 +47,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 export PATH="${HOME}/.npm/bin:$PATH"
 
 # go
-if [[ -z ${GOPATH+x} ]]; then
-    # only if another GOPATH isn't already set
-    export GOPATH="${HOME}/Development/go"
-fi
+export GOPATH="${HOME}/Development/go"
 export PATH="${GOPATH}/bin:${PATH}"
 
 # add ~/bin to PATH if it exists
@@ -61,15 +59,6 @@ export MAVEN_OPTS="-Xmx2G"
 # scala
 export SBT_OPTS="-Dscala.color -Xmx2G"
 export JAVA_OPTS="-Dscala.color"
-
-# travis
-source-if-file "$HOME/.travis/travis.sh"
-
-# node bin
-[[ -d "$HOME/node_modules/.bin" ]] && export PATH="$HOME/node_modules/.bin:$PATH"
-
-# cabal bin
-[[ -d "$HOME/.cabal/bin" ]] && export PATH="$HOME/.cabal/bin:$PATH"
 
 # rust/cargo
 [[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"

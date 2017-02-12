@@ -7,15 +7,7 @@ updategems()
 {
     pushd
     cd $HOME
-    gem update \
-        activesupport \
-        awesome_print \
-        chef \
-        fpm \
-        jekyll \
-        knife-ec2 \
-        pry \
-        pry-doc
+    gem update
     popd
 }
 
@@ -52,11 +44,16 @@ updategcloud() {
     yes | gcloud components update
 }
 
+updatebrew() {
+    brew update
+    brew upgrade
+}
+
 updateall()
 {
     updaterepos
     updategems
     updaterust
     updategcloud
-    updatearch
+    updatebrew
 }
