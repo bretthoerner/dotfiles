@@ -8,6 +8,16 @@ export DEBFULLNAME="Brett Hoerner"
 export PYTHONDONTWRITEBYTECODE=1
 export PIP_RESPECT_VIRTUALENV=true
 
+
+case $OSTYPE in
+    darwin*)
+        export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0_80)
+        export PATH=$JAVA_HOME/bin:$PATH
+    ;;
+    *)
+    ;;
+esac
+
 # lang
 export LC_CTYPE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
