@@ -43,9 +43,6 @@ fi
 # local
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 
-# js
-export PATH="${HOME}/.npm/bin:$PATH"
-
 # go
 export GOPATH="${HOME}/Development/go"
 export PATH="${GOPATH}/bin:${PATH}"
