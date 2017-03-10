@@ -1,6 +1,8 @@
 updatearch()
 {
-    yaourt -Syyu --aur
+    if which yaourt &> /dev/null; then
+        yaourt -Syyu --aur
+    fi
 }
 
 updategems()
@@ -45,8 +47,10 @@ updategcloud() {
 }
 
 updatebrew() {
-    brew update
-    brew upgrade
+    if which brew &> /dev/null; then
+        brew update
+        brew upgrade
+    fi
 }
 
 updateall()
@@ -55,5 +59,6 @@ updateall()
     updategems
     updaterust
     updategcloud
+    updatearch
     updatebrew
 }

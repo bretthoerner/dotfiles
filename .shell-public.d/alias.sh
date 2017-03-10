@@ -1,7 +1,3 @@
-if which gnome-open &> /dev/null; then
-    alias open="gnome-open"
-fi
-
 if which hub &> /dev/null; then
     alias git="hub"
 fi

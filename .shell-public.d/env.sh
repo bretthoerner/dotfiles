@@ -6,9 +6,14 @@ export EMAIL="brett@bretthoerner.com"
 export DEBEMAIL=$EMAIL
 export DEBFULLNAME="Brett Hoerner"
 export PYTHONDONTWRITEBYTECODE=1
-export PIP_RESPECT_VIRTUALENV=true
 
+# lang
+export LC_CTYPE="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 
+# java
 case $OSTYPE in
     darwin*)
         export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0_80)
@@ -18,12 +23,6 @@ case $OSTYPE in
     ;;
 esac
 
-# lang
-export LC_CTYPE="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
-
 function source-if-file() {
     _path=$1
     if [[ -f $_path ]]; then
@@ -31,26 +30,13 @@ function source-if-file() {
     fi
 }
 
-# pyenv
-function pyenv-init() {
-    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-    if [[ -d "${HOME}/.pyenv/" ]]; then
-        export PATH="${HOME}/.pyenv/bin:$PATH"
-    fi
+# virtualenv & virtualenvwrapper
+export PIP_RESPECT_VIRTUALENV=true
+export PIP_REQUIRE_VIRTUALENV=true
+export WORKON_HOME="${HOME}/Development/virtualenvs"
+source-if-file /usr/local/bin/virtualenvwrapper.sh
 
-    if which pyenv &> /dev/null; then
-        eval "$(pyenv init -)"
-        eval "$(pyenv virtualenv-init -)"
-    fi
-}
-
-# rbenv
-if [[ -d "${HOME}/.rbenv" ]]; then
-    export PATH="${HOME}/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
-fi
-
-# local
+# /usr/local
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 
 # go
@@ -67,12 +53,19 @@ export MAVEN_OPTS="-Xmx2G"
 export SBT_OPTS="-Dscala.color -Xmx2G"
 export JAVA_OPTS="-Dscala.color"
 
-# rust/cargo
+# rust & cargo
 [[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
 [[ -d "$HOME/.cargo" ]] && export CARGO_HOME="$HOME/.cargo"
-[[ -d "$HOME/Development/src-mirror/rust/src" ]] && export RUST_SRC_PATH="$HOME/Development/src-mirror/rust/src"
-export RUST_NEW_ERROR_FORMAT=true
+export RUST_SRC_PATH="$HOME/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src/"
+export DYLD_LIBRARY_PATH="${HOME}/.rustup/toolchains/nightly-x86_64-apple-darwin/lib"
+export RLS_ROOT="${HOME}/Development/src-mirror/rls"
+export RUST_NEW_ERROR_FORMAT="true"
 
 # vte
-[[ -f /etc/profile.d/vte.sh ]] && source /etc/profile.d/vte.sh
+source-if-file /etc/profile.d/vte.sh
 
+# fastlane
+export PATH="$HOME/.fastlane/bin:$PATH"
+
+# android
+export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
