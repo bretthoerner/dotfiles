@@ -69,3 +69,13 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 
 # android
 export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
+export ANDROID_NDK_HOME="$HOME/Library/Android/sdk/ndk-bundle"
+export ANDROID_HOME="$HOME/Library/Android/sdk/"
+
+# gpg agent
+if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
+    source ~/.gnupg/.gpg-agent-info
+    export GPG_AGENT_INFO
+else
+    eval $(gpg-agent --daemon)
+fi
