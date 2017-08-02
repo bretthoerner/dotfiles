@@ -2,6 +2,7 @@
 export EDITOR="vim"
 export PAGER="less -R"
 export GPGKEY="252426C1"
+export GPG_TTY=$(tty)
 export EMAIL="brett@bretthoerner.com"
 export DEBEMAIL=$EMAIL
 export DEBFULLNAME="Brett Hoerner"
@@ -16,7 +17,7 @@ export LC_ALL="en_US.UTF-8"
 # java
 case $OSTYPE in
     darwin*)
-        export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0_80)
+        export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_141)
         export PATH=$JAVA_HOME/bin:$PATH
     ;;
     *)
@@ -31,6 +32,7 @@ function source-if-file() {
 }
 
 # virtualenv & virtualenvwrapper
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PIP_RESPECT_VIRTUALENV=true
 export PIP_REQUIRE_VIRTUALENV=true
 export WORKON_HOME="${HOME}/Development/virtualenvs"
@@ -42,6 +44,9 @@ export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 # go
 export GOPATH="${HOME}/Development/go"
 export PATH="${GOPATH}/bin:${PATH}"
+
+# haskell
+export PATH="${HOME}/.cabal/bin:$PATH"
 
 # add ~/bin to PATH if it exists
 [[ -d "${HOME}/bin" ]] && export PATH="${HOME}/bin:$PATH"

@@ -1,3 +1,11 @@
+PROFILE_STARTUP=false
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+    PS4=$'%D{%M%S%.} %N:%i> '
+    exec 3>&2 2>$HOME/tmp/startlog.$$
+    setopt xtrace prompt_subst
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
 
@@ -53,7 +61,7 @@ plugins=(
     adb
     bundler
     colored-man-pages
-    command-not-found
+    # command-not-found
     docker
     docker-compose
     gem
@@ -86,9 +94,9 @@ unset _s
 source-if-file $(which aws_zsh_completer.sh 2> /dev/null)
 
 # kubectl
-if which kubectl &> /dev/null; then
-    source <(kubectl completion "zsh")
-fi
+# if which kubectl &> /dev/null; then
+#     source <(kubectl completion "zsh")
+# fi
 
 # gcloud
 if [[ -d "${HOME}/google-cloud-sdk" ]]; then
@@ -97,3 +105,8 @@ if [[ -d "${HOME}/google-cloud-sdk" ]]; then
 fi
 
 PROMPT='${ret_status} %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
+
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    unsetopt xtrace
+    exec 2>&3 3>&-
+fi

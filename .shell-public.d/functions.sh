@@ -1,3 +1,10 @@
+function install-rust-tools() {
+    cargo install --force rustsym
+    cargo install --force racer
+    cargo install --force mdbook
+    cargo +nightly install --force rustfmt-nightly
+}
+
 function install-go-tools() {
     go get -u -v github.com/nsf/gocode
     go get -u -v github.com/rogpeppe/godef
@@ -29,3 +36,4 @@ function workon-go() {
 #    export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
     export PATH="$GOPATH/bin:$PATH"
 }
+

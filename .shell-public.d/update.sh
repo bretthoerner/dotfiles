@@ -15,6 +15,7 @@ updategems()
 
 updategit()
 {
+    PARALLELISM=${1:-8}
     find . \
          -maxdepth 3 \
          -name ".git" \
@@ -24,7 +25,7 @@ updategit()
               -0 \
               -n 1 \
               -I {} \
-              -P 8 \
+              -P $PARALLELISM \
               bash -c "echo && cd {}/.. && pwd && git up"
 }
 
