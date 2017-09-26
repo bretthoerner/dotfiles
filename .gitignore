@@ -12,3 +12,4 @@
 .vscode
 CVS
 tags
+src/sentry/matt.py

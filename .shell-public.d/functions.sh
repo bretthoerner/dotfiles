@@ -19,6 +19,7 @@ function install-go-tools() {
     go get -u -v github.com/fatih/gomodifytags
     go get -u -v sourcegraph.com/sqs/goreturns
     go get -u -v github.com/cweill/gotests/...
+    go get -u -v github.com/josharian/impl
 }
 
 function link-go-tools() {
