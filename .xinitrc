@@ -39,10 +39,6 @@ xmodmap -e "add Control = Control_L"
 # set the cursor
 xsetroot -cursor_name left_ptr
 
-# gnome keyring
-eval $(gnome-keyring-daemon --start)
-export SSH_AUTH_SOCK
-
 # screensaver
 xscreensaver -no-splash &
 xss-lock -- xscreensaver-command -lock &
@@ -57,6 +53,7 @@ redshift -l geoclue2 -g .75:.75:.75 &
 dunst -conf ~/.dunstrc &
 
 # ssh agent
+# (handled by systemd user service now)
 #eval $(ssh-agent)
 
 # start xmonad!

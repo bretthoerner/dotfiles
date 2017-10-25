@@ -1,7 +1,7 @@
 updatearch()
 {
     if which yaourt &> /dev/null; then
-        yaourt -Syyu --aur
+        yaourt -Syyua
     fi
 }
 
@@ -39,7 +39,7 @@ updaterepos()
 
 updaterust()
 {
-    rustup self update
+    [[ -f /etc/arch-release ]] || rustup self update
     rustup update
 }
 
@@ -57,9 +57,9 @@ updatebrew() {
 updateall()
 {
     updaterepos
-    updategems
+    #updategems
     updaterust
-    updategcloud
+    #updategcloud
     updatearch
     updatebrew
 }

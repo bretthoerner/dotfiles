@@ -65,6 +65,7 @@ plugins=(
     docker
     docker-compose
     gem
+    git
     go
     knife
     knife_ssh
@@ -110,3 +111,4 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
     exec 2>&3 3>&-
 fi
+

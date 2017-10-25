@@ -36,6 +36,7 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PIP_RESPECT_VIRTUALENV=true
 export WORKON_HOME="${HOME}/Development/virtualenvs"
 source-if-file /usr/local/bin/virtualenvwrapper.sh
+source-if-file /usr/bin/virtualenvwrapper_lazy.sh
 
 # /usr/local
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
@@ -77,7 +78,7 @@ export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
 export ANDROID_NDK_HOME="$HOME/Library/Android/sdk/ndk-bundle"
 export ANDROID_HOME="$HOME/Library/Android/sdk/"
 
-# gpg agent
-if which gpg-agent &> /dev/null && [[ ! -n "$(pgrep gpg-agent)" ]]; then
-    eval $(gpg-agent --daemon)
-fi
+# sentry
+export DB=sqlite
+export SENTRY_LIGHT_BUILD=1
+export SENTRY_SOUTH_TESTS_MIGRATE=0
