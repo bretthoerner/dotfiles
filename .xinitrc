@@ -52,6 +52,9 @@ redshift -l geoclue2 -g .75:.75:.75 &
 # notifications
 dunst -conf ~/.dunstrc &
 
+# clipboard daemon
+/usr/lib/gnome-settings-daemon/gsd-clipboard &
+
 # ssh agent
 # (handled by systemd user service now)
 #eval $(ssh-agent)
