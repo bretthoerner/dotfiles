@@ -25,6 +25,9 @@ fi
 # keyboard delay
 xset r rate 200 50
 
+# disable beep
+xset -b
+
 # caps lock = control
 xmodmap -e "remove Lock = Caps_Lock"
 xmodmap -e "keysym Caps_Lock = Control_L"
@@ -51,6 +54,9 @@ redshift -l geoclue2 -g .75:.75:.75 &
 
 # notifications
 dunst -conf ~/.dunstrc &
+
+# fix gnome-control-center
+export XDG_CURRENT_DESKTOP=GNOME
 
 # clipboard daemon
 /usr/lib/gnome-settings-daemon/gsd-clipboard &
