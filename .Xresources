@@ -6,3 +6,4 @@ Xft.rgba: rgb
 Xcursor.size: 16
 xscreensaver.mode: blank
 xscreensaver.fade: False
+xscreensaver.lock: True
