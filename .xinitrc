@@ -61,6 +61,9 @@ export XDG_CURRENT_DESKTOP=GNOME
 # clipboard daemon
 /usr/lib/gnome-settings-daemon/gsd-clipboard &
 
+# compton
+compton -b --config ~/.config/compton.conf
+
 # ssh agent
 # (handled by systemd user service now)
 #eval $(ssh-agent)
