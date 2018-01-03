@@ -36,5 +36,9 @@ function workon-go() {
 #    export GOROOT=$HOME/Development/go/versions/$version
 #    export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
     export PATH="$GOPATH/bin:$PATH"
+    PS1="($project) $PS1"
 }
 
+function f() {
+    code $(fzf)
+}

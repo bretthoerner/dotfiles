@@ -61,8 +61,11 @@ export XDG_CURRENT_DESKTOP=GNOME
 # clipboard daemon
 /usr/lib/gnome-settings-daemon/gsd-clipboard &
 
+# keyring
+# /usr/bin/gnome-keyring-daemon --start --foreground --components=secrets &
+
 # compton
-compton -b --config ~/.config/compton.conf
+# compton -b --config ~/.config/compton.conf
 
 # ssh agent
 # (handled by systemd user service now)
