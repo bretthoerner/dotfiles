@@ -50,7 +50,7 @@ xss-lock -- xscreensaver-command -lock &
 unclutter &
 
 # redshift
-redshift -l geoclue2 -g .75:.75:.75 &
+redshift -m randr -l geoclue2 -g .75:.75:.75 &
 
 # notifications
 dunst -conf ~/.dunstrc &
