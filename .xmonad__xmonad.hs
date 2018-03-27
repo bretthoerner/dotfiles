@@ -27,6 +27,8 @@ myLayout =  smartBorders $ avoidStruts $ ResizableTall 1 (3/100) (2/3) [] ||| Fu
 myManageHook :: [ManageHook]
 myManageHook =
     [ resource  =? "gcalctool" --> doCenterFloat
+    , resource  =? "gnome-calculator" --> doCenterFloat
+    , resource  =? "gnome-control-center" --> doCenterFloat
     , isFullscreen --> doFullFloat
     , isDialog --> doCenterFloat
     , (className ~=? "jetbrains-") <&&> (title ~=? "win") --> doIgnore ]

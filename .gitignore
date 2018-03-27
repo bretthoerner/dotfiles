@@ -9,7 +9,7 @@
 .cvsignore
 .idea
 .python-version
-.vscode
 CVS
 tags
 src/sentry/matt.py
+node_modules/
