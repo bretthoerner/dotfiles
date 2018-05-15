@@ -31,7 +31,8 @@ myManageHook =
     , resource  =? "gnome-control-center" --> doCenterFloat
     , isFullscreen --> doFullFloat
     , isDialog --> doCenterFloat
-    , (className ~=? "jetbrains-") <&&> (title ~=? "win") --> doIgnore ]
+    , (className ~=? "jetbrains-") <&&> (title ~=? "win") --> doIgnore
+    , appName =? "sun-awt-X11-XWindowPeer" <&&> className =? "jetbrains-idea" --> doIgnore ]
 
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
@@ -68,4 +69,3 @@ myConfig = withUrgencyHook FocusHook $ ewmh defaultConfig
 main = do {
   conf <- statusBar "xmobar" xmobarPP toggleStrutsKey myConfig;
   xmonad conf { startupHook = startupHook myConfig >> setWMName "LG3D" } }
-
