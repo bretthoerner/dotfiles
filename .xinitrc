@@ -59,7 +59,7 @@ dunst -conf ~/.dunstrc &
 export XDG_CURRENT_DESKTOP=GNOME
 
 # clipboard daemon
-/usr/lib/gnome-settings-daemon/gsd-clipboard &
+/usr/lib/gsd-clipboard &
 
 # keyring
 # /usr/bin/gnome-keyring-daemon --start --foreground --components=secrets &
