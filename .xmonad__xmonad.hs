@@ -32,6 +32,7 @@ myManageHook =
     , isFullscreen --> doFullFloat
     , isDialog --> doCenterFloat
     , (className ~=? "jetbrains-") <&&> (title ~=? "win") --> doIgnore
+    , appName =? "sun-awt-X11-XWindowPeer" <&&> className =? "jetbrains-clion" --> doIgnore
     , appName =? "sun-awt-X11-XWindowPeer" <&&> className =? "jetbrains-idea" --> doIgnore ]
 
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
