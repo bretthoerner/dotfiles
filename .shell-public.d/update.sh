@@ -1,7 +1,7 @@
 updatearch()
 {
-    if which yaourt &> /dev/null; then
-        yaourt -Syyua
+    if which aurman &> /dev/null; then
+        aurman -Syu
     fi
 }
 

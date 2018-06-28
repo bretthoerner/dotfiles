@@ -82,3 +82,8 @@ export ANDROID_HOME="$HOME/Library/Android/sdk/"
 export DB=sqlite
 export SENTRY_LIGHT_BUILD=1
 export SENTRY_SOUTH_TESTS_MIGRATE=0
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
