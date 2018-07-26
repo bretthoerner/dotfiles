@@ -29,9 +29,7 @@ xset r rate 200 50
 xset -b
 
 # caps lock = control
-xmodmap -e "remove Lock = Caps_Lock"
-xmodmap -e "keysym Caps_Lock = Control_L"
-xmodmap -e "add Control = Control_L"
+setxkbmap -option caps:ctrl_modifier
 
 # middle click = left click
 # xinput set-button-map "SynPS/2 Synaptics TouchPad" 1 1 3 4 5 6 7 8 9 10 11 12
