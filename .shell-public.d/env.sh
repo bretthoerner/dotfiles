@@ -6,23 +6,12 @@ export GPG_TTY=$(tty)
 export EMAIL="brett@bretthoerner.com"
 export DEBEMAIL=$EMAIL
 export DEBFULLNAME="Brett Hoerner"
-export PYTHONDONTWRITEBYTECODE=1
 
 # lang
 export LC_CTYPE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-
-# java
-case $OSTYPE in
-    darwin*)
-        export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_141)
-        export PATH=$JAVA_HOME/bin:$PATH
-    ;;
-    *)
-    ;;
-esac
 
 function source-if-file() {
     _path=$1
@@ -31,19 +20,15 @@ function source-if-file() {
     fi
 }
 
-# virtualenv & virtualenvwrapper
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+# python
+export PATH="${HOME}/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 export PIP_RESPECT_VIRTUALENV=true
-export WORKON_HOME="${HOME}/Development/virtualenvs"
-source-if-file /usr/local/bin/virtualenvwrapper.sh
-source-if-file /usr/bin/virtualenvwrapper_lazy.sh
+export PYTHONDONTWRITEBYTECODE=1
 
 # /usr/local
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
-
-# go
-export GOPATH="${HOME}/Development/go"
-export PATH="${GOPATH}/bin:${PATH}"
 
 # haskell
 export PATH="${HOME}/.cabal/bin:$PATH"
@@ -70,9 +55,6 @@ export CARGO_INCREMENTAL=1
 # vte
 source-if-file /etc/profile.d/vte.sh
 
-# fastlane
-export PATH="$HOME/.fastlane/bin:$PATH"
-
 # android
 export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
 export ANDROID_NDK_HOME="$HOME/Library/Android/sdk/ndk-bundle"
@@ -87,3 +69,4 @@ export SENTRY_SOUTH_TESTS_MIGRATE=0
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+

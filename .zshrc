@@ -61,7 +61,7 @@ plugins=(
     adb
     bundler
     colored-man-pages
-    # command-not-found
+    command-not-found
     docker
     docker-compose
     gem
