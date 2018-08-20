@@ -4,7 +4,6 @@ import XMonad.Actions.CopyWindow (copyToAll, killAllOtherCopies, kill1)
 import XMonad.Actions.CycleWS (toggleWS)
 import XMonad.Actions.DynamicWorkspaces
 import XMonad.Actions.GridSelect
-import XMonad.Config.Gnome (gnomeConfig)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks (avoidStruts)
@@ -24,7 +23,7 @@ import qualified XMonad.StackSet as W
 (~=?) :: Eq a => Query [a] -> [a] -> Query Bool
 q ~=? x = fmap (isPrefixOf x) q
 
--- myLayout =  smartBorders $ avoidStruts $ ResizableTall 1 (3/100) (2/3) [] ||| Full
+myLayout =  smartBorders $ avoidStruts $ ResizableTall 1 (3/100) (2/3) [] ||| Full
 myManageHook :: [ManageHook]
 myManageHook =
     [ resource  =? "gcalctool" --> doCenterFloat
@@ -40,7 +39,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 myConfig = withUrgencyHook FocusHook $ ewmh defaultConfig
     { manageHook = manageHook defaultConfig <+> composeAll myManageHook
-    , layoutHook = smartBorders $ avoidStruts (layoutHook gnomeConfig)
+    , layoutHook = myLayout
     , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
     , focusFollowsMouse = False
     , modMask = mod4Mask
