@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # Multimonitor note:
 # xrandr -q
 # xrandr --output eDP1 --mode 1920x1080 --output DP1 --mode 2560x1600 --above eDP1
@@ -39,6 +41,10 @@ setxkbmap -option caps:ctrl_modifier
 
 # set the cursor
 xsetroot -cursor_name left_ptr
+
+# touchpad
+xinput set-prop 17 291 1
+xinput set-prop 17 320 {1 1}
 
 # screensaver
 xscreensaver -no-splash &

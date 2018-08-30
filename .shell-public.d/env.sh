@@ -21,9 +21,11 @@ function source-if-file() {
 }
 
 # python
-export PATH="${HOME}/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if [[ -d "${HOME}/.pyenv" ]]; then
+	export PATH="${HOME}/.pyenv/bin:$PATH"
+	eval "$(pyenv init -)"
+	eval "$(pyenv virtualenv-init -)"
+fi
 export PIP_RESPECT_VIRTUALENV=true
 export PYTHONDONTWRITEBYTECODE=1
 
