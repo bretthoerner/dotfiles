@@ -20,11 +20,15 @@ function source-if-file() {
     fi
 }
 
+# ssh-agent
+[[ -S "/run/user/$(id -u)/ssh-agent.socket" ]] && export SSH_AUTH_SOCK="/run/user/$(id -u)/ssh-agent.socket"
+
 # python
 if [[ -d "${HOME}/.pyenv" ]]; then
-	export PATH="${HOME}/.pyenv/bin:$PATH"
-	eval "$(pyenv init -)"
-	eval "$(pyenv virtualenv-init -)"
+    export PATH="${HOME}/.pyenv/bin:$PATH"
+    export WORKON_HOME="${HOME}/.pyenv/versions"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
 fi
 export PIP_RESPECT_VIRTUALENV=true
 export PYTHONDONTWRITEBYTECODE=1

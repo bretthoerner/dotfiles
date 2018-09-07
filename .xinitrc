@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -euo pipefail
-
 # Multimonitor note:
 # xrandr -q
 # xrandr --output eDP1 --mode 1920x1080 --output DP1 --mode 2560x1600 --above eDP1
@@ -13,7 +11,7 @@ for _ in /etc/X11/xinit/xinitrc.d/*; do
 done
 
 # launch a dbus session bus and write the location to file
-read machine_id </etc/machine-id
+read machine_id < /etc/machine-id
 dbus-launch --autolaunch="$machine_id" --binary-syntax --close-stderr --exit-with-session
 if [ -f "$HOME/.dbus/session-bus/$machine_id-${DISPLAY#:}" ]; then
   . "$HOME/.dbus/session-bus/$machine_id-${DISPLAY#:}"
@@ -33,9 +31,6 @@ xset -b
 # caps lock = control
 setxkbmap -option caps:ctrl_modifier
 
-# middle click = left click
-# xinput set-button-map "SynPS/2 Synaptics TouchPad" 1 1 3 4 5 6 7 8 9 10 11 12
-
 # background
 # feh --bg-center ~/.bg.jpg
 
@@ -43,8 +38,8 @@ setxkbmap -option caps:ctrl_modifier
 xsetroot -cursor_name left_ptr
 
 # touchpad
-xinput set-prop 17 291 1
-xinput set-prop 17 320 {1 1}
+xinput --set-prop "1A582000:00 06CB:CD73 Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput --set-prop "1A582000:00 06CB:CD73 Touchpad" "libinput Click Method Enabled" {1 1}
 
 # screensaver
 xscreensaver -no-splash &

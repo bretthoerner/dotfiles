@@ -13,3 +13,4 @@ CVS
 tags
 src/sentry/matt.py
 node_modules/
+__pycache__/
