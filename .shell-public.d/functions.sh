@@ -3,8 +3,8 @@ function install-rust-tools() {
     cargo install --force racer
     cargo install --force mdbook
     cargo install --force cargo-asm
-    rustup component add rustfmt-preview --toolchain nightly
-    rustup component add --toolchain=nightly clippy-preview
+    rustup component add rustfmt-preview
+    rustup component add clippy-preview
 }
 
 function install-go-tools() {
