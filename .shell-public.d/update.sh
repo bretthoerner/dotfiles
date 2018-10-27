@@ -1,7 +1,7 @@
 updatearch()
 {
-    if which aurman &> /dev/null; then
-        aurman -Syu
+    if which yay &> /dev/null; then
+        yay -Syu --devel --timeupdate
     fi
 }
 
