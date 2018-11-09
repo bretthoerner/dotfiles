@@ -51,6 +51,7 @@ updatebrew() {
     if which brew &> /dev/null; then
         brew update
         brew upgrade
+        brew cask upgrade
     fi
 }
 
