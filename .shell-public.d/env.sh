@@ -23,6 +23,9 @@ function source-if-file() {
 # ssh-agent
 [[ -S "/run/user/$(id -u)/ssh-agent.socket" ]] && export SSH_AUTH_SOCK="/run/user/$(id -u)/ssh-agent.socket"
 
+# /usr/local
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+
 # python
 if [[ -d "${HOME}/.pyenv" ]]; then
     export PATH="${HOME}/.pyenv/bin:$PATH"
@@ -32,9 +35,6 @@ if [[ -d "${HOME}/.pyenv" ]]; then
 fi
 export PIP_RESPECT_VIRTUALENV=true
 export PYTHONDONTWRITEBYTECODE=1
-
-# /usr/local
-export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 
 # haskell
 export PATH="${HOME}/.cabal/bin:$PATH"
