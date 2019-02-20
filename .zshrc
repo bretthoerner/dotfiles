@@ -97,11 +97,6 @@ source-if-file $(which aws_zsh_completer.sh 2> /dev/null)
 # ctrl-p (zsh only)
 source-if-file ~/.ctrl-p.zsh
 
-# kubectl
-if which kubectl &> /dev/null; then
-    source <(kubectl completion zsh)
-fi
-
 # gcloud
 if [[ -d "${HOME}/google-cloud-sdk" ]]; then
     source-if-file "${HOME}/google-cloud-sdk/path.zsh.inc"

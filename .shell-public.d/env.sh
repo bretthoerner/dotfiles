@@ -27,12 +27,17 @@ function source-if-file() {
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 
 # python
-if [[ -d "${HOME}/.pyenv" ]]; then
-    export PATH="${HOME}/.pyenv/bin:$PATH"
+if type pyenv > /dev/null; then
+    export PATH="${HOME}/.pyenv/bin:${HOME}/.pyenv/shims:${PATH}"
     export WORKON_HOME="${HOME}/.pyenv/versions"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
+    function pyenv() {
+        unset -f pyenv
+        eval "$(command pyenv init -)"
+        eval "$(command pyenv virtualenv-init -)"
+        pyenv $@
+    }
 fi
+
 export PIP_RESPECT_VIRTUALENV=true
 export PYTHONDONTWRITEBYTECODE=1
 
@@ -71,9 +76,32 @@ export DB=sqlite
 export SENTRY_SOUTH_TESTS_MIGRATE=0
 
 # nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+lazynvm() {
+  unset -f nvm node npm npx
+  export NVM_DIR=~/.nvm
+  [ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"
+  [ -s "$(brew --prefix nvm)/bash_completion" ] && . "$(brew --prefix nvm)/bash_completion"
+}
+
+nvm() {
+  lazynvm
+  nvm $@
+}
+
+node() {
+  lazynvm
+  node $@
+}
+
+npm() {
+  lazynvm
+  npm $@
+}
+
+npx() {
+  lazynvm
+  npx $@
+}
 
 # depot_tools
 export PATH="$HOME/Development/src-mirror/depot_tools:$PATH"
