@@ -63,6 +63,9 @@ export DYLD_LIBRARY_PATH="${HOME}/.rustup/toolchains/nightly-x86_64-apple-darwin
 export RUST_NEW_ERROR_FORMAT="true"
 export CARGO_INCREMENTAL=1
 
+# go
+[[ -d "$HOME/go/bin" ]] && export PATH="$HOME/go/bin:$PATH"
+
 # vte
 source-if-file /etc/profile.d/vte.sh
 

@@ -1,16 +1,18 @@
 function install-rust-tools() {
     cargo install --force rustsym
-    cargo install --force racer
     cargo install --force mdbook
     cargo install --force cargo-asm
     rustup component add rustfmt-preview
     rustup component add clippy-preview
+    rustup component add rls
+    rustup component add rust-analysis
+    rustup component add rust-src
 }
 
 function install-go-tools() {
     go get -u -v github.com/nsf/gocode
     go get -u -v github.com/rogpeppe/godef
-    go get -u -v github.com/tools/godep
+    go get -u -v github.com/pressly/goose/cmd/goose
     go get -u -v golang.org/x/tools/cmd/goimports
     go get -u -v golang.org/x/tools/cmd/gorename
     go get -u -v golang.org/x/tools/cmd/guru
@@ -22,8 +24,8 @@ function install-go-tools() {
     go get -u -v sourcegraph.com/sqs/goreturns
     go get -u -v github.com/cweill/gotests/...
     go get -u -v github.com/josharian/impl
+    go get -u -v github.com/golangci/golangci-lint/cmd/golangci-lint
+    go get github.com/golang/mock/gomock
+    go install github.com/golang/mock/mockgen
 }
 
-function f() {
-    code $(fzf)
-}

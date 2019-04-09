@@ -10,8 +10,6 @@ unset _emacs_path
 
 alias gti="git"
 
-alias ip="ip -c"
-
 alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
