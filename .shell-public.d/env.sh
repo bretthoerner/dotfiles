@@ -78,33 +78,8 @@ export ANDROID_HOME="$HOME/Library/Android/sdk/"
 export DB=sqlite
 export SENTRY_SOUTH_TESTS_MIGRATE=0
 
-# nvm
-lazynvm() {
-  unset -f nvm node npm npx
-  export NVM_DIR=~/.nvm
-  [ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"
-  [ -s "$(brew --prefix nvm)/bash_completion" ] && . "$(brew --prefix nvm)/bash_completion"
-}
-
-nvm() {
-  lazynvm
-  nvm $@
-}
-
-node() {
-  lazynvm
-  node $@
-}
-
-npm() {
-  lazynvm
-  npm $@
-}
-
-npx() {
-  lazynvm
-  npx $@
-}
+# node
+export PATH="./node_modules/.bin:$PATH"
 
 # depot_tools
 export PATH="$HOME/Development/src-mirror/depot_tools:$PATH"
