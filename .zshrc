@@ -110,3 +110,8 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     exec 2>&3 3>&-
 fi
 
+# Stop serverless/tabtab from messing with my files.
+# tabtab source for serverless package
+# tabtab source for sls package
+# tabtab source for slss package
+

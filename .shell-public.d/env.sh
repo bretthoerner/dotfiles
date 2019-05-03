@@ -79,6 +79,7 @@ export DB=sqlite
 export SENTRY_SOUTH_TESTS_MIGRATE=0
 
 # node
+export PATH="/usr/local/opt/node@10/bin:$PATH"
 export PATH="./node_modules/.bin:$PATH"
 
 # depot_tools
