@@ -20,14 +20,20 @@ function source-if-file() {
     fi
 }
 
+function add-to-path-if-dir() {
+    _dir=$1
+    [[ -d "$_dir" ]] && export PATH="$_dir:$PATH"
+}
+
 # ssh-agent
 [[ -S "/run/user/$(id -u)/ssh-agent.socket" ]] && export SSH_AUTH_SOCK="/run/user/$(id -u)/ssh-agent.socket"
 
 # /usr/local
-export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+add-to-path-if-dir "/usr/local/bin"
+add-to-path-if-dir "/usr/local/sbin"
 
 # python
-if type pyenv > /dev/null; then
+if type pyenv &> /dev/null; then
     export PATH="${HOME}/.pyenv/bin:${HOME}/.pyenv/shims:${PATH}"
     export WORKON_HOME="${HOME}/.pyenv/versions"
     function pyenv() {
@@ -42,10 +48,10 @@ export PIP_RESPECT_VIRTUALENV=true
 export PYTHONDONTWRITEBYTECODE=1
 
 # haskell
-export PATH="${HOME}/.cabal/bin:$PATH"
+add-to-path-if-dir "${HOME}/.cabal/bin"
 
 # add ~/bin to PATH if it exists
-[[ -d "${HOME}/bin" ]] && export PATH="${HOME}/bin:$PATH"
+add-to-path-if-dir "${HOME}/bin"
 
 # mvn
 export MAVEN_OPTS="-Xmx2G"
@@ -55,7 +61,7 @@ export SBT_OPTS="-Dscala.color -Xmx2G"
 export JAVA_OPTS="-Dscala.color"
 
 # rust & cargo
-[[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
+add-to-path-if-dir "${HOME}/.cargo/bin"
 [[ -d "$HOME/.cargo" ]] && export CARGO_HOME="$HOME/.cargo"
 export RUST_SRC_PATH="$HOME/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src/"
 export DYLD_LIBRARY_PATH="${HOME}/.rustup/toolchains/nightly-x86_64-apple-darwin/lib"
@@ -64,23 +70,15 @@ export RUST_NEW_ERROR_FORMAT="true"
 export CARGO_INCREMENTAL=1
 
 # go
-[[ -d "$HOME/go/bin" ]] && export PATH="$HOME/go/bin:$PATH"
+add-to-path-if-dir "/opt/go/bin"
+add-to-path-if-dir "${HOME}/go/bin"
 
 # vte
 source-if-file /etc/profile.d/vte.sh
 
-# android
-export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
-export ANDROID_NDK_HOME="$HOME/Library/Android/sdk/ndk-bundle"
-export ANDROID_HOME="$HOME/Library/Android/sdk/"
-
-# sentry
-export DB=sqlite
-export SENTRY_SOUTH_TESTS_MIGRATE=0
-
 # node
-export PATH="/usr/local/opt/node@10/bin:$PATH"
+add-to-path-if-dir "/usr/local/opt/node@10/bin"
 export PATH="./node_modules/.bin:$PATH"
 
 # depot_tools
-export PATH="$HOME/Development/src-mirror/depot_tools:$PATH"
+add-to-path-if-dir "${HOME}/Development/src-mirror/depot_tools"
