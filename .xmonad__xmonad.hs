@@ -43,7 +43,7 @@ myConfig = withUrgencyHook FocusHook $ ewmh defaultConfig
     , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
     , focusFollowsMouse = False
     , modMask = mod4Mask
-    , terminal = "gnome-terminal"
+    , terminal = "konsole"
     , borderWidth = 1 }
     `additionalKeysP`
     [ ("M-a", sendMessage MirrorShrink)
