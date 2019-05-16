@@ -14,3 +14,4 @@ alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
 
+alias x="ssh-agent startx"
