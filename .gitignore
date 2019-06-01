@@ -14,3 +14,5 @@ tags
 src/sentry/matt.py
 node_modules/
 __pycache__/
+.vscode/c_cpp_properties.json
+.vscode/ipch/
