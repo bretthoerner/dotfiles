@@ -32,14 +32,16 @@ xset -b
 setxkbmap -option caps:ctrl_modifier
 
 # background
-# feh --bg-center ~/.bg.jpg
+#feh --bg-center ~/.bg.jpg
 
 # set the cursor
 xsetroot -cursor_name left_ptr
 
 # touchpad
-xinput --set-prop "1A582000:00 06CB:CD73 Touchpad" "libinput Natural Scrolling Enabled" 1
-xinput --set-prop "1A582000:00 06CB:CD73 Touchpad" "libinput Click Method Enabled" {1 1}
+#xinput --set-prop "1A582000:00 06CB:CD73 Touchpad" "libinput Natural Scrolling Enabled" 1
+#xinput --set-prop "1A582000:00 06CB:CD73 Touchpad" "libinput Click Method Enabled" {1 1}
+xinput --set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput --set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Click Method Enabled" {1 1}
 
 # screensaver
 xscreensaver -no-splash &
@@ -49,7 +51,7 @@ xss-lock -- xscreensaver-command -lock &
 unclutter &
 
 # redshift
-redshift -m randr -l geoclue2 -g .75:.75:.75 &
+#redshift -m randr -l geoclue2 -g .75:.75:.75 &
 
 # notifications
 dunst -conf ~/.dunstrc &
@@ -58,13 +60,13 @@ dunst -conf ~/.dunstrc &
 export XDG_CURRENT_DESKTOP=GNOME
 
 # clipboard daemon
-# /usr/lib/gsd-clipboard &
+/usr/lib/gsd-clipboard &
 
 # keyring
-# /usr/bin/gnome-keyring-daemon --start --foreground --components=secrets &
+/usr/bin/gnome-keyring-daemon --start --foreground --components=secrets &
 
 # compton
-# compton -b --config ~/.config/compton.conf
+#compton -b --config ~/.config/compton.conf
 
 # ssh agent
 # (handled by systemd user service now)

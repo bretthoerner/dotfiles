@@ -43,7 +43,7 @@ myConfig = withUrgencyHook FocusHook $ ewmh defaultConfig
     , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
     , focusFollowsMouse = False
     , modMask = mod4Mask
-    , terminal = "konsole"
+    , terminal = "gnome-terminal"
     , borderWidth = 1 }
     `additionalKeysP`
     [ ("M-a", sendMessage MirrorShrink)
@@ -58,10 +58,10 @@ myConfig = withUrgencyHook FocusHook $ ewmh defaultConfig
     , ("M--", kill1)
     , ("M-S-l", spawn "xscreensaver-command -l")
     , ("M-S-s", spawn "/home/brett/bin/screenshot")
-    , ("<XF86MonBrightnessDown>", spawn "sudo xbacklight -dec 10")
-    , ("<XF86MonBrightnessUp>", spawn "sudo xbacklight -inc 10")
-    , ("S-<XF86MonBrightnessDown>", spawn "sudo xbacklight -dec 5")
-    , ("S-<XF86MonBrightnessUp>", spawn "sudo xbacklight -inc 5")
+    , ("<XF86MonBrightnessDown>", spawn "light -U 1.0")
+    , ("<XF86MonBrightnessUp>", spawn "light -A 1.0")
+    , ("S-<XF86MonBrightnessDown>", spawn "light -U 0.5")
+    , ("S-<XF86MonBrightnessUp>", spawn "light -A 0.5")
     , ("<XF86AudioLowerVolume>", spawn "ponymix decrease 2")
     , ("<XF86AudioRaiseVolume>", spawn "ponymix increase 2")
     , ("<XF86AudioMute>", spawn "ponymix toggle")
