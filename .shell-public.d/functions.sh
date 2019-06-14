@@ -10,6 +10,9 @@ function install-rust-tools() {
 }
 
 function install-go-tools() {
+    go get -u -v github.com/go-delve/delve/cmd/dlv
+    go get -u -v github.com/stamblerre/gocode
+    go get -u -v golang.org/x/tools/cmd/gopls
     go get -u -v github.com/nsf/gocode
     go get -u -v github.com/rogpeppe/godef
     go get -u -v github.com/pressly/goose/cmd/goose
@@ -29,3 +32,6 @@ function install-go-tools() {
     go install github.com/golang/mock/mockgen
 }
 
+function weather() {
+    curl "http://wttr.in/$1"
+}
