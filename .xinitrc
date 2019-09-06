@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Multimonitor note:
 # xrandr -q
 # xrandr --output eDP1 --mode 1920x1080 --output DP1 --mode 2560x1600 --above eDP1
@@ -45,7 +43,7 @@ xinput --set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Click Method Enable
 
 # screensaver
 xscreensaver -no-splash &
-xss-lock -- xscreensaver-command -lock &
+# xss-lock -- xscreensaver-command -lock &
 
 # hide mouse
 unclutter &
@@ -72,6 +70,6 @@ export XDG_CURRENT_DESKTOP=GNOME
 # (handled by systemd user service now)
 #eval $(ssh-agent)
 
-# start xmonad!
-exec xmonad
+# exec xmonad
+exec i3
 
