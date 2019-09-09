@@ -43,7 +43,7 @@ xinput --set-prop "SYNA2393:00 06CB:7A13 Touchpad" "libinput Click Method Enable
 
 # screensaver
 xscreensaver -no-splash &
-# xss-lock -- xscreensaver-command -lock &
+xss-lock -- xscreensaver-command -lock &
 
 # hide mouse
 unclutter &

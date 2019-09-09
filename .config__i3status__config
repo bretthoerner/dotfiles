@@ -14,11 +14,23 @@ general {
 # order += "ipv6"
 # order += "wireless _first_"
 # order += "ethernet _first_"
+order += "volume master"
+order += "cpu_usage"
 order += "battery 0"
 # order += "disk /"
 # order += "load"
 # order += "memory"
 order += "tztime local"
+
+cpu_usage {
+    format = "CPU %usage"
+}
+
+volume master {
+    device       = "pulse"
+    format       = "      ♪ %volume"
+    format_muted = "♪ muted %volume"
+}
 
 #wireless _first_ {
 #        format_up = "W: (%quality at %essid) %ip"
@@ -35,15 +47,16 @@ order += "tztime local"
 # }
 
 battery 0 {
-       format = "%status %percentage %remaining %emptytime"
+       format = "%status %percentage %remaining"
        format_down = "No battery"
-       status_chr = "⚡ CHR"
-       status_bat = "🔋 BAT"
-       status_unk = "? UNK"
-       status_full = "☻ FULL"
+       status_chr  = "⚡ CHRG"
+       status_full = "⚡ FULL"
+       status_bat  = "🔋 BAT "
+       status_unk  = "? UNK"
        path = "/sys/class/power_supply/BAT%d/uevent"
        low_threshold = 10
        integer_battery_capacity = true
+       last_full_capacity = true
 }
 
 # disk "/" {
