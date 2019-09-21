@@ -14,6 +14,7 @@ general {
 # order += "ipv6"
 # order += "wireless _first_"
 # order += "ethernet _first_"
+order += "path_exists vpn"
 order += "volume master"
 order += "cpu_usage"
 order += "battery 0"
@@ -21,6 +22,12 @@ order += "battery 0"
 # order += "load"
 # order += "memory"
 order += "tztime local"
+
+path_exists vpn {
+#    format_down = ""
+    format      = "VPN"
+    path        = "/tmp/cf-vpn.pid"
+}
 
 cpu_usage {
     format = "CPU %usage"
