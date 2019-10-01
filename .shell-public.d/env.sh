@@ -86,3 +86,5 @@ add-to-path-if-dir "${HOME}/Development/src-mirror/depot_tools"
 # ruby
 add-to-path-if-dir "${HOME}/.gem/ruby/2.5.0/bin"
 add-to-path-if-dir "${HOME}/.gem/ruby/2.6.0/bin"
+
+alias fuck='sudo $(history -p \!\!)'

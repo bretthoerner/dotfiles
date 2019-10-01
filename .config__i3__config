@@ -182,6 +182,8 @@ bar {
         mode dock
         hidden_state hide
         output eDP-1
+        output DP-3
+        tray_output eDP-1
         font pango:monospace 10
         bindsym button4 nop
         bindsym button5 nop
