@@ -9,6 +9,7 @@ fi
 unset _emacs_path
 
 alias gti="git"
+alias gt="git"
 
 alias rm="rm -i"
 alias mv="mv -i"
