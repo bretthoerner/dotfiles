@@ -50,6 +50,7 @@ unclutter &
 
 # redshift
 #redshift -m randr -l geoclue2 -g .75:.75:.75 &
+redshift -m randr -l geoclue2 &
 
 # notifications
 dunst -conf ~/.dunstrc &
