@@ -59,20 +59,25 @@ DISABLE_AUTO_UPDATE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     adb
-    bundler
+    archlinux
+    cargo
     colored-man-pages
     command-not-found
+    django
     docker
     docker-compose
+    emoji
     gem
     git
     go
-    knife
-    knife_ssh
     mosh
-    mvn
+    pass
+    poetry
+    pyenv
+    ripgrep
+    systemd
     tmux
-    vagrant
+    vscode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -91,27 +96,10 @@ done
 unset _d
 unset _s
 
-# awscli
-source-if-file $(which aws_zsh_completer.sh 2> /dev/null)
-
-# ctrl-p (zsh only)
-source-if-file ~/.ctrl-p.zsh
-
-# gcloud
-if [[ -d "${HOME}/google-cloud-sdk" ]]; then
-    source-if-file "${HOME}/google-cloud-sdk/path.zsh.inc"
-    source-if-file "${HOME}/google-cloud-sdk/completion.zsh.inc"
-fi
-
 PROMPT='${ret_status} %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
     exec 2>&3 3>&-
 fi
-
-# Stop serverless/tabtab from messing with my files.
-# tabtab source for serverless package
-# tabtab source for sls package
-# tabtab source for slss package
 

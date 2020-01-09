@@ -183,9 +183,9 @@ bar {
         status_command i3status
         mode dock
         hidden_state hide
-        output eDP-1
-        output DP-3
-        tray_output eDP-1
+        output eDP1
+        output DP3
+        tray_output eDP1
         font pango:monospace 10
         bindsym button4 nop
         bindsym button5 nop
@@ -197,11 +197,11 @@ default_floating_border none
 bindsym $mod+x exec --no-startup-id xscreensaver-command -l
 bindsym $mod+Tab focus right
 bindsym $mod+Shift+Tab focus left
-bindsym $mod+w focus output eDP-1
-bindsym $mod+e focus output DP-3
+bindsym $mod+w focus output eDP1
+bindsym $mod+e focus output DP3
 hide_edge_borders smart
-bindsym $mod+Ctrl+greater move workspace to output eDP-1
-bindsym $mod+Ctrl+less move workspace to output DP-3
+bindsym $mod+Ctrl+greater move workspace to output eDP1
+bindsym $mod+Ctrl+less move workspace to output DP3
 
 # for_window [class="vlc"] floating enable
 for_window [class="Gnome-calculator"] floating enable

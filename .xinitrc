@@ -59,7 +59,7 @@ dunst -conf ~/.dunstrc &
 export XDG_CURRENT_DESKTOP=GNOME
 
 # clipboard daemon
-/usr/lib/gsd-clipboard &
+# /usr/lib/gsd-clipboard &
 
 # keyring
 /usr/bin/gnome-keyring-daemon --start --foreground --components=secrets &
@@ -71,6 +71,5 @@ export XDG_CURRENT_DESKTOP=GNOME
 # (handled by systemd user service now)
 #eval $(ssh-agent)
 
-# exec xmonad
 exec i3
 

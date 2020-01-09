@@ -63,11 +63,6 @@ export JAVA_OPTS="-Dscala.color"
 # rust & cargo
 add-to-path-if-dir "${HOME}/.cargo/bin"
 [[ -d "$HOME/.cargo" ]] && export CARGO_HOME="$HOME/.cargo"
-export RUST_SRC_PATH="$HOME/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src/"
-export DYLD_LIBRARY_PATH="${HOME}/.rustup/toolchains/nightly-x86_64-apple-darwin/lib"
-# export RLS_ROOT="${HOME}/Development/src-mirror/rls"
-export RUST_NEW_ERROR_FORMAT="true"
-export CARGO_INCREMENTAL=1
 
 # go
 add-to-path-if-dir "/opt/go/bin"
