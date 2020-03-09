@@ -136,7 +136,7 @@ case "$TERM" in
     xterm-*color|xterm|eterm-color|screen*)
         # color based on host
         case $(hostname) in
-            wiley*)
+            thunk*|dingus*)
                 HOSTCOLOR="$BGREEN"
             ;;
             *)

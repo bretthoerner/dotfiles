@@ -72,7 +72,6 @@ plugins=(
     go
     mosh
     pass
-    poetry
     pyenv
     ripgrep
     systemd
