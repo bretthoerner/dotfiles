@@ -26,7 +26,7 @@ function add-to-path-if-dir() {
 }
 
 # ssh-agent
-[[ -S "/run/user/$(id -u)/ssh-agent.socket" ]] && export SSH_AUTH_SOCK="/run/user/$(id -u)/ssh-agent.socket"
+[[ -S "${HOME}/.ssh/agent_sock" ]] && export SSH_AUTH_SOCK="${HOME}/.ssh/agent_sock"
 
 # /usr/local
 add-to-path-if-dir "/usr/local/bin"

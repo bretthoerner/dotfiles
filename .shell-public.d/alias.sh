@@ -15,4 +15,4 @@ alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
 
-alias x="ssh-agent startx"
+alias x="ssh-agent -a ${HOME}/.ssh/agent_sock startx"
