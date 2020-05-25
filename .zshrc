@@ -58,16 +58,13 @@ DISABLE_AUTO_UPDATE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    adb
     archlinux
     cargo
     colored-man-pages
     command-not-found
-    django
     docker
     docker-compose
     emoji
-    gem
     git
     go
     mosh
@@ -101,4 +98,3 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
     exec 2>&3 3>&-
 fi
-

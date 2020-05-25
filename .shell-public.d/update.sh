@@ -1,3 +1,5 @@
+#!/bin/bash
+
 updatearch()
 {
     if which yay &> /dev/null; then
@@ -5,13 +7,6 @@ updatearch()
     fi
 }
 
-updategems()
-{
-    pushd
-    cd $HOME
-    gem update
-    popd
-}
 
 updategit()
 {
@@ -58,9 +53,7 @@ updatebrew() {
 updateall()
 {
     updaterepos
-    #updategems
     updaterust
-    #updategcloud
     updatearch
     updatebrew
 }

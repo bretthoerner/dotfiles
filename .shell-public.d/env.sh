@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # various
 export EDITOR="vim"
 export PAGER="less -R"
@@ -77,10 +79,6 @@ export PATH="./node_modules/.bin:$PATH"
 
 # depot_tools
 add-to-path-if-dir "${HOME}/Development/src-mirror/depot_tools"
-
-# ruby
-add-to-path-if-dir "${HOME}/.gem/ruby/2.5.0/bin"
-add-to-path-if-dir "${HOME}/.gem/ruby/2.6.0/bin"
 
 # wrangler
 add-to-path-if-dir "${HOME}/.wrangler/wrangler/node_modules/.bin"
