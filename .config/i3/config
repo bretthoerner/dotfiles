@@ -192,6 +192,7 @@ bar {
 }
 
 focus_follows_mouse no
+focus_wrapping force
 default_border normal
 default_floating_border none
 bindsym $mod+x exec --no-startup-id xscreensaver-command -l
