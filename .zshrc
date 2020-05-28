@@ -66,7 +66,7 @@ plugins=(
     docker-compose
     emoji
     git
-    go
+    golang
     mosh
     pass
     pyenv
