@@ -58,13 +58,16 @@ DISABLE_AUTO_UPDATE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    adb
     archlinux
     cargo
     colored-man-pages
     command-not-found
+    direnv
     docker
     docker-compose
     emoji
+    fzf
     git
     golang
     mosh
