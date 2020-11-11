@@ -30,5 +30,6 @@ function install-go-tools() {
     go get -u golang.org/x/tools/cmd/gorename
     go get -u golang.org/x/tools/cmd/guru
     go get -u sourcegraph.com/sqs/goreturns
+    go get -u github.com/tomnomnom/gron
     go install github.com/golang/mock/mockgen
 }
