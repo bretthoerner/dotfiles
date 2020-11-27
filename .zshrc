@@ -115,8 +115,8 @@ done
 unset _d
 unset _s
 
-PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT+=' %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
+PROMPT="%m %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PROMPT+='%{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
