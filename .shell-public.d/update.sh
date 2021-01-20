@@ -34,8 +34,10 @@ updaterepos()
 
 updaterust()
 {
-    [[ -f /etc/arch-release ]] || rustup self update
-    rustup update
+    if which rustup &> /dev/null; then
+        [[ -f /etc/arch-release ]] || rustup self update
+        rustup update
+    fi
 }
 
 updategcloud() {
@@ -46,7 +48,7 @@ updatebrew() {
     if which brew &> /dev/null; then
         brew update
         brew upgrade
-        brew cask upgrade
+        # brew cask upgrade
     fi
 }
 
