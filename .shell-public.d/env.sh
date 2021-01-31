@@ -63,8 +63,7 @@ export SBT_OPTS="-Dscala.color -Xmx2G"
 export JAVA_OPTS="-Dscala.color"
 
 # rust & cargo
-add-to-path-if-dir "${HOME}/.cargo/bin"
-[[ -d "$HOME/.cargo" ]] && export CARGO_HOME="$HOME/.cargo"
+source-if-file $HOME/.cargo/env
 
 # go
 add-to-path-if-dir "/opt/go/bin"
