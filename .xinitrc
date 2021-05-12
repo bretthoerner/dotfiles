@@ -61,6 +61,9 @@ export XDG_CURRENT_DESKTOP=GNOME
 # clipboard daemon
 # /usr/lib/gsd-clipboard &
 
+/usr/lib/gsd-xsettings &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 # keyring
 /usr/bin/gnome-keyring-daemon --start --foreground --components=secrets &
 
