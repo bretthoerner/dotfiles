@@ -97,7 +97,6 @@ plugins=(
     golang
     mosh
     pass
-    pyenv
     ripgrep
     systemd
     tmux

@@ -36,11 +36,12 @@ add-to-path-if-dir "/usr/local/sbin"
 
 # python
 if type pyenv &> /dev/null; then
-    export PATH="${HOME}/.pyenv/bin:${HOME}/.pyenv/shims:${PATH}"
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
     export WORKON_HOME="${HOME}/.pyenv/versions"
     function pyenv() {
         unset -f pyenv
-        eval "$(command pyenv init -)"
+        eval "$(pyenv init --path)"
         eval "$(command pyenv virtualenv-init -)"
         pyenv $@
     }
