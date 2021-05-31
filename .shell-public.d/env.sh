@@ -42,7 +42,8 @@ if type pyenv &> /dev/null; then
     function pyenv() {
         unset -f pyenv
         eval "$(pyenv init --path)"
-        eval "$(command pyenv virtualenv-init -)"
+        eval "$(pyenv init -)"
+        eval "$(pyenv virtualenv-init -)"
         pyenv $@
     }
 fi
