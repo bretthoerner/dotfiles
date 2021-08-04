@@ -30,7 +30,7 @@ font pango:monospace 8
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-exec --no-startup-id gnome-screensaver
+exec --no-startup-id xscreensaver --no-splash
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -197,7 +197,7 @@ focus_follows_mouse no
 focus_wrapping force
 default_border normal
 default_floating_border none
-bindsym $mod+x exec --no-startup-id dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
+bindsym $mod+x exec --no-startup-id xscreensaver-command -l
 bindsym $mod+Tab focus right
 bindsym $mod+Shift+Tab focus left
 bindsym $mod+w focus output eDP1
