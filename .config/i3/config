@@ -32,6 +32,8 @@ exec --no-startup-id nm-applet
 
 exec --no-startup-id xscreensaver --no-splash
 
+exec --no-startup-id /home/brett/bin/input-setup.sh
+
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
