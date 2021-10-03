@@ -83,3 +83,8 @@ add-to-path-if-dir "${HOME}/Development/src-mirror/depot_tools"
 
 # wrangler
 add-to-path-if-dir "${HOME}/.wrangler/wrangler/node_modules/.bin"
+
+# setup keychain ssh-agent for backup
+if type keychain &> /dev/null; then
+  eval $(keychain --eval --quiet id_ed25519 id_rsa)
+fi
