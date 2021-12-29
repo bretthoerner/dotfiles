@@ -12,24 +12,24 @@ function install-rust-tools() {
 }
 
 function install-go-tools() {
-    go get -u github.com/acroca/go-symbols
-    go get -u github.com/cweill/gotests/...
-    go get -u github.com/fatih/gomodifytags
-    go get -u github.com/go-delve/delve/cmd/dlv
-    go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
-    go get -u github.com/golang/mock/gomock
-    go get -u github.com/josharian/impl
-    go get -u github.com/pressly/goose/cmd/goose
-    go get -u github.com/ramya-rao-a/go-outline
-    go get -u github.com/rogpeppe/godef
-    go get -u github.com/stamblerre/gocode
-    go get -u github.com/tpng/gopkgs
-    go get -u golang.org/x/lint/golint
-    go get -u golang.org/x/tools/cmd/goimports
-    go get -u golang.org/x/tools/cmd/gopls
-    go get -u golang.org/x/tools/cmd/gorename
-    go get -u golang.org/x/tools/cmd/guru
-    go get -u sourcegraph.com/sqs/goreturns
-    go get -u github.com/tomnomnom/gron
+    go install github.com/acroca/go-symbols@latest
+    go install github.com/cweill/gotests/...@latest
+    go install github.com/fatih/gomodifytags@latest
+    go install github.com/go-delve/delve/cmd/dlv@latest
+    go install github.com/golang/mock/gomock@latest
+    go install github.com/josharian/impl@latest
+    go install github.com/pressly/goose/cmd/goose@latest
+    go install github.com/ramya-rao-a/go-outline@latest
+    go install github.com/rogpeppe/godef@latest
+    go install github.com/stamblerre/gocode@latest
+    go install github.com/tpng/gopkgs@latest
+    go install golang.org/x/lint/golint@latest
+    go install golang.org/x/tools/cmd/goimports@latest
+    go install golang.org/x/tools/cmd/gopls@latest
+    go install golang.org/x/tools/cmd/gorename@latest
+    go install golang.org/x/tools/cmd/guru@latest
+    go install sourcegraph.com/sqs/goreturns@latest
+    go install github.com/tomnomnom/gron@latest
     go install github.com/golang/mock/mockgen@latest
+    go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 }
