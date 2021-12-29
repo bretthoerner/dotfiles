@@ -84,7 +84,6 @@ DISABLE_AUTO_UPDATE="true"
 plugins=(
     adb
     archlinux
-    cargo
     colored-man-pages
     command-not-found
     direnv
@@ -98,6 +97,7 @@ plugins=(
     mosh
     pass
     ripgrep
+    rust
     systemd
     tmux
     vscode
