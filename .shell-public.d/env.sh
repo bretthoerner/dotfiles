@@ -78,6 +78,9 @@ source-if-file /etc/profile.d/vte.sh
 add-to-path-if-dir "/usr/local/opt/node@10/bin"
 export PATH="./node_modules/.bin:$PATH"
 
+# gnu grep on macOS
+add-to-path-if-dir "/opt/homebrew/opt/grep/libexec/gnubin"
+
 # depot_tools
 add-to-path-if-dir "${HOME}/Development/src-mirror/depot_tools"
 
