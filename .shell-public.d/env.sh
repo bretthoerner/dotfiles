@@ -78,14 +78,18 @@ source-if-file /etc/profile.d/vte.sh
 add-to-path-if-dir "/usr/local/opt/node@10/bin"
 export PATH="./node_modules/.bin:$PATH"
 
-# gnu grep on macOS
+# GNU utils on macOS
 add-to-path-if-dir "/opt/homebrew/opt/grep/libexec/gnubin"
+add-to-path-if-dir "/opt/homebrew/opt/findutils/libexec/gnubin"
 
 # depot_tools
 add-to-path-if-dir "${HOME}/Development/src-mirror/depot_tools"
 
 # wrangler
 add-to-path-if-dir "${HOME}/.wrangler/wrangler/node_modules/.bin"
+
+# multipass
+add-to-path-if-dir "${HOME}/Library/Application Support/multipass/bin"
 
 # setup keychain ssh-agent for backup
 if type keychain &> /dev/null; then
