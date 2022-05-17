@@ -4,11 +4,13 @@ function install-rust-tools() {
     cargo install --force rustsym
     cargo install --force mdbook
     cargo install --force cargo-asm
-    rustup component add rustfmt-preview
-    rustup component add clippy-preview
-    rustup component add rls
-    rustup component add rust-analysis
-    rustup component add rust-src
+    if which rustup &> /dev/null; then
+        rustup component add rustfmt-preview
+        rustup component add clippy-preview
+        rustup component add rls
+        rustup component add rust-analysis
+        rustup component add rust-src
+    fi
 }
 
 function install-go-tools() {

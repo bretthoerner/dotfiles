@@ -187,9 +187,8 @@ bar {
         status_command i3status
         mode dock
         hidden_state hide
-        output eDP1
-        output DP3
-        tray_output eDP1
+        output eDP-1
+        tray_output eDP-1
         font pango:monospace 10
         bindsym button4 nop
         bindsym button5 nop

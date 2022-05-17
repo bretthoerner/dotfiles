@@ -91,6 +91,12 @@ add-to-path-if-dir "${HOME}/.wrangler/wrangler/node_modules/.bin"
 # multipass
 add-to-path-if-dir "${HOME}/Library/Application Support/multipass/bin"
 
+function load-nvm() {
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+}
+
 # setup keychain ssh-agent for backup
 if type keychain &> /dev/null; then
   eval $(keychain --eval --quiet id_ed25519 id_rsa)

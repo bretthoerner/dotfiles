@@ -24,6 +24,14 @@ updategit()
               bash -c "echo && cd {}/.. && pwd && git up"
 }
 
+updateapt()
+{
+    if which apt-get &> /dev/null; then
+        sudo apt-get update
+        sudo apt-get dist-upgrade
+    fi
+}
+
 updaterepos()
 {
     pushd
