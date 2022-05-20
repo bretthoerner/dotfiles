@@ -65,5 +65,6 @@ updateall()
     updaterepos
     updaterust
     updatearch
+    updateapt
     updatebrew
 }
