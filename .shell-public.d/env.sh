@@ -8,12 +8,10 @@ export GPG_TTY=$(tty)
 export EMAIL="brett@bretthoerner.com"
 export DEBEMAIL=$EMAIL
 export DEBFULLNAME="Brett Hoerner"
-
-# lang
-export LC_CTYPE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
-export LANGUAGE="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+#export LANGUAGE="en_US.UTF-8"
+#export LC_CTYPE="en_US.UTF-8"
+#export LC_ALL="en_US.UTF-8"
 
 function source-if-file() {
     _path=$1
