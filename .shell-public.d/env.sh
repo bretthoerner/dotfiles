@@ -33,6 +33,7 @@ add-to-path-if-dir "/usr/local/bin"
 add-to-path-if-dir "/usr/local/sbin"
 
 # python
+export PYTHONSTARTUP="${HOME}/bin/pystartup.py"
 if type pyenv &> /dev/null; then
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
