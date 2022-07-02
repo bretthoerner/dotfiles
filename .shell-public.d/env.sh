@@ -59,6 +59,9 @@ add-to-path-if-dir "${HOME}/bin"
 # mvn
 export MAVEN_OPTS="-Xmx2G"
 
+# java
+add-to-path-if-dir "/opt/homebrew/opt/openjdk/bin"
+
 # scala
 export SBT_OPTS="-Dscala.color -Xmx2G"
 export JAVA_OPTS="-Dscala.color"
