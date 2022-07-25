@@ -13,3 +13,4 @@ CVS
 tags
 node_modules/
 __pycache__/
+.vscode/*.log

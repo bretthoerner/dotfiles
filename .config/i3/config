@@ -30,7 +30,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-exec --no-startup-id xscreensaver --no-splash
+exec --no-startup-id dunst
 
 exec --no-startup-id /home/brett/bin/input-setup.sh
 
@@ -198,14 +198,14 @@ focus_follows_mouse no
 focus_wrapping force
 default_border normal
 default_floating_border none
-bindsym $mod+x exec --no-startup-id xscreensaver-command -l
+bindsym $mod+x exec --no-startup-id i3lock --nofork
 bindsym $mod+Tab focus right
 bindsym $mod+Shift+Tab focus left
 bindsym $mod+w focus output eDP-1
-bindsym $mod+e focus output DP-3
+bindsym $mod+e focus output DP-2
 hide_edge_borders smart
 bindsym $mod+Ctrl+greater move workspace to output eDP-1
-bindsym $mod+Ctrl+less move workspace to output DP-3
+bindsym $mod+Ctrl+less move workspace to output DP-2
 
 # for_window [class="vlc"] floating enable
 for_window [class="Gnome-calculator"] floating enable
