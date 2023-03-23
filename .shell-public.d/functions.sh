@@ -4,6 +4,7 @@ function install-rust-tools() {
     cargo install --force rustsym
     cargo install --force mdbook
     cargo install --force cargo-asm
+    cargo install --force cargo-audit
     if which rustup &> /dev/null; then
         rustup component add rustfmt-preview
         rustup component add clippy-preview
