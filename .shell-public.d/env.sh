@@ -106,3 +106,6 @@ function load-nvm() {
 if type keychain &> /dev/null; then
   eval $(keychain --eval --quiet id_ed25519 id_rsa)
 fi
+
+# custom clang
+add-to-path-if-dir "/opt/clang/bin"
