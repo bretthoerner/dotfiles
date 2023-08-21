@@ -109,3 +109,12 @@ fi
 
 # custom clang
 add-to-path-if-dir "/opt/clang/bin"
+
+# atuin
+if which atuin &> /dev/null; then
+    if [ -n "$BASH" ]; then
+        eval "$(atuin init bash)"
+    elif [ -n "$ZSH_NAME" ]; then
+        eval "$(atuin init zsh)"
+    fi
+fi

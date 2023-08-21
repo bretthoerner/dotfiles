@@ -37,3 +37,7 @@ function install-go-tools() {
     go install golang.org/x/tools/gopls@latest
     go install sourcegraph.com/sqs/goreturns@latest
 }
+
+function nix-activate {
+    . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+}
