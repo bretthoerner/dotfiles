@@ -13,3 +13,5 @@ alias psc='ps xawf -eo pid,user,cgroup,args'
 if which startx &> /dev/null; then
     alias x="ssh-agent -a ${HOME}/.ssh/agent_sock startx"
 fi
+
+alias k=kubectl
