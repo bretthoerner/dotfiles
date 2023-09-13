@@ -39,6 +39,7 @@ export PYTHONSTARTUP="${HOME}/bin/pystartup.py"
 add-to-path-if-dir "${HOME}/.pyenv/bin"
 if type pyenv &> /dev/null; then
     export PYENV_ROOT="$HOME/.pyenv"
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     export PATH="$PYENV_ROOT/bin:$PATH"
     export WORKON_HOME="${HOME}/.pyenv/versions"
     function pyenv() {
