@@ -60,15 +60,8 @@ add-to-path-if-dir "${HOME}/.cabal/bin"
 # add ~/bin to PATH if it exists
 add-to-path-if-dir "${HOME}/bin"
 
-# mvn
-export MAVEN_OPTS="-Xmx2G"
-
 # java
 add-to-path-if-dir "/opt/homebrew/opt/openjdk/bin"
-
-# scala
-export SBT_OPTS="-Dscala.color -Xmx2G"
-export JAVA_OPTS="-Dscala.color"
 
 # rust & cargo
 source-if-file $HOME/.cargo/env
@@ -81,21 +74,7 @@ add-to-path-if-dir "${HOME}/go/bin"
 source-if-file /etc/profile.d/vte.sh
 
 # node
-add-to-path-if-dir "/usr/local/opt/node@10/bin"
 export PATH="./node_modules/.bin:$PATH"
-
-# GNU utils on macOS
-add-to-path-if-dir "/opt/homebrew/opt/grep/libexec/gnubin"
-add-to-path-if-dir "/opt/homebrew/opt/findutils/libexec/gnubin"
-
-# depot_tools
-add-to-path-if-dir "${HOME}/Development/src-mirror/depot_tools"
-
-# wrangler
-add-to-path-if-dir "${HOME}/.wrangler/wrangler/node_modules/.bin"
-
-# multipass
-add-to-path-if-dir "${HOME}/Library/Application Support/multipass/bin"
 
 # nvm
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
