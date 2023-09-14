@@ -109,6 +109,8 @@ unset _s
 
 if [ -f /opt/homebrew/share/liquidprompt ]; then
     . /opt/homebrew/share/liquidprompt
+elif [ -f /usr/bin/liquidprompt ]; then
+    . /usr/bin/liquidprompt
 else
     PROMPT="%m %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
     PROMPT+='%{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
