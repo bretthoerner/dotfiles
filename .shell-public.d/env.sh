@@ -101,3 +101,5 @@ add-to-path-if-dir "/opt/homebrew/opt/postgresql@15/bin"
 ##     fi
 ## fi
 
+[[ -d "/Applications/Tailscale.app" ]] && alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
