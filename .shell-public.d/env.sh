@@ -65,6 +65,7 @@ add-to-path-if-dir "/opt/homebrew/opt/openjdk/bin"
 
 # rust & cargo
 source-if-file $HOME/.cargo/env
+export RUSTFLAGS="-Z threads=8"
 
 # go
 add-to-path-if-dir "/opt/go/bin"

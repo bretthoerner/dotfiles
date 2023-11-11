@@ -397,7 +397,7 @@ LP_ENABLE_TEMP=0
 # Display the currently activated Python_ or Conda_ virtual environment.
 # Type: bool
 # More information: https://liquidprompt.readthedocs.io/en/stable/config.html#LP_ENABLE_VIRTUALENV
-#LP_ENABLE_VIRTUALENV=1
+# LP_ENABLE_VIRTUALENV=1
 
 # Display an indicator if any wireless signal strength percentage is below
 # `LP_WIFI_STRENGTH_THRESHOLD`. Also show the strength percentage if
@@ -640,7 +640,7 @@ LP_USER_ALWAYS=0
 # Mark used to prefix the current Kubernetes context.
 # Type: string
 # More information: https://liquidprompt.readthedocs.io/en/stable/config.html#LP_MARK_KUBECONTEXT
-#LP_MARK_KUBECONTEXT="⎈"
+LP_MARK_KUBECONTEXT="k8s:"
 
 # Mark used before displaying load average.
 # Type: string
@@ -1074,7 +1074,7 @@ LP_USER_ALWAYS=0
 # Collection.
 # Type: string
 # More information: https://liquidprompt.readthedocs.io/en/stable/config.html#LP_COLOR_VIRTUALENV
-#LP_COLOR_VIRTUALENV=$CYAN
+LP_COLOR_VIRTUALENV=py:$CYAN
 
 # Color used for `LP_MARK_PERM` when the user has write permissions to
 # the current working directory.
