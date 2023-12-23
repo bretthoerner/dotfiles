@@ -5,6 +5,8 @@ function install-rust-tools() {
     cargo install --force mdbook
     cargo install --force cargo-asm
     cargo install --force cargo-audit
+    cargo install --force cargo-watch
+    cargo install --force sqlx-cli
     if which rustup &> /dev/null; then
         rustup component add rustfmt-preview
         rustup component add clippy-preview
