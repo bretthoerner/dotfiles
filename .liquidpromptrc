@@ -115,7 +115,7 @@ LP_DELIMITER_KUBECONTEXT_PREFIX="-"
 # profile in use.
 # Type: bool
 # More information: https://liquidprompt.readthedocs.io/en/stable/config.html#LP_ENABLE_AWS_PROFILE
-LP_ENABLE_AWS_PROFILE=0
+LP_ENABLE_AWS_PROFILE=1
 
 # Display the status of the battery, if there is one, using color and marks.
 # Add battery percentage colored with `LP_COLORMAP` if
@@ -751,7 +751,7 @@ LP_MARK_KUBECONTEXT="k8s:"
 # Color used to display the current active AWS Profile.
 # Type: string
 # More information: https://liquidprompt.readthedocs.io/en/stable/config.html#LP_COLOR_AWS_PROFILE
-#LP_COLOR_AWS_PROFILE=$YELLOW
+LP_COLOR_AWS_PROFILE=${YELLOW}aws:
 
 # Color used to indicate that the current repository is not clean, or in other
 # words, has changes that have not been committed.
