@@ -2,6 +2,7 @@
 
 alias gti="git"
 alias gt="git"
+alias gcm="git checkout main && git pull"
 
 alias rm="rm -i"
 alias mv="mv -i"
