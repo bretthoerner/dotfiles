@@ -1,13 +1,17 @@
 #!/bin/bash
 
 function install-rust-tools() {
-    cargo install --force rustsym
-    cargo install --force mdbook
+    cargo install --force cargo install cargo-udeps
     cargo install --force cargo-asm
     cargo install --force cargo-audit
-    cargo install --force cargo-watch
-    cargo install --force sqlx-cli
+    cargo install --force cargo-edit
+    cargo install --force cargo-expand
     cargo install --force cargo-machete
+    cargo install --force cargo-watch
+    cargo install --force mdbook
+    cargo install --force rustsym
+    cargo install --force sqlx-cli
+    cargo install --force tokio-console
     if which rustup &> /dev/null; then
         rustup component add rustfmt-preview
         rustup component add clippy-preview
