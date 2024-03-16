@@ -1,0 +1,9 @@
+-- Set default error output as verbose
+\set VERBOSITY verbose
+
+-- Output processing time for each query run
+\timing on
+
+-- Print null values as "null" and not empty things
+\pset null 'null'
+
