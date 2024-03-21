@@ -1,12 +1,13 @@
 #!/bin/bash
 
 function install-rust-tools() {
-    cargo install --force cargo install cargo-udeps
     cargo install --force cargo-asm
     cargo install --force cargo-audit
     cargo install --force cargo-edit
     cargo install --force cargo-expand
     cargo install --force cargo-machete
+    cargo install --force cargo-udeps
+    cargo install --force cargo-update
     cargo install --force cargo-watch
     cargo install --force mdbook
     cargo install --force rustsym

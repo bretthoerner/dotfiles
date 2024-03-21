@@ -46,6 +46,9 @@ updaterust()
         [[ -f /etc/arch-release ]] || rustup self update
         rustup update
     fi
+
+    cargo install-update --list
+    cargo install-update --all
 }
 
 updategcloud() {
