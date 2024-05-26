@@ -1,6 +1,7 @@
 #!/bin/bash
 
-function install-rust-tools() {
+function install-rust-tools() {(
+    set -e
     cargo install --force cargo-asm
     cargo install --force cargo-audit
     cargo install --force cargo-edit
@@ -20,9 +21,10 @@ function install-rust-tools() {
         rustup component add rust-analysis
         rustup component add rust-src
     fi
-}
+)}
 
-function install-go-tools() {
+function install-go-tools() {(
+    set -e
     go install github.com/acroca/go-symbols@latest
     go install github.com/cweill/gotests/...@latest
     go install github.com/fatih/gomodifytags@latest
@@ -44,8 +46,4 @@ function install-go-tools() {
     go install golang.org/x/tools/cmd/guru@latest
     go install golang.org/x/tools/gopls@latest
     go install sourcegraph.com/sqs/goreturns@latest
-}
-
-function nix-activate {
-    . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-}
+)}
