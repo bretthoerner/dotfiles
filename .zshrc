@@ -85,10 +85,7 @@ plugins=(
     colored-man-pages
     command-not-found
     direnv
-    fd
     fzf
-    golang
-    ripgrep
 )
 
 source $ZSH/oh-my-zsh.sh
